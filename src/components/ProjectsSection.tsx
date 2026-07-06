@@ -8,7 +8,7 @@ const projects = [
   {
     title: "HaramainQu",
     subtitle: "Umrah & Hajj Travel Microservices Application",
-    period: "April 2026",
+    period: "April - July 2026",
     description:
       "Aplikasi mobile komprehensif menggunakan Flutter sebagai asisten digital bagi jamaah selama ibadah di Tanah Suci.",
     highlights: [
@@ -26,7 +26,7 @@ const projects = [
   {
     title: "Haramain Tour",
     subtitle: "Umrah & Hajj Travel Platform",
-    period: "April 2026",
+    period: "April - July 2026",
     description:
       "Platform manajemen perjalanan end-to-end dengan multi-step online registration flow (5 tahap).",
     highlights: [
