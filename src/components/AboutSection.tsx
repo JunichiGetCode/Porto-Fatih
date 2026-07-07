@@ -122,11 +122,7 @@ export default function AboutSection() {
                 </p>
                 <div className="mt-6 pt-6 border-t border-white/5">
                   <p className="text-surface-200/80 leading-relaxed text-base">
-                    Saat ini saya juga sedang menjalani program{" "}
-                    <span className="text-primary-300 font-medium">Magang / Internship</span> di{" "}
-                    <span className="text-accent-400 font-medium">Trans Retail</span>, 
-                    memperdalam pengalaman di dunia industri. Proficient dalam developer tools 
-                    seperti Git &amp; GitHub, VS Code, Postman, XAMPP, dan Laragon. Selain itu, 
+                    Proficient dalam developer tools seperti Git &amp; GitHub, VS Code, Postman, XAMPP, dan Laragon. Selain itu, 
                     saya juga memiliki nilai tambah di aspek kreatif melalui pengalaman sebagai{" "}
                     <span className="text-primary-300 font-medium">Lead Editor</span> dalam 
                     produksi film pendek — terbukti sebagai pemenang kompetisi film pendek.

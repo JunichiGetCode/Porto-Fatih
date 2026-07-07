@@ -31,7 +31,7 @@ const contactInfo = [
       </svg>
     ),
     label: "Instagram",
-    value: "@ffaattiihrr",
+    value: "@ffaattihhr",
     href: "https://instagram.com/ffaattiihrr",
   },
   {
@@ -42,7 +42,7 @@ const contactInfo = [
       </svg>
     ),
     label: "Lokasi",
-    value: "Batan Indah Blok O17",
+    value: "Batan Indah Blok O17, Setu, kademangan, Kota Tangerang Selatan",
     href: "#",
   },
 ];

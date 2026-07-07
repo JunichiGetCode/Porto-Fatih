@@ -93,10 +93,7 @@ export default function HeroSection() {
               Mahasiswa Sistem Informasi di{" "}
               <span className="text-primary-300 font-medium">
                 Telkom University Jakarta
-              </span>{" "}
-              &amp; sedang magang di{" "}
-              <span className="text-accent-400 font-medium">Trans Retail</span>.{" "}
-              Keahlian di pengembangan web &amp; mobile menggunakan{" "}
+              </span>{" "}Dengan keahlian di pengembangan web &amp; mobile menggunakan{" "}
               <span className="text-accent-400">Laravel</span>,{" "}
               <span className="text-accent-400">Flutter</span>, dan{" "}
               <span className="text-accent-400">Next.js</span>.
