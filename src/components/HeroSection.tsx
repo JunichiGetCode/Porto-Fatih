@@ -150,8 +150,9 @@ export default function HeroSection() {
                 "Flutter",
                 "Next.js",
                 "TypeScript",
-                "Python",
+                "Node.js",
                 "MySQL",
+                "PostgreSQL",
               ].map((tech, i) => (
                 <span
                   key={tech}
