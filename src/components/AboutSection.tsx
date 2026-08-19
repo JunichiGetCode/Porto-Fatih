@@ -4,6 +4,7 @@ import Image from "next/image";
 import AnimateOnScroll from "./AnimateOnScroll";
 import TiltCard from "./TiltCard";
 import Counter from "./Counter";
+import { useLanguage } from "@/context/LanguageContext";
 
 const highlights = [
   {
@@ -45,19 +46,20 @@ const highlights = [
 ];
 
 export default function AboutSection() {
+  const { t } = useLanguage();
   return (
     <section id="about" className="relative py-24 md:py-32 section-glow">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <AnimateOnScroll className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/20 mb-4">
-            Tentang Saya
+            {t("about.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Mengenal Lebih <span className="gradient-text">Dekat</span>
+            {t("about.title1")} <span className="gradient-text">{t("about.title2")}</span>
           </h2>
           <p className="max-w-2xl mx-auto text-surface-200/60 text-lg">
-            Passionate developer yang selalu bersemangat membangun solusi digital inovatif.
+            {t("about.subtitle")}
           </p>
         </AnimateOnScroll>
 
@@ -73,7 +75,7 @@ export default function AboutSection() {
                 {/* Photo container */}
                 <div className="relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-primary-500/30 transition-colors duration-500">
                   <Image
-                    src="/profile.jpeg"
+                    src="/odoo.jpeg"
                     alt="Muhammad Fatih Rahman"
                     width={400}
                     height={500}
@@ -112,26 +114,18 @@ export default function AboutSection() {
           <AnimateOnScroll animation="animate-slide-in-right" className="lg:col-span-3">
             <div className="space-y-6">
               <div className="glass-card p-8">
-                <p className="text-surface-200/80 leading-relaxed text-base">
-                  Active <span className="text-white font-medium">Information Systems</span> student at{" "}
-                  <span className="text-primary-300 font-medium">Telkom University Jakarta</span>{" "}
-                  with 1.5 years of practical experience in web and mobile development. Demonstrates strong expertise in utilizing{" "}
-                  <span className="text-accent-400">HTML, CSS, PHP, Laravel, Node.js, Flutter, Next.js, and TypeScript</span>, 
-                  complemented by JavaScript and Python for backend development, as well as database management with MySQL and PostgreSQL.
-                </p>
+                <p className="text-surface-200/80 leading-relaxed text-base" dangerouslySetInnerHTML={{ __html: t("about.description1") as string }} />
                 <div className="mt-6 pt-6 border-t border-white/5">
-                  <p className="text-surface-200/80 leading-relaxed text-base">
-                    Proficient in modern developer tools, including <span className="text-primary-300 font-medium">Git &amp; GitHub, VS Code, Postman, XAMPP, and Laragon</span>.
-                  </p>
+                  <p className="text-surface-200/80 leading-relaxed text-base" dangerouslySetInnerHTML={{ __html: t("about.description2") as string }} />
                 </div>
               </div>
 
               {/* Animated Stats */}
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: 4, suffix: "+", label: "Projects" },
-                  { value: 1.5, suffix: "+", label: "Tahun Exp" },
-                  { value: 8, suffix: "+", label: "Teknologi" },
+                  { value: 4, suffix: "+", label: t("about.stats.projects") },
+                  { value: 1.5, suffix: "+", label: t("about.stats.experience") },
+                  { value: 8, suffix: "+", label: t("about.stats.technologies") },
                 ].map((stat) => (
                   <TiltCard key={stat.label} tiltIntensity={15}>
                     <div className="glass-card p-5 text-center cursor-default">
@@ -183,7 +177,7 @@ export default function AboutSection() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-white">Education</h3>
+                  <h3 className="text-xl font-bold text-white">{t("about.education")}</h3>
                 </div>
                 <p className="text-primary-300 font-semibold text-lg">Telkom University Jakarta</p>
                 <p className="text-surface-200/60 text-sm mt-1">Bachelor of Information System</p>
@@ -199,15 +193,15 @@ export default function AboutSection() {
                 {/* Active indicator */}
                 <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 bg-accent-500/10 border border-accent-500/20 rounded-full">
                   <span className="w-1.5 h-1.5 bg-accent-400 rounded-full animate-pulse" />
-                  <span className="text-accent-400 text-[10px] font-semibold">Active</span>
+                  <span className="text-accent-400 text-[10px] font-semibold">{t("about.active")}</span>
                 </div>
                 <div className="flex items-center justify-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-xl bg-accent-500/10 border border-accent-500/20 flex items-center justify-center">
                     <svg className="w-5 h-5 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-white">Internship</h3>
+                  <h3 className="text-xl font-bold text-white">{t("about.internship")}</h3>
                 </div>
                 <p className="text-accent-400 font-semibold text-lg">PT Trans Retail</p>
                 <p className="text-surface-200/60 text-sm mt-1">IT Developer Intern</p>
