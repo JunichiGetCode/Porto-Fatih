@@ -3,8 +3,10 @@
 import Image from "next/image";
 import ParticleBackground from "./ParticleBackground";
 import Typewriter from "./Typewriter";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSection() {
+  const { t } = useLanguage();
   return (
     <section
       id="home"
@@ -60,7 +62,7 @@ export default function HeroSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-400" />
               </span>
-              Available for projects &amp; collaboration
+              {t("hero.available")}
             </div>
 
             {/* Name */}
@@ -74,13 +76,7 @@ export default function HeroSection() {
               <div className="h-px w-8 bg-gradient-to-r from-transparent to-primary-500" />
               <p className="text-lg sm:text-xl text-surface-200 font-light tracking-wide">
                 <Typewriter
-                  texts={[
-                    "Web Developer",
-                    "Mobile Developer",
-                    "Laravel Expert",
-                    "Flutter Developer",
-                    "UI/UX Enthusiast",
-                  ]}
+                  texts={t("hero.typewriter") as string[]}
                   speed={70}
                   deleteSpeed={35}
                   pauseTime={2500}
@@ -90,11 +86,7 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="animate-fade-in-up opacity-0 delay-400 max-w-xl text-base sm:text-lg text-surface-200/70 leading-relaxed mb-10 mx-auto lg:mx-0">
-              Active Information Systems student at{" "}
-              <span className="text-primary-300 font-medium">
-                Telkom University Jakarta
-              </span>{" "}
-              with 1.5 years of practical experience in web and mobile development.
+              <span dangerouslySetInnerHTML={{ __html: t("hero.description") as string }} />
             </p>
 
             {/* CTA Buttons */}
@@ -105,7 +97,7 @@ export default function HeroSection() {
                 className="group relative inline-flex items-center gap-3 px-8 py-4 bg-primary-600 hover:bg-primary-500 text-white font-semibold rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary-600/30 hover:-translate-y-1 overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 bg-[length:200%_100%] animate-[gradient-shift_3s_ease_infinite] opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="relative">Lihat Projects</span>
+                <span className="relative">{t("hero.viewProjects")}</span>
                 <svg
                   className="relative w-5 h-5 transition-transform group-hover:translate-x-1"
                   fill="none"
@@ -139,7 +131,7 @@ export default function HeroSection() {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span>Hubungi Saya</span>
+                <span>{t("hero.contactMe")}</span>
               </a>
             </div>
 

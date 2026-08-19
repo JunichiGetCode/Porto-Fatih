@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,7 +81,7 @@ export default function Navbar() {
                   : "text-surface-200 hover:text-white hover:bg-white/5"
               }`}
             >
-              {link.label}
+              {t(`nav.${link.label.toLowerCase()}` as any)}
               {activeSection === link.href.slice(1) && (
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-primary-400 rounded-full" />
               )}
@@ -87,15 +89,25 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA Button Desktop */}
-        <a
-          href="#contact"
-          id="nav-cta"
-          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-500 text-white text-sm font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary-600/25 hover:-translate-y-0.5"
-        >
-          <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse" />
-          Hubungi Saya
-        </a>
+        {/* Actions Desktop */}
+        <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={toggleLanguage}
+            className="px-3 py-1.5 text-xs font-semibold rounded-md border border-surface-700 hover:border-primary-500/50 text-surface-200 hover:text-white transition-all duration-300 hover:bg-white/5"
+            aria-label="Toggle Language"
+          >
+            {language.toUpperCase()}
+          </button>
+          
+          <a
+            href="#contact"
+            id="nav-cta"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-500 text-white text-sm font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary-600/25 hover:-translate-y-0.5"
+          >
+            <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse" />
+            {t("hero.contactMe")}
+          </a>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -131,6 +143,17 @@ export default function Navbar() {
         }`}
       >
         <div className="px-6 py-4 flex flex-col gap-1 glass mt-2 mx-4 rounded-2xl">
+          <div className="flex justify-end mb-2">
+            <button
+              onClick={() => {
+                toggleLanguage();
+                setMenuOpen(false);
+              }}
+              className="px-4 py-2 text-xs font-semibold rounded-lg border border-surface-700 bg-surface-900 text-surface-200 hover:text-white"
+            >
+              Language: {language === 'id' ? 'Indonesia' : 'English'}
+            </button>
+          </div>
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -142,7 +165,7 @@ export default function Navbar() {
                   : "text-surface-200 hover:text-white hover:bg-white/5"
               }`}
             >
-              {link.label}
+              {t(`nav.${link.label.toLowerCase()}` as any)}
             </a>
           ))}
           <a
@@ -150,7 +173,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
             className="mt-2 px-4 py-3 bg-primary-600 text-white text-sm font-medium rounded-xl text-center"
           >
-            Hubungi Saya
+            {t("hero.contactMe")}
           </a>
         </div>
       </div>

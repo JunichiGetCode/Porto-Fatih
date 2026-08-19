@@ -3,99 +3,60 @@
 import Image from "next/image";
 import AnimateOnScroll from "./AnimateOnScroll";
 import TiltCard from "./TiltCard";
+import { useLanguage } from "@/context/LanguageContext";
 
-const projects = [
+const projectsData = [
   {
-    title: "HaramainQu",
-    subtitle: "Umrah & Hajj Travel Microservices Application",
-    period: "April - July 2026",
-    description:
-      "Comprehensive mobile application using Flutter acting as a digital pilgrim assistant for worship guidance in the Holy Land.",
-    highlights: [
-      "Feature-First (Clean Architecture) structure across 9 main modules",
-      "Full API approach using Dio to shift processing loads to the server side",
-      "Optimized application size and performance",
-    ],
     techStack: ["Flutter", "Dart", "Dio", "Clean Architecture"],
     color: "from-indigo-500/20 to-purple-500/20",
     borderColor: "border-indigo-500/30",
     iconColor: "text-indigo-400",
-    status: "Completed",
     image: "/haramainqu.jpeg",
   },
   {
-    title: "Haramain Tour",
-    subtitle: "Umrah & Hajj Travel Platform",
-    period: "April - July 2026",
-    description:
-      "End-to-end travel management platform with a 5-stage online flow for structured pilgrim data collection and document validation.",
-    highlights: [
-      "Midtrans integration for full & installment payments",
-      "Google OAuth login & automated PDF generation",
-      "Robust REST API backend to serve guides & prayer data",
-      "Keyword-based virtual assistant chatbot",
-    ],
     techStack: ["Laravel", "PHP", "MySQL", "REST API", "Midtrans"],
     color: "from-emerald-500/20 to-teal-500/20",
     borderColor: "border-emerald-500/30",
     iconColor: "text-emerald-400",
-    status: "Completed",
     image: "/haramain_tour.png",
   },
   {
-    title: "TelEvent",
-    subtitle: "Event Management System",
-    period: "September - December 2025",
-    description:
-      "Platform web komprehensif untuk digitalisasi pengajuan dan manajemen proposal event kampus.",
-    highlights: [
-      "Dashboard admin dengan structured approval system",
-      "Document upload management (proposal, budget, timeline)",
-      "Secure user authentication & dynamic profile",
-      "Interactive event search feature",
-    ],
     techStack: ["Laravel", "PHP", "MySQL", "Bootstrap"],
     color: "from-blue-500/20 to-cyan-500/20",
     borderColor: "border-blue-500/30",
     iconColor: "text-blue-400",
-    status: "Completed",
     image: "/televent.png",
   },
   {
-    title: "Barbershop Management",
-    subtitle: "Operational Management Application",
-    period: "October 2025",
-    description:
-      "Aplikasi manajemen operasional barbershop berbasis web untuk efisiensi aktivitas harian.",
-    highlights: [
-      "Modul manajemen customers, staff, services, products",
-      "Point of Sale (POS) system terintegrasi",
-      "Real-time statistical dashboard",
-      "Automated business reporting",
-    ],
     techStack: ["Laravel", "PHP", "MySQL", "Chart.js"],
     color: "from-amber-500/20 to-orange-500/20",
     borderColor: "border-amber-500/30",
     iconColor: "text-amber-400",
-    status: "Completed",
     image: "/barbershop.png",
   },
 ];
 
 export default function ProjectsSection() {
+  const { t } = useLanguage();
+  const translatedProjects = t("projects.items") as any[];
+  const projects = translatedProjects.map((p, index) => ({
+    ...p,
+    ...projectsData[index]
+  }));
+
   return (
     <section id="projects" className="relative py-24 md:py-32 section-glow">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <AnimateOnScroll className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/20 mb-4">
-            Portfolio
+            {t("projects.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Project <span className="gradient-text">Experience</span>
+            {t("projects.title1")} <span className="gradient-text">{t("projects.title2")}</span>
           </h2>
           <p className="max-w-2xl mx-auto text-surface-200/60 text-lg">
-            Koleksi project yang telah saya bangun, mulai dari mobile apps hingga/dan full-stack web platforms.
+            {t("projects.subtitle")}
           </p>
         </AnimateOnScroll>
 
@@ -133,15 +94,8 @@ export default function ProjectsSection() {
                             {project.title}
                           </h3>
                           <span
-                            className={`inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium rounded-full ${
-                              project.status === "In Progress"
-                                ? "bg-accent-500/10 text-accent-400 border border-accent-500/20"
-                                : "bg-surface-700/50 text-surface-200/60 border border-surface-700"
-                            }`}
+                            className={`inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium rounded-full bg-surface-700/50 text-surface-200/60 border border-surface-700`}
                           >
-                            {project.status === "In Progress" && (
-                              <span className="w-1.5 h-1.5 bg-accent-400 rounded-full animate-pulse" />
-                            )}
                             {project.status}
                           </span>
                         </div>
@@ -166,7 +120,7 @@ export default function ProjectsSection() {
 
                     {/* Highlights */}
                     <div className="space-y-2 mb-6 flex-1">
-                      {project.highlights.map((highlight, hIndex) => (
+                      {project.highlights.map((highlight: string, hIndex: number) => (
                         <div key={hIndex} className="flex items-start gap-2">
                           <svg
                             className={`w-4 h-4 mt-0.5 flex-shrink-0 ${project.iconColor}`}
@@ -190,7 +144,7 @@ export default function ProjectsSection() {
 
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
-                      {project.techStack.map((tech) => (
+                      {project.techStack.map((tech: string) => (
                         <span
                           key={tech}
                           className="px-2.5 py-1 text-xs font-medium rounded-md bg-white/5 text-surface-200/60 border border-white/5"

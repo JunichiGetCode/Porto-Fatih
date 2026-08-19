@@ -1,5 +1,10 @@
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer className="relative py-12 border-t border-white/5">
@@ -23,7 +28,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-sm text-surface-200/40">
-            &copy; {currentYear} Muhammad Fatih Rahman. All rights reserved.
+            &copy; {currentYear} Muhammad Fatih Rahman. {t("footer.rights")}
           </p>
 
           {/* Back to top */}
@@ -32,7 +37,7 @@ export default function Footer() {
             id="back-to-top"
             className="group flex items-center gap-2 text-sm text-surface-200/40 hover:text-primary-400 transition-colors"
           >
-            <span>Back to top</span>
+            <span>{t("nav.home")}</span>
             <svg
               className="w-4 h-4 transition-transform group-hover:-translate-y-1"
               fill="none"

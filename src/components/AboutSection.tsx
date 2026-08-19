@@ -127,7 +127,7 @@ export default function AboutSection() {
                   { value: 1.5, suffix: "+", label: t("about.stats.experience") },
                   { value: 8, suffix: "+", label: t("about.stats.technologies") },
                 ].map((stat) => (
-                  <TiltCard key={stat.label} tiltIntensity={15}>
+                  <TiltCard key={stat.label as string} tiltIntensity={15}>
                     <div className="glass-card p-5 text-center cursor-default">
                       <div className="text-3xl font-bold gradient-text mb-1">
                         <Counter end={stat.value} suffix={stat.suffix} />

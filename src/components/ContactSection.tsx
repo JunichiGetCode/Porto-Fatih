@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import AnimateOnScroll from "./AnimateOnScroll";
+import { useLanguage } from "@/context/LanguageContext";
 
 const contactInfo = [
   {
@@ -48,6 +49,7 @@ const contactInfo = [
 ];
 
 export default function ContactSection() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -75,13 +77,13 @@ export default function ContactSection() {
         {/* Section Header */}
         <AnimateOnScroll className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/20 mb-4">
-            Kontak
+            {t("contact.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Mari <span className="gradient-text">Berkolaborasi</span>
+            {t("contact.title1")} <span className="gradient-text">{t("contact.title2")}</span>
           </h2>
           <p className="max-w-2xl mx-auto text-surface-200/60 text-lg">
-            Tertarik untuk bekerja sama? Jangan ragu untuk menghubungi saya.
+            {t("contact.subtitle")}
           </p>
         </AnimateOnScroll>
 
@@ -115,7 +117,7 @@ export default function ContactSection() {
               {/* Social Links */}
               <div className="glass-card p-5 mt-6">
                 <p className="text-xs text-surface-200/40 font-medium uppercase tracking-wider mb-4">
-                  Social Media
+                  {t("contact.socialMedia")}
                 </p>
                 <div className="flex gap-3">
                   <a

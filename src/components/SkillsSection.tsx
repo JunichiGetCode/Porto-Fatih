@@ -1,6 +1,7 @@
 "use client";
 
 import AnimateOnScroll from "./AnimateOnScroll";
+import { useLanguage } from "@/context/LanguageContext";
 
 const skillCategories = [
   {
@@ -94,19 +95,20 @@ const colorMap: Record<string, { bar: string; bg: string; icon: string; border: 
 };
 
 export default function SkillsSection() {
+  const { t } = useLanguage();
   return (
     <section id="skills" className="relative py-24 md:py-32 section-glow">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <AnimateOnScroll className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/20 mb-4">
-            Keahlian
+            {t("skills.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Tech <span className="gradient-text">Stack</span>
+            {t("skills.title1")} <span className="gradient-text">{t("skills.title2")}</span>
           </h2>
           <p className="max-w-2xl mx-auto text-surface-200/60 text-lg">
-            Teknologi dan tools yang saya gunakan untuk membangun solusi digital.
+            {t("skills.subtitle")}
           </p>
         </AnimateOnScroll>
 
