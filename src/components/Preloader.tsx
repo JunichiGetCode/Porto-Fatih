@@ -77,7 +77,7 @@ export default function Preloader() {
           <span className="gradient-text">Premium Digital Solutions</span>
         </h1>
         <p className="text-sm sm:text-base text-surface-200/50 font-light max-w-sm">
-          Web &amp; Mobile Developer specializing in Laravel, Flutter, and Next.js.
+          Web &amp; Mobile Developer specializing in Laravel, Flutter, Next.js, and Node.js.
         </p>
       </div>
 
