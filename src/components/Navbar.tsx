@@ -91,13 +91,21 @@ export default function Navbar() {
 
         {/* Actions Desktop */}
         <div className="hidden md:flex items-center gap-4">
-          <button
-            onClick={toggleLanguage}
-            className="px-3 py-1.5 text-xs font-semibold rounded-md border border-surface-700 hover:border-primary-500/50 text-surface-200 hover:text-white transition-all duration-300 hover:bg-white/5"
-            aria-label="Toggle Language"
-          >
-            {language.toUpperCase()}
-          </button>
+          <div className="flex items-center gap-2 mr-2">
+            <span className={`text-[11px] font-bold tracking-wider transition-colors ${language === 'id' ? 'text-white' : 'text-surface-500'}`}>ID</span>
+            <button
+              onClick={toggleLanguage}
+              className="relative flex items-center w-10 h-5 rounded-full bg-surface-800/80 border border-surface-700/50 p-0.5 cursor-pointer hover:border-primary-500/50 transition-colors"
+              aria-label="Toggle Language"
+            >
+              <div 
+                className={`w-3.5 h-3.5 rounded-full bg-primary-400 shadow-[0_0_10px_rgba(var(--primary-400),0.5)] transition-transform duration-300 ease-out ${
+                  language === 'en' ? 'translate-x-5' : 'translate-x-0'
+                }`}
+              />
+            </button>
+            <span className={`text-[11px] font-bold tracking-wider transition-colors ${language === 'en' ? 'text-white' : 'text-surface-500'}`}>EN</span>
+          </div>
           
           <a
             href="#contact"
@@ -143,16 +151,23 @@ export default function Navbar() {
         }`}
       >
         <div className="px-6 py-4 flex flex-col gap-1 glass mt-2 mx-4 rounded-2xl">
-          <div className="flex justify-end mb-2">
-            <button
-              onClick={() => {
-                toggleLanguage();
-                setMenuOpen(false);
-              }}
-              className="px-4 py-2 text-xs font-semibold rounded-lg border border-surface-700 bg-surface-900 text-surface-200 hover:text-white"
-            >
-              Language: {language === 'id' ? 'Indonesia' : 'English'}
-            </button>
+          <div className="flex items-center justify-between mb-2 px-4 py-3 bg-surface-800/50 border border-surface-700/50 rounded-xl">
+            <span className="text-sm font-medium text-surface-200">Bahasa / Language</span>
+            <div className="flex items-center gap-3">
+              <span className={`text-xs font-bold transition-colors ${language === 'id' ? 'text-white' : 'text-surface-500'}`}>ID</span>
+              <button
+                onClick={toggleLanguage}
+                className="relative flex items-center w-12 h-6 rounded-full bg-surface-900 border border-surface-700 p-0.5 cursor-pointer transition-colors"
+                aria-label="Toggle Language"
+              >
+                <div 
+                  className={`w-4 h-4 rounded-full bg-primary-400 shadow-[0_0_10px_rgba(var(--primary-400),0.5)] transition-transform duration-300 ease-out ${
+                    language === 'en' ? 'translate-x-6' : 'translate-x-0'
+                  }`}
+                />
+              </button>
+              <span className={`text-xs font-bold transition-colors ${language === 'en' ? 'text-white' : 'text-surface-500'}`}>EN</span>
+            </div>
           </div>
           {navLinks.map((link) => (
             <a
