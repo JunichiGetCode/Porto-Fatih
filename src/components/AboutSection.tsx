@@ -113,19 +113,15 @@ export default function AboutSection() {
             <div className="space-y-6">
               <div className="glass-card p-8">
                 <p className="text-surface-200/80 leading-relaxed text-base">
-                  Saya adalah mahasiswa{" "}
-                  <span className="text-white font-medium">Sistem Informasi</span> di{" "}
+                  Active <span className="text-white font-medium">Information Systems</span> student at{" "}
                   <span className="text-primary-300 font-medium">Telkom University Jakarta</span>{" "}
-                  dengan keahlian di pengembangan web dan mobile. Saya menguasai{" "}
-                  <span className="text-accent-400">HTML, CSS, PHP, Laravel, Flutter, JavaScript, Python, Next.js, Node.js</span>, 
-                  dan manajemen database dengan MySQL.
+                  with 1.5 years of practical experience in web and mobile development. Demonstrates strong expertise in utilizing{" "}
+                  <span className="text-accent-400">HTML, CSS, PHP, Laravel, Node.js, Flutter, Next.js, and TypeScript</span>, 
+                  complemented by JavaScript and Python for backend development, as well as database management with MySQL and PostgreSQL.
                 </p>
                 <div className="mt-6 pt-6 border-t border-white/5">
                   <p className="text-surface-200/80 leading-relaxed text-base">
-                    Proficient dalam developer tools seperti Git &amp; GitHub, VS Code, Postman, XAMPP, dan Laragon. Selain itu, 
-                    saya juga memiliki nilai tambah di aspek kreatif melalui pengalaman sebagai{" "}
-                    <span className="text-primary-300 font-medium">Lead Editor</span> dalam 
-                    produksi film pendek — terbukti sebagai pemenang kompetisi film pendek.
+                    Proficient in modern developer tools, including <span className="text-primary-300 font-medium">Git &amp; GitHub, VS Code, Postman, XAMPP, and Laragon</span>.
                   </p>
                 </div>
               </div>
@@ -191,6 +187,7 @@ export default function AboutSection() {
                 </div>
                 <p className="text-primary-300 font-semibold text-lg">Telkom University Jakarta</p>
                 <p className="text-surface-200/60 text-sm mt-1">Bachelor of Information System</p>
+                <p className="text-surface-200/40 text-xs mt-1">Cumulative GPA 3.76/4.00</p>
                 <p className="text-surface-200/40 text-xs mt-1">September 2024 - Present</p>
               </div>
             </TiltCard>
@@ -212,9 +209,9 @@ export default function AboutSection() {
                   </div>
                   <h3 className="text-xl font-bold text-white">Internship</h3>
                 </div>
-                <p className="text-accent-400 font-semibold text-lg">Trans Retail</p>
-                <p className="text-surface-200/60 text-sm mt-1">Magang / Intern</p>
-                <p className="text-surface-200/40 text-xs mt-1">2026 - Present</p>
+                <p className="text-accent-400 font-semibold text-lg">PT Trans Retail</p>
+                <p className="text-surface-200/60 text-sm mt-1">IT Developer Intern</p>
+                <p className="text-surface-200/40 text-xs mt-1">July 2026 - Present</p>
               </div>
             </TiltCard>
           </AnimateOnScroll>

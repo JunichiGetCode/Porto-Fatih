@@ -10,11 +10,11 @@ const projects = [
     subtitle: "Umrah & Hajj Travel Microservices Application",
     period: "April - July 2026",
     description:
-      "Aplikasi mobile komprehensif menggunakan Flutter sebagai asisten digital bagi jamaah selama ibadah di Tanah Suci.",
+      "Comprehensive mobile application using Flutter acting as a digital pilgrim assistant for worship guidance in the Holy Land.",
     highlights: [
-      "Feature-First (Clean Architecture) dengan 9 modul utama",
-      "Full API approach menggunakan Dio",
-      "Optimasi performa dengan lightweight app size",
+      "Feature-First (Clean Architecture) structure across 9 main modules",
+      "Full API approach using Dio to shift processing loads to the server side",
+      "Optimized application size and performance",
     ],
     techStack: ["Flutter", "Dart", "Dio", "Clean Architecture"],
     color: "from-indigo-500/20 to-purple-500/20",
@@ -28,12 +28,12 @@ const projects = [
     subtitle: "Umrah & Hajj Travel Platform",
     period: "April - July 2026",
     description:
-      "Platform manajemen perjalanan end-to-end dengan multi-step online registration flow (5 tahap).",
+      "End-to-end travel management platform with a 5-stage online flow for structured pilgrim data collection and document validation.",
     highlights: [
-      "Integrasi Midtrans (full payment & installments)",
-      "Google OAuth & PDF generation",
-      "REST API backend untuk mobile app",
-      "Virtual assistant chatbot berbasis keyword",
+      "Midtrans integration for full & installment payments",
+      "Google OAuth login & automated PDF generation",
+      "Robust REST API backend to serve guides & prayer data",
+      "Keyword-based virtual assistant chatbot",
     ],
     techStack: ["Laravel", "PHP", "MySQL", "REST API", "Midtrans"],
     color: "from-emerald-500/20 to-teal-500/20",

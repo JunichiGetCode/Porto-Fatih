@@ -90,13 +90,11 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="animate-fade-in-up opacity-0 delay-400 max-w-xl text-base sm:text-lg text-surface-200/70 leading-relaxed mb-10 mx-auto lg:mx-0">
-              Mahasiswa Sistem Informasi di{" "}
+              Active Information Systems student at{" "}
               <span className="text-primary-300 font-medium">
                 Telkom University Jakarta
-              </span>{" "}Dengan keahlian di pengembangan web &amp; mobile menggunakan{" "}
-              <span className="text-accent-400">Laravel</span>,{" "}
-              <span className="text-accent-400">Flutter</span>, dan{" "}
-              <span className="text-accent-400">Next.js</span>.
+              </span>{" "}
+              with 1.5 years of practical experience in web and mobile development.
             </p>
 
             {/* CTA Buttons */}
