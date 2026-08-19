@@ -130,7 +130,7 @@ export default function AboutSection() {
               <div className="grid grid-cols-3 gap-4">
                 {[
                   { value: 4, suffix: "+", label: "Projects" },
-                  { value: 2, suffix: "+", label: "Tahun Exp" },
+                  { value: 1.5, suffix: "+", label: "Tahun Exp" },
                   { value: 8, suffix: "+", label: "Teknologi" },
                 ].map((stat) => (
                   <TiltCard key={stat.label} tiltIntensity={15}>

@@ -45,7 +45,9 @@ export default function Counter({
 
       // Easing: ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * end));
+      const currentVal = eased * end;
+      const isFloat = end % 1 !== 0;
+      setCount(isFloat ? Number(currentVal.toFixed(1)) : Math.floor(currentVal));
 
       if (progress < 1) {
         frame = requestAnimationFrame(animate);
