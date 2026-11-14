@@ -3,30 +3,35 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+interface NavItem {
+  href: string;
+  key: "home" | "about" | "projects" | "skills" | "contact";
+}
+
+const navLinks: NavItem[] = [
+  { href: "#home", key: "home" },
+  { href: "#about", key: "about" },
+  { href: "#projects", key: "projects" },
+  { href: "#skills", key: "skills" },
+  { href: "#contact", key: "contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const { language, toggleLanguage, t } = useLanguage();
+  const { language, toggleLanguage, data } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
 
-      const sections = navLinks.map((link) => link.href.slice(1));
-      for (const section of sections.reverse()) {
+      const sectionIds = ["home", "about", "projects", "skills", "contact"];
+      for (const section of [...sectionIds].reverse()) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 120) {
+          if (rect.top <= 140) {
             setActiveSection(section);
             break;
           }
@@ -34,16 +39,16 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
       id="navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "glass shadow-lg shadow-black/20 py-3"
+          ? "bg-surface-950/80 backdrop-blur-md border-b border-white/10 shadow-xl shadow-black/40 py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -51,92 +56,86 @@ export default function Navbar() {
         {/* Logo */}
         <a
           href="#home"
-          className="text-xl font-bold tracking-tight group"
+          className="flex items-center gap-2 group tracking-tight"
           id="nav-logo"
         >
-          <span className="text-primary-400 group-hover:text-primary-300 transition-colors">
-            &lt;
-          </span>
-          <span className="text-white group-hover:text-primary-100 transition-colors">
-            Fatih
-          </span>
-          <span className="text-accent-400 group-hover:text-accent-300 transition-colors">
-            /
-          </span>
-          <span className="text-primary-400 group-hover:text-primary-300 transition-colors">
-            &gt;
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 border border-primary-500/30 flex items-center justify-center font-mono text-sm font-bold text-primary-300 group-hover:border-primary-400 group-hover:scale-105 transition-all">
+            MF
+          </div>
+          <span className="font-bold text-base sm:text-lg text-white group-hover:text-primary-200 transition-colors">
+            Fatih<span className="text-primary-400">.dev</span>
           </span>
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              id={`nav-${link.label.toLowerCase()}`}
-              className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                activeSection === link.href.slice(1)
-                  ? "text-primary-300 bg-primary-500/10"
-                  : "text-surface-200 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              {t(`nav.${link.label.toLowerCase()}` as any)}
-              {activeSection === link.href.slice(1) && (
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-primary-400 rounded-full" />
-              )}
-            </a>
-          ))}
+        <div className="hidden md:flex items-center gap-1 bg-surface-900/60 p-1.5 rounded-full border border-white/5 backdrop-blur-sm">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.slice(1);
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                id={`nav-${link.key}`}
+                className={`relative px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${
+                  isActive
+                    ? "text-white bg-primary-600/30 border border-primary-500/40 shadow-sm"
+                    : "text-surface-200 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {data.nav[link.key]}
+              </a>
+            );
+          })}
         </div>
 
         {/* Actions Desktop */}
-        <div className="hidden md:flex items-center gap-4">
-          <div className="flex items-center gap-2 mr-2">
-            <span className={`text-[11px] font-bold tracking-wider transition-colors ${language === 'id' ? 'text-white' : 'text-surface-500'}`}>ID</span>
-            <button
-              onClick={toggleLanguage}
-              className="relative flex items-center w-10 h-5 rounded-full bg-surface-800/80 border border-surface-700/50 p-0.5 cursor-pointer hover:border-primary-500/50 transition-colors"
-              aria-label="Toggle Language"
-            >
-              <div 
-                className={`w-3.5 h-3.5 rounded-full bg-primary-400 shadow-[0_0_10px_rgba(var(--primary-400),0.5)] transition-transform duration-300 ease-out ${
-                  language === 'en' ? 'translate-x-5' : 'translate-x-0'
-                }`}
-              />
-            </button>
-            <span className={`text-[11px] font-bold tracking-wider transition-colors ${language === 'en' ? 'text-white' : 'text-surface-500'}`}>EN</span>
-          </div>
-          
+        <div className="hidden md:flex items-center gap-3">
+          {/* Language Switcher */}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-900/80 border border-surface-700/60 text-xs font-semibold hover:border-primary-500/50 hover:bg-surface-800 transition-all cursor-pointer"
+            aria-label="Toggle language"
+            title="Switch Language (ID / EN)"
+          >
+            <span className={language === "id" ? "text-primary-400 font-bold" : "text-surface-400"}>ID</span>
+            <span className="text-surface-600">/</span>
+            <span className={language === "en" ? "text-primary-400 font-bold" : "text-surface-400"}>EN</span>
+          </button>
+
+          {/* Quick CTA */}
           <a
             href="#contact"
             id="nav-cta"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-500 text-white text-sm font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary-600/25 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-600 to-indigo-600 hover:from-primary-500 hover:to-indigo-500 text-white text-xs font-semibold rounded-full shadow-lg shadow-primary-600/20 hover:shadow-primary-600/30 hover:-translate-y-0.5 transition-all"
           >
-            <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse" />
-            {t("hero.contactMe")}
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-400" />
+            </span>
+            <span>{data.hero.contactMe}</span>
           </a>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           id="mobile-menu-toggle"
-          className="md:hidden relative w-10 h-10 flex items-center justify-center"
+          className="md:hidden relative w-10 h-10 rounded-xl bg-surface-900/80 border border-white/10 flex items-center justify-center text-white"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
           <div className="flex flex-col gap-1.5">
             <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              className={`block w-5 h-0.5 bg-white transition-all duration-300 ${
                 menuOpen ? "rotate-45 translate-y-2" : ""
               }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              className={`block w-5 h-0.5 bg-white transition-all duration-300 ${
                 menuOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              className={`block w-5 h-0.5 bg-white transition-all duration-300 ${
                 menuOpen ? "-rotate-45 -translate-y-2" : ""
               }`}
             />
@@ -146,27 +145,30 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-500 ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="px-6 py-4 flex flex-col gap-1 glass mt-2 mx-4 rounded-2xl">
-          <div className="flex items-center justify-between mb-2 px-4 py-3 bg-surface-800/50 border border-surface-700/50 rounded-xl">
-            <span className="text-sm font-medium text-surface-200">Bahasa / Language</span>
-            <div className="flex items-center gap-3">
-              <span className={`text-xs font-bold transition-colors ${language === 'id' ? 'text-white' : 'text-surface-500'}`}>ID</span>
+        <div className="px-6 py-4 flex flex-col gap-2 bg-surface-950/95 backdrop-blur-xl border-b border-white/10 shadow-2xl mt-2 mx-4 rounded-2xl">
+          <div className="flex items-center justify-between pb-3 border-b border-white/10">
+            <span className="text-xs font-medium text-surface-200">Bahasa / Language:</span>
+            <div className="flex items-center gap-2">
               <button
-                onClick={toggleLanguage}
-                className="relative flex items-center w-12 h-6 rounded-full bg-surface-900 border border-surface-700 p-0.5 cursor-pointer transition-colors"
-                aria-label="Toggle Language"
+                onClick={() => language !== "id" && toggleLanguage()}
+                className={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${
+                  language === "id" ? "bg-primary-600 text-white" : "bg-surface-800 text-surface-400"
+                }`}
               >
-                <div 
-                  className={`w-4 h-4 rounded-full bg-primary-400 shadow-[0_0_10px_rgba(var(--primary-400),0.5)] transition-transform duration-300 ease-out ${
-                    language === 'en' ? 'translate-x-6' : 'translate-x-0'
-                  }`}
-                />
+                ID
               </button>
-              <span className={`text-xs font-bold transition-colors ${language === 'en' ? 'text-white' : 'text-surface-500'}`}>EN</span>
+              <button
+                onClick={() => language !== "en" && toggleLanguage()}
+                className={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${
+                  language === "en" ? "bg-primary-600 text-white" : "bg-surface-800 text-surface-400"
+                }`}
+              >
+                EN
+              </button>
             </div>
           </div>
           {navLinks.map((link) => (
@@ -174,21 +176,21 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`px-4 py-3 text-sm font-medium rounded-xl transition-all ${
+              className={`px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${
                 activeSection === link.href.slice(1)
-                  ? "text-primary-300 bg-primary-500/10"
+                  ? "text-white bg-primary-600/30 border border-primary-500/30"
                   : "text-surface-200 hover:text-white hover:bg-white/5"
               }`}
             >
-              {t(`nav.${link.label.toLowerCase()}` as any)}
+              {data.nav[link.key]}
             </a>
           ))}
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 px-4 py-3 bg-primary-600 text-white text-sm font-medium rounded-xl text-center"
+            className="mt-1 px-4 py-2.5 bg-gradient-to-r from-primary-600 to-indigo-600 text-white text-sm font-semibold rounded-xl text-center shadow-lg"
           >
-            {t("hero.contactMe")}
+            {data.hero.contactMe}
           </a>
         </div>
       </div>

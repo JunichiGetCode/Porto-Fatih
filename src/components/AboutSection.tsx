@@ -1,215 +1,224 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import AnimateOnScroll from "./AnimateOnScroll";
 import TiltCard from "./TiltCard";
 import Counter from "./Counter";
 import { useLanguage } from "@/context/LanguageContext";
 
-const highlights = [
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
-    title: "Web Development",
-    description: "Full-stack web apps dengan Laravel, Next.js, dan teknologi modern.",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: "Mobile Development",
-    description: "Cross-platform apps menggunakan Flutter + Clean Architecture.",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-      </svg>
-    ),
-    title: "Backend & API",
-    description: "REST API scalable dengan payment gateway, OAuth, dan real-time.",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: "Creative Production",
-    description: "Lead Editor film pendek, pemenang kompetisi film.",
-  },
-];
-
 export default function AboutSection() {
-  const { t } = useLanguage();
+  const { data, language } = useLanguage();
+  const [activeTab, setActiveTab] = useState<"bio" | "timeline" | "philosophy">("bio");
+
   return (
     <section id="about" className="relative py-24 md:py-32 section-glow">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <AnimateOnScroll className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/20 mb-4">
-            {t("about.badge")}
+            {data.about.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            {t("about.title1")} <span className="gradient-text">{t("about.title2")}</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+            {data.about.title1}{" "}
+            <span className="bg-gradient-to-r from-primary-400 via-indigo-300 to-accent-300 bg-clip-text text-transparent">
+              {data.about.title2}
+            </span>
           </h2>
-          <p className="max-w-2xl mx-auto text-surface-200/60 text-lg">
-            {t("about.subtitle")}
+          <p className="max-w-2xl mx-auto text-surface-300/80 text-base sm:text-lg">
+            {data.about.subtitle}
           </p>
         </AnimateOnScroll>
 
-        {/* About Content - Photo + Text */}
-        <div className="grid lg:grid-cols-5 gap-12 items-center mb-20">
-          {/* Photo Side */}
-          <AnimateOnScroll animation="animate-slide-in-left" className="lg:col-span-2">
-            <TiltCard className="mx-auto max-w-sm">
+        {/* About Main Layout */}
+        <div className="grid lg:grid-cols-12 gap-10 items-start mb-16">
+          {/* Left Column: Portrait & Identity (5 cols) */}
+          <AnimateOnScroll animation="animate-slide-in-left" className="lg:col-span-5">
+            <TiltCard className="mx-auto max-w-md w-full">
               <div className="relative group">
-                {/* Background decoration */}
-                <div className="absolute -inset-3 bg-gradient-to-br from-primary-500/20 via-accent-400/10 to-purple-500/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
-                
-                {/* Photo container */}
-                <div className="relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-primary-500/30 transition-colors duration-500">
-                  <Image
-                    src="/odoo.jpeg"
-                    alt="Muhammad Fatih Rahman"
-                    width={400}
-                    height={500}
-                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-                    priority
-                  />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface-950/80 via-transparent to-transparent" />
-                  
-                  {/* Info overlay at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-white font-bold text-lg">M. Fatih Rahman</p>
-                    <p className="text-primary-300 text-sm font-medium">Information System Student</p>
-                    <div className="flex items-center gap-2 mt-2">
-                      <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse" />
-                      <span className="text-surface-200/60 text-xs">Telkom University Jakarta</span>
+                {/* Background ambient aura */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-primary-500/20 via-accent-400/15 to-purple-500/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Card Container */}
+                <div className="relative rounded-3xl overflow-hidden bg-surface-900 border border-white/10 shadow-2xl">
+                  <div className="relative w-full h-[380px] sm:h-[440px]">
+                    <Image
+                      src="/odoo.jpeg"
+                      alt="Muhammad Fatih Rahman at work"
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 1024px) 100vw, 450px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-surface-950 via-surface-950/40 to-transparent" />
+
+                    {/* Bottom Caption */}
+                    <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-surface-950/85 backdrop-blur-md border border-white/10">
+                      <div className="flex items-center justify-between mb-1">
+                        <h3 className="text-base font-bold text-white">M. Fatih Rahman</h3>
+                        <span className="flex items-center gap-1.5 text-[11px] text-accent-300 font-semibold">
+                          <span className="w-2 h-2 rounded-full bg-accent-400 animate-pulse" />
+                          <span>Information Systems</span>
+                        </span>
+                      </div>
+                      <p className="text-xs text-primary-300 font-mono">
+                        Telkom University Jakarta
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Floating badges around photo */}
-                <div className="absolute -top-3 -right-3 px-3 py-1.5 glass rounded-xl text-xs font-semibold text-primary-300 animate-float" style={{ animationDelay: "0s" }}>
-                  💻 Coder
-                </div>
-                <div className="absolute top-1/3 -left-5 px-3 py-1.5 glass rounded-xl text-xs font-semibold text-accent-400 animate-float" style={{ animationDelay: "1.5s" }}>
-                  🎬 Editor
-                </div>
-                <div className="absolute -bottom-3 right-8 px-3 py-1.5 glass rounded-xl text-xs font-semibold text-purple-300 animate-float" style={{ animationDelay: "3s" }}>
-                  📱 Flutter
+                {/* Floating Floating Pill */}
+                <div className="absolute -top-3 -right-3 px-3 py-1.5 rounded-full bg-surface-900/90 border border-primary-500/40 text-xs font-semibold text-primary-300 shadow-xl backdrop-blur-md animate-float">
+                  Full-Stack Dev
                 </div>
               </div>
             </TiltCard>
           </AnimateOnScroll>
 
-          {/* Text Side */}
-          <AnimateOnScroll animation="animate-slide-in-right" className="lg:col-span-3">
-            <div className="space-y-6">
-              <div className="glass-card p-8">
-                <p className="text-surface-200/80 leading-relaxed text-base" dangerouslySetInnerHTML={{ __html: t("about.description1") as string }} />
-                <div className="mt-6 pt-6 border-t border-white/5">
-                  <p className="text-surface-200/80 leading-relaxed text-base" dangerouslySetInnerHTML={{ __html: t("about.description2") as string }} />
-                </div>
+          {/* Right Column: Interactive Story & Journey Tabs (7 cols) */}
+          <AnimateOnScroll animation="animate-slide-in-right" className="lg:col-span-7">
+            <div className="p-6 sm:p-8 rounded-3xl bg-surface-900/70 border border-white/10 shadow-xl">
+              {/* Tab Navigation */}
+              <div className="flex items-center gap-2 pb-4 mb-6 border-b border-white/10 overflow-x-auto">
+                <button
+                  onClick={() => setActiveTab("bio")}
+                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                    activeTab === "bio"
+                      ? "bg-primary-600 text-white shadow-md shadow-primary-600/30"
+                      : "text-surface-400 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {data.about.tabs.bio}
+                </button>
+                <button
+                  onClick={() => setActiveTab("timeline")}
+                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                    activeTab === "timeline"
+                      ? "bg-primary-600 text-white shadow-md shadow-primary-600/30"
+                      : "text-surface-400 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {data.about.tabs.timeline}
+                </button>
+                <button
+                  onClick={() => setActiveTab("philosophy")}
+                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                    activeTab === "philosophy"
+                      ? "bg-primary-600 text-white shadow-md shadow-primary-600/30"
+                      : "text-surface-400 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {data.about.tabs.philosophy}
+                </button>
               </div>
 
-              {/* Animated Stats */}
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { value: 4, suffix: "+", label: t("about.stats.projects") },
-                  { value: 1.5, suffix: "+", label: t("about.stats.experience") },
-                  { value: 8, suffix: "+", label: t("about.stats.technologies") },
-                ].map((stat) => (
-                  <TiltCard key={stat.label as string} tiltIntensity={15}>
-                    <div className="glass-card p-5 text-center cursor-default">
-                      <div className="text-3xl font-bold gradient-text mb-1">
-                        <Counter end={stat.value} suffix={stat.suffix} />
+              {/* Tab Content 1: Bio */}
+              {activeTab === "bio" && (
+                <div className="space-y-4 animate-fade-in">
+                  <p
+                    className="text-surface-300 text-sm sm:text-base leading-relaxed text-justify"
+                    dangerouslySetInnerHTML={{ __html: data.about.bioParagraph1 }}
+                  />
+                  <p
+                    className="text-surface-300 text-sm sm:text-base leading-relaxed text-justify"
+                    dangerouslySetInnerHTML={{ __html: data.about.bioParagraph2 }}
+                  />
+
+                  <div className="pt-4 flex flex-wrap gap-3">
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-500 text-white text-xs font-semibold shadow-lg shadow-primary-600/25 transition-all"
+                    >
+                      <span>{data.hero.contactMe}</span>
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              )}
+
+              {/* Tab Content 2: Timeline */}
+              {activeTab === "timeline" && (
+                <div className="space-y-5 animate-fade-in">
+                  {data.about.timelineItems.map((item, idx) => (
+                    <div key={idx} className="relative pl-6 border-l-2 border-primary-500/30 pb-2">
+                      <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-900 border-2 border-primary-400" />
+                      <div className="flex items-center justify-between gap-2 mb-1 flex-wrap">
+                        <span className="text-xs font-mono font-bold text-primary-400">
+                          {item.year}
+                        </span>
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/5 text-surface-300 border border-white/5">
+                          {item.tag}
+                        </span>
                       </div>
-                      <div className="text-xs text-surface-200/50 font-medium">{stat.label}</div>
+                      <h4 className="text-sm sm:text-base font-bold text-white">
+                        {item.title} — <span className="text-primary-300">{item.institution}</span>
+                      </h4>
+                      <p className="text-xs sm:text-sm text-surface-300/80 leading-relaxed mt-1 text-justify">
+                        {item.description}
+                      </p>
                     </div>
-                  </TiltCard>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Tab Content 3: Philosophy */}
+              {activeTab === "philosophy" && (
+                <div className="space-y-4 animate-fade-in">
+                  {data.about.principles.map((p, idx) => (
+                    <div key={idx} className="p-4 rounded-2xl bg-surface-950/60 border border-white/5 flex items-start gap-3.5">
+                      <div className="w-8 h-8 rounded-xl bg-primary-500/20 text-primary-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-white mb-1">{p.title}</h4>
+                        <p className="text-xs sm:text-sm text-surface-300/80 leading-relaxed text-justify">{p.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </AnimateOnScroll>
         </div>
 
-        {/* Highlights Grid with Tilt */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {highlights.map((item, index) => (
-            <AnimateOnScroll
-              key={index}
-              animation="animate-fade-in-up"
-              delay={`delay-${(index + 1) * 200}`}
-            >
-              <TiltCard tiltIntensity={12} className="h-full">
-                <div className="glass-card p-6 h-full group">
-                  <div className="w-12 h-12 rounded-xl bg-primary-500/10 border border-primary-500/20 flex items-center justify-center text-primary-400 group-hover:bg-primary-500/20 group-hover:text-primary-300 group-hover:scale-110 transition-all duration-300 mb-4">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-white font-semibold text-sm mb-2 group-hover:text-primary-300 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-surface-200/50 text-xs leading-relaxed">
-                    {item.description}
-                  </p>
+        {/* Quantified Impact Numbers Banner */}
+        <AnimateOnScroll animation="animate-scale-in">
+          <div className="p-6 sm:p-8 rounded-3xl bg-surface-900/50 border border-white/10 backdrop-blur-md">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">
+                  <Counter end={7} suffix="+" />
                 </div>
-              </TiltCard>
-            </AnimateOnScroll>
-          ))}
-        </div>
-
-        {/* Education & Experience */}
-        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <AnimateOnScroll animation="animate-fade-in-up" delay="delay-100">
-            <TiltCard tiltIntensity={8} className="h-full">
-              <div className="glass-card p-8 text-center h-full">
-                <div className="flex items-center justify-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary-500/10 border border-primary-500/20 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-white">{t("about.education")}</h3>
-                </div>
-                <p className="text-primary-300 font-semibold text-lg">Telkom University Jakarta</p>
-                <p className="text-surface-200/60 text-sm mt-1">Bachelor of Information System</p>
-                <p className="text-surface-200/40 text-xs mt-1">Cumulative GPA 3.76/4.00</p>
-                <p className="text-surface-200/40 text-xs mt-1">September 2024 - Present</p>
+                <p className="text-xs sm:text-sm font-semibold text-primary-300">{data.about.stats.projects}</p>
               </div>
-            </TiltCard>
-          </AnimateOnScroll>
 
-          <AnimateOnScroll animation="animate-fade-in-up" delay="delay-300">
-            <TiltCard tiltIntensity={8} className="h-full">
-              <div className="glass-card p-8 text-center h-full relative overflow-hidden">
-                {/* Active indicator */}
-                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 bg-accent-500/10 border border-accent-500/20 rounded-full">
-                  <span className="w-1.5 h-1.5 bg-accent-400 rounded-full animate-pulse" />
-                  <span className="text-accent-400 text-[10px] font-semibold">{t("about.active")}</span>
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">
+                  <Counter end={2} suffix={language === "en" ? " Years" : " Tahun"} />
                 </div>
-                <div className="flex items-center justify-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-accent-500/10 border border-accent-500/20 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-white">{t("about.internship")}</h3>
-                </div>
-                <p className="text-accent-400 font-semibold text-lg">PT Trans Retail</p>
-                <p className="text-surface-200/60 text-sm mt-1">IT Developer Intern</p>
-                <p className="text-surface-200/40 text-xs mt-1">July 2026 - Present</p>
+                <p className="text-xs sm:text-sm font-semibold text-primary-300">{data.about.stats.experience}</p>
               </div>
-            </TiltCard>
-          </AnimateOnScroll>
-        </div>
+
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">
+                  <Counter end={9} suffix={language === "en" ? " Modules" : " Modul"} />
+                </div>
+                <p className="text-xs sm:text-sm font-semibold text-primary-300">{data.about.stats.modules}</p>
+              </div>
+
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">
+                  <Counter end={12} suffix="+" />
+                </div>
+                <p className="text-xs sm:text-sm font-semibold text-primary-300">{data.about.stats.technologies}</p>
+              </div>
+            </div>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 interface CounterProps {
-  end: number;
+  end?: number;
+  target?: number;
   suffix?: string;
   duration?: number;
   className?: string;
@@ -11,10 +12,12 @@ interface CounterProps {
 
 export default function Counter({
   end,
+  target,
   suffix = "",
   duration = 2000,
   className = "",
 }: CounterProps) {
+  const finalEnd = end ?? target ?? 0;
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
@@ -45,8 +48,8 @@ export default function Counter({
 
       // Easing: ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
-      const currentVal = eased * end;
-      const isFloat = end % 1 !== 0;
+      const currentVal = eased * finalEnd;
+      const isFloat = finalEnd % 1 !== 0;
       setCount(isFloat ? Number(currentVal.toFixed(1)) : Math.floor(currentVal));
 
       if (progress < 1) {
@@ -56,7 +59,7 @@ export default function Counter({
 
     frame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frame);
-  }, [started, end, duration]);
+  }, [started, finalEnd, duration]);
 
   return (
     <span ref={ref} className={className}>
