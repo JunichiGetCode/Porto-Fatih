@@ -1,26 +1,24 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { portfolioConfig } from "@/config/portfolio.config";
 
 export const metadata: Metadata = {
-  title: "Muhammad Fatih Rahman | Web & Mobile Developer",
-  description:
-    "Portfolio of Muhammad Fatih Rahman — Information Systems student at Telkom University Jakarta. Expert in Web & Mobile Development with Laravel, Flutter, Next.js, and more.",
+  title: `${portfolioConfig.personal.name} | ${portfolioConfig.personal.role}`,
+  description: `${portfolioConfig.personal.name} — ${portfolioConfig.personal.role}. Interactive 3D WebGL Room Portfolio built with Next.js, Three.js, and Tailwind CSS.`,
   keywords: [
-    "Muhammad Fatih Rahman",
+    portfolioConfig.personal.name,
     "Web Developer",
     "Mobile Developer",
-    "Flutter",
-    "Laravel",
-    "Next.js",
-    "Portfolio",
-    "Telkom University Jakarta",
+    "Three.js 3D Portfolio",
+    "Next.js Portfolio",
+    "WebGL Virtual Room",
+    "Open Source Starter Template",
   ],
-  authors: [{ name: "Muhammad Fatih Rahman" }],
+  authors: [{ name: portfolioConfig.personal.name }],
   openGraph: {
-    title: "Muhammad Fatih Rahman | Web & Mobile Developer",
-    description:
-      "Portfolio of Muhammad Fatih Rahman — Information Systems student at Telkom University Jakarta.",
+    title: `${portfolioConfig.personal.name} | 3D Interactive Portfolio`,
+    description: `Explore ${portfolioConfig.personal.name}'s interactive 3D WebGL room portfolio suite.`,
     type: "website",
   },
 };

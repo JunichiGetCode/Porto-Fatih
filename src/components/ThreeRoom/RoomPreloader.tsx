@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import * as THREE from "three";
+import { portfolioConfig } from "@/config/portfolio.config";
 
 interface RoomPreloaderProps {
   onComplete: () => void;
@@ -370,11 +371,11 @@ export default function RoomPreloader({
         {/* Left: Brand Identity & Live Diagnostics */}
         <div className="flex items-center gap-4">
           <div className="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-primary-500/30 to-accent-500/30 border border-white/20 backdrop-blur-xl shadow-lg shadow-primary-500/20 font-black text-sm tracking-wider text-white">
-            MFR
+            DEV
           </div>
           <div className="hidden sm:flex flex-col">
             <span className="text-xs font-bold text-white tracking-wider uppercase">
-              Muhammad Fatih Rahman
+              {portfolioConfig.personal.name}
             </span>
             <div className="flex items-center gap-2 text-[11px] font-mono text-surface-400">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -443,20 +444,18 @@ export default function RoomPreloader({
           {/* User Authentic Name */}
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-2 leading-tight">
             <span className="bg-gradient-to-r from-white via-primary-200 to-accent-300 bg-clip-text text-transparent">
-              MUHAMMAD FATIH RAHMAN
+              {portfolioConfig.personal.name.toUpperCase()}
             </span>
           </h1>
 
           {/* Subtitle / Role & University */}
           <p className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-surface-300/90 font-mono mb-4">
-            Full-Stack & Mobile Developer <span className="text-primary-400">•</span> Telkom University Jakarta
+            {portfolioConfig.personal.role} <span className="text-primary-400">•</span> {portfolioConfig.personal.institution}
           </p>
 
           {/* Intro Description */}
           <p className="text-xs sm:text-sm text-surface-300/80 max-w-lg mx-auto mb-6 leading-relaxed">
-            {isId
-              ? "Masuki ruang kerja virtual interaktif berbasis WebGL 3D. Jelajahi karya teruji, keahlian arsitektur kode, dan rekam jejak teknologi langsung dari sudut pandang nyata."
-              : "Step into an interactive 3D WebGL virtual workstation. Explore production projects, clean architecture practices, and tech journey from an authentic first-person perspective."}
+            {portfolioConfig.room.introDescription[isId ? "id" : "en"]}
           </p>
 
           {/* 3 Feature Teaser Chips */}
@@ -547,19 +546,19 @@ export default function RoomPreloader({
       {/* FOOTER: System Tech Stack Specs & University Accreditation */}
       <footer className="relative z-20 flex flex-col sm:flex-row items-center justify-between px-6 sm:px-10 py-5 text-[11px] font-mono text-surface-400 border-t border-white/5 backdrop-blur-md bg-surface-950/40 gap-2">
         <div className="flex items-center gap-2">
-          <span>Sistem Informasi • Telkom University Jakarta</span>
+          <span>{portfolioConfig.personal.role} • {portfolioConfig.personal.institution}</span>
         </div>
         <div className="flex items-center gap-3 text-surface-500">
           <span>Three.js WebGL</span>
           <span>•</span>
-          <span>Next.js 15 (Turbopack)</span>
+          <span>Next.js 16 (Turbopack)</span>
           <span>•</span>
-          <span>Tailwind CSS</span>
+          <span>Tailwind CSS v4</span>
           <span>•</span>
           <span>TypeScript</span>
         </div>
         <div className="text-surface-400">
-          © {new Date().getFullYear()} Muhammad Fatih Rahman
+          © {new Date().getFullYear()} {portfolioConfig.personal.name}. Open Source Template
         </div>
       </footer>
     </div>

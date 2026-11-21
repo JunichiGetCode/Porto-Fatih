@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { portfolioConfig } from "@/config/portfolio.config";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,10 +15,10 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start gap-1">
             <a href="#home" className="flex items-center gap-2 group tracking-tight" id="footer-logo">
               <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary-500/20 to-accent-500/20 border border-primary-500/30 flex items-center justify-center font-mono text-xs font-bold text-primary-300">
-                MF
+                DEV
               </div>
               <span className="font-bold text-sm text-white">
-                Muhammad Fatih Rahman
+                {portfolioConfig.personal.name}
               </span>
             </a>
             <p className="text-xs text-surface-400 max-w-sm text-center md:text-left">
@@ -28,10 +29,10 @@ export default function Footer() {
           {/* Copyright */}
           <div className="text-center">
             <p className="text-xs text-surface-400">
-              &copy; {currentYear} Muhammad Fatih Rahman. {data.footer.rights}
+              &copy; {currentYear} {portfolioConfig.personal.name}. {data.footer.rights}
             </p>
             <p className="text-[11px] text-surface-500 mt-1">
-              Built with Next.js 16, React 19 & Tailwind CSS v4.
+              Built with Next.js 16, Three.js, React 19 &amp; Tailwind CSS v4.
             </p>
           </div>
 

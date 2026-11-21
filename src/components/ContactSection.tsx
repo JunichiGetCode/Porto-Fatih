@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { useLanguage } from "@/context/LanguageContext";
+import { portfolioConfig } from "@/config/portfolio.config";
 
 export default function ContactSection() {
   const { data } = useLanguage();
@@ -17,7 +18,7 @@ export default function ContactSection() {
 
   const handleCopyEmail = async () => {
     try {
-      await navigator.clipboard.writeText("fatihfatihrahman@gmail.com");
+      await navigator.clipboard.writeText(portfolioConfig.personal.email);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
@@ -28,8 +29,8 @@ export default function ContactSection() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:fatihfatihrahman@gmail.com?subject=${encodeURIComponent(
-      formData.subject || "Inquiry from Portfolio"
+    const mailtoUrl = `mailto:${portfolioConfig.personal.email}?subject=${encodeURIComponent(
+      formData.subject || "Inquiry from 3D Portfolio"
     )}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
     )}`;
@@ -67,11 +68,11 @@ export default function ContactSection() {
                   Email
                 </span>
                 <span className="text-[11px] text-accent-400 font-mono font-medium">
-                  fatihfatihrahman@gmail.com
+                  {portfolioConfig.personal.email}
                 </span>
               </div>
               <p className="text-xs text-surface-300 mb-4">
-                Ada tawaran kerja sama, peluang karir, atau diskusi teknis? Salin email untuk mengirim pesan langsung.
+                Have a collaboration proposal, engineering role, or technical inquiry? Copy email to connect directly.
               </p>
               <button
                 onClick={handleCopyEmail}
@@ -97,7 +98,7 @@ export default function ContactSection() {
 
             {/* Direct WhatsApp Card */}
             <a
-              href="https://wa.me/6281275516335?text=Halo%20Fatih,%20saya%20melihat%20portofolio%20Anda%20dan%20tertarik%20untuk%20berdiskusi."
+              href={`${portfolioConfig.personal.whatsappUrl}?text=Hello,%20I%20am%20exploring%20your%203D%20portfolio%20and%20would%20love%20to%20connect.`}
               target="_blank"
               rel="noopener noreferrer"
               className="p-5 rounded-3xl bg-surface-900/70 border border-white/10 hover:border-emerald-500/40 flex items-center justify-between group transition-all shadow-xl block"
@@ -112,7 +113,7 @@ export default function ContactSection() {
                   <h4 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
                     {data.contact.chatWhatsApp}
                   </h4>
-                  <p className="text-xs text-surface-400 font-mono">+62 812-7551-6335</p>
+                  <p className="text-xs text-surface-400 font-mono">{portfolioConfig.personal.phone}</p>
                 </div>
               </div>
               <svg className="w-5 h-5 text-surface-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -127,7 +128,7 @@ export default function ContactSection() {
               </span>
               <div className="flex items-center gap-3 mb-4">
                 <a
-                  href="https://github.com/ffaattiihrr"
+                  href={portfolioConfig.personal.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-surface-300 hover:text-white hover:bg-primary-600/30 hover:border-primary-500/40 transition-all"
@@ -139,7 +140,7 @@ export default function ContactSection() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/fatih-rahman/"
+                  href={portfolioConfig.personal.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-surface-300 hover:text-white hover:bg-blue-600/30 hover:border-blue-500/40 transition-all"
@@ -151,15 +152,15 @@ export default function ContactSection() {
                   </svg>
                 </a>
                 <a
-                  href="https://instagram.com/ffaattiihrr"
+                  href="https://x.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-surface-300 hover:text-white hover:bg-pink-600/30 hover:border-pink-500/40 transition-all"
-                  aria-label="Instagram Profile"
-                  title="Instagram"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-surface-300 hover:text-white hover:bg-sky-600/30 hover:border-sky-500/40 transition-all"
+                  aria-label="Twitter / X Profile"
+                  title="X (Twitter)"
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 </a>
               </div>

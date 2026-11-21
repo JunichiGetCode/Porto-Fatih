@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="saasBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#saasBg)" />
+  <rect x="1" y="1" width="798" height="498" rx="15" fill="none" stroke="#334155" stroke-width="2" />
+  
+  <!-- Browser / App Header Bar -->
+  <rect x="0" y="0" width="800" height="46" rx="16" fill="#0f172a" />
+  <circle cx="28" cy="23" r="6" fill="#ef4444" />
+  <circle cx="48" cy="23" r="6" fill="#f59e0b" />
+  <circle cx="68" cy="23" r="6" fill="#10b981" />
+  <rect x="100" y="11" width="340" height="24" rx="6" fill="#1e293b" />
+  <text x="116" y="27" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">https://cloud-pos-saas.app/dashboard</text>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="46" width="160" height="454" fill="#0c1220" />
+  <rect x="20" y="70" width="120" height="20" rx="6" fill="#1e293b" />
+  <rect x="20" y="105" width="120" height="12" rx="4" fill="url(#cyanGrad)" fill-opacity="0.3" />
+  <rect x="20" y="130" width="100" height="12" rx="4" fill="#334155" />
+  <rect x="20" y="155" width="110" height="12" rx="4" fill="#334155" />
+  <rect x="20" y="180" width="80" height="12" rx="4" fill="#334155" />
+  
+  <!-- Content Area Header -->
+  <text x="190" y="90" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="700">Cloud POS &amp; Inventory Analytics</text>
+  <text x="190" y="110" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">Real-time modular enterprise transaction suite</text>
+  
+  <!-- 3 KPI Metric Cards -->
+  <rect x="190" y="130" width="180" height="90" rx="12" fill="url(#cardGrad)" stroke="#334155" />
+  <text x="210" y="160" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">Daily Transactions</text>
+  <text x="210" y="195" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="26" font-weight="800">4,829</text>
+  
+  <rect x="390" y="130" width="180" height="90" rx="12" fill="url(#cardGrad)" stroke="#334155" />
+  <text x="410" y="160" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">Revenue Volume</text>
+  <text x="410" y="195" fill="#34d399" font-family="-apple-system, sans-serif" font-size="26" font-weight="800">$128.4K</text>
+  
+  <rect x="590" y="130" width="180" height="90" rx="12" fill="url(#cardGrad)" stroke="#334155" />
+  <text x="610" y="160" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">System Uptime</text>
+  <text x="610" y="195" fill="#a78bfa" font-family="-apple-system, sans-serif" font-size="26" font-weight="800">99.98%</text>
+  
+  <!-- Main Interactive Chart Area -->
+  <rect x="190" y="240" width="580" height="230" rx="14" fill="url(#cardGrad)" stroke="#334155" />
+  <text x="215" y="275" fill="#f8fafc" font-family="-apple-system, sans-serif" font-size="15" font-weight="600">Throughput Velocity &amp; Transaction Flow</text>
+  
+  <!-- Chart Grid & Polyline -->
+  <line x1="215" y1="330" x2="740" y2="330" stroke="#334155" stroke-dasharray="4" />
+  <line x1="215" y1="380" x2="740" y2="380" stroke="#334155" stroke-dasharray="4" />
+  <line x1="215" y1="430" x2="740" y2="430" stroke="#334155" stroke-dasharray="4" />
+  
+  <!-- Chart Wave -->
+  <path d="M 215,410 Q 280,320 340,360 T 470,290 T 600,320 T 740,280 L 740,440 L 215,440 Z" fill="url(#cyanGrad)" fill-opacity="0.2" />
+  <path d="M 215,410 Q 280,320 340,360 T 470,290 T 600,320 T 740,280" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+  
+  <circle cx="470" cy="290" r="6" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
+  <circle cx="740" cy="280" r="6" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
+</svg>

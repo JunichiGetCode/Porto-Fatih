@@ -17,48 +17,33 @@ interface ProjectAssetMeta {
 }
 
 const projectMetaMap: Record<string, ProjectAssetMeta> = {
-  haramainqu: {
-    image: "/haramainqu.jpeg",
-    techStack: ["Flutter", "Dart", "Clean Architecture", "Dio REST API"],
-    gradient: "from-indigo-500/20 to-purple-500/20",
-    categoryTag: "Mobile App (Flutter)",
-  },
-  tangkapin: {
-    image: "/tangkapin.png",
-    techStack: ["Vue.js 3", "Inertia.js", "Laravel", "PostgreSQL", "Midtrans"],
-    gradient: "from-teal-500/20 to-cyan-500/20",
-    categoryTag: "VILT Stack Platform",
-  },
-  bakso: {
-    image: "/bakso_preview.png",
-    techStack: ["Next.js 14", "React 18", "MySQL2", "Tailwind CSS", "WhatsApp API"],
-    gradient: "from-amber-500/20 to-rose-500/20",
-    categoryTag: "Next.js E-Commerce",
-    liveUrl: "https://si-bakso.vercel.app",
-  },
-  "ai-interview": {
-    image: "/ai_interview.png",
-    techStack: ["React 18", "TypeScript", "Ruby on Rails", "WebSocket", "Redis"],
-    gradient: "from-purple-500/20 to-indigo-500/20",
-    categoryTag: "AI & WebSocket Platform",
-  },
-  "haramain-tour": {
-    image: "/haramain_tour.png",
-    techStack: ["Laravel", "PHP", "Midtrans", "REST API", "Google OAuth"],
-    gradient: "from-emerald-500/20 to-teal-500/20",
-    categoryTag: "Enterprise Travel Web",
-  },
-  televent: {
-    image: "/televent.png",
-    techStack: ["Laravel", "MySQL", "RBAC", "Bootstrap"],
+  "cloud-pos": {
+    image: "/projects/sample-saas.svg",
+    techStack: ["Next.js 16", "TypeScript", "PostgreSQL", "Tailwind CSS v4"],
     gradient: "from-blue-500/20 to-cyan-500/20",
-    categoryTag: "Campus Event Workflow",
+    categoryTag: "Enterprise SaaS Web",
+    liveUrl: "https://example.com/demo",
   },
-  barbershop: {
-    image: "/barbershop.png",
-    techStack: ["Laravel", "Point of Sale", "Chart.js", "MySQL"],
-    gradient: "from-orange-500/20 to-amber-500/20",
-    categoryTag: "POS & Operations System",
+  "mobile-suite": {
+    image: "/projects/sample-mobile.svg",
+    techStack: ["Flutter", "Dart", "BLoC Pattern", "SQLite Sync"],
+    gradient: "from-emerald-500/20 to-teal-500/20",
+    categoryTag: "Clean Architecture Mobile",
+    liveUrl: "https://example.com/mobile",
+  },
+  "ai-studio": {
+    image: "/projects/sample-ai.svg",
+    techStack: ["Next.js", "WebSockets", "Web Audio API", "LLM APIs"],
+    gradient: "from-purple-500/20 to-indigo-500/20",
+    categoryTag: "AI & Speech Studio",
+    liveUrl: "https://example.com/ai-studio",
+  },
+  "event-hub": {
+    image: "/projects/sample-event.svg",
+    techStack: ["Next.js", "Node.js", "Redis Queues", "QR Crypto"],
+    gradient: "from-rose-500/20 to-pink-500/20",
+    categoryTag: "Ticketing & Event Portal",
+    liveUrl: "https://example.com/events",
   },
 };
 
@@ -129,7 +114,7 @@ export default function ProjectsSection() {
         <div className="grid md:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => {
             const meta = projectMetaMap[project.id] || {
-              image: "/profile.jpeg",
+              image: "/projects/sample-saas.svg",
               techStack: ["Next.js", "TypeScript"],
               gradient: "from-primary-500/20 to-indigo-500/20",
               categoryTag: "Full-Stack Project",

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <linearGradient id="pCodeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#pCodeBg)" />
+  <rect x="20" y="20" width="560" height="760" fill="none" stroke="#334155" stroke-width="2" />
+  
+  <text x="60" y="90" fill="#10b981" font-family="-apple-system, sans-serif" font-size="14" font-weight="800" letter-spacing="3">CODE QUALITY &amp; TESTING</text>
+  <text x="60" y="140" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="34" font-weight="900">TYPE-SAFE TS &amp;</text>
+  <text x="60" y="180" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="34" font-weight="900">MODULAR LOGIC</text>
+  
+  <!-- Terminal Window Mockup -->
+  <g transform="translate(60, 230)">
+    <rect width="480" height="380" rx="14" fill="#090d16" stroke="#475569" stroke-width="2" />
+    <circle cx="24" cy="24" r="6" fill="#ef4444" />
+    <circle cx="44" cy="24" r="6" fill="#f59e0b" />
+    <circle cx="64" cy="24" r="6" fill="#10b981" />
+    <text x="90" y="28" fill="#64748b" font-family="monospace" font-size="12">portfolio.config.ts</text>
+    
+    <!-- Code Lines -->
+    <g transform="translate(24, 60)" font-family="monospace" font-size="13">
+      <text y="20" fill="#c084fc">export const <tspan fill="#38bdf8">portfolioConfig</tspan> = {</text>
+      <text y="50" fill="#94a3b8">  name: <tspan fill="#34d399">"Your Name"</tspan>,</text>
+      <text y="80" fill="#94a3b8">  role: <tspan fill="#34d399">"Full-Stack Developer"</tspan>,</text>
+      <text y="110" fill="#94a3b8">  stack: [<tspan fill="#fbbf24">"Next.js"</tspan>, <tspan fill="#fbbf24">"Three.js"</tspan>, <tspan fill="#fbbf24">"TS"</tspan>],</text>
+      <text y="140" fill="#94a3b8">  mode: <tspan fill="#38bdf8">"Interactive 3D Suite"</tspan>,</text>
+      <text y="170" fill="#94a3b8">  openSource: <tspan fill="#f43f5e">true</tspan>,</text>
+      <text y="210" fill="#64748b">  // Easy 1-minute customization</text>
+      <text y="240" fill="#64748b">  deploy: () =&gt; <tspan fill="#38bdf8">Vercel.oneClick()</tspan></text>
+      <text y="270" fill="#c084fc">};</text>
+    </g>
+  </g>
+  
+  <g transform="translate(60, 680)">
+    <text x="0" y="0" fill="#10b981" font-family="-apple-system, sans-serif" font-size="12" font-weight="800">CLEAN ARCHITECTURE READY</text>
+    <text x="0" y="24" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="13">Zero External Bloat • Type-Checked • Fast Builds</text>
+  </g>
+</svg>

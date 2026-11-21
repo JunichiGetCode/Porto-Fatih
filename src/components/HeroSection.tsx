@@ -4,6 +4,7 @@ import Image from "next/image";
 import ParticleBackground from "./ParticleBackground";
 import Typewriter from "./Typewriter";
 import { useLanguage } from "@/context/LanguageContext";
+import { portfolioConfig } from "@/config/portfolio.config";
 
 export default function HeroSection() {
   const { data } = useLanguage();
@@ -148,8 +149,8 @@ export default function HeroSection() {
               {/* Profile Card Container */}
               <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden border border-white/15 bg-surface-900/80 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
                 <Image
-                  src="/profile.jpeg"
-                  alt="Muhammad Fatih Rahman"
+                  src={portfolioConfig.personal.avatar}
+                  alt={portfolioConfig.personal.name}
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   priority
@@ -162,8 +163,8 @@ export default function HeroSection() {
                 {/* Floating Bottom Pill inside image */}
                 <div className="absolute bottom-3 left-3 right-3 p-3 rounded-2xl bg-surface-950/85 backdrop-blur-md border border-white/10 flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-bold text-white leading-tight">M. Fatih Rahman</p>
-                    <p className="text-[11px] font-mono text-primary-400">Telkom Univ Jakarta</p>
+                    <p className="text-xs font-bold text-white leading-tight">{portfolioConfig.personal.name}</p>
+                    <p className="text-[11px] font-mono text-primary-400">{portfolioConfig.personal.institution}</p>
                   </div>
                   <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-accent-500/20 border border-accent-400/30 text-[10px] text-accent-300 font-semibold">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent-400 animate-pulse" />

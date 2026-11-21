@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { SectionType } from "./RoomCanvas";
+import { portfolioConfig } from "@/config/portfolio.config";
 
 interface RoomHUDProps {
   activeSection: SectionType;
@@ -48,8 +49,8 @@ export default function RoomHUD({
         <div className="flex items-center gap-3 px-3.5 py-2 rounded-2xl bg-surface-950/80 backdrop-blur-xl border border-white/10 shadow-2xl">
           <div className="relative w-9 h-9 rounded-full overflow-hidden border border-primary-500/40 ring-2 ring-primary-500/20">
             <Image
-              src="/odoo.jpeg"
-              alt="Muhammad Fatih Rahman"
+              src={portfolioConfig.personal.avatar}
+              alt={portfolioConfig.personal.name}
               fill
               sizes="36px"
               className="object-cover"
@@ -58,15 +59,15 @@ export default function RoomHUD({
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs sm:text-sm font-bold text-white leading-tight">
-                Muhammad Fatih Rahman
+                {portfolioConfig.personal.name}
               </span>
               <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] text-emerald-400 font-semibold">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                POV Room v2.0
+                {portfolioConfig.room.badge}
               </span>
             </div>
             <p className="text-[11px] text-surface-400 font-medium">
-              Full-Stack & Mobile Developer
+              {portfolioConfig.personal.role}
             </p>
           </div>
         </div>

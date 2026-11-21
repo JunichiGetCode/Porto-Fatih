@@ -55,8 +55,8 @@ export default function RoomGuideModal({
       title: isId ? "Meja Kerja & Workstation PC" : "Developer Desk & Dual PC",
       badge: isId ? "Bisa Diklik" : "Interactive",
       desc: isId
-        ? "Klik monitor ganda atau meja kerja untuk zoom in dan membuka Portofolio Proyek (7 proyek unggulan nyata: TangkapIN, Juragan Bakso, AI Interview, HaramainQu, dll. beserta studi kasus & metrik)."
-        : "Click the dual monitors or workstation desk to inspect Featured Projects (7 real production applications with case studies & architecture).",
+        ? "Klik monitor ganda atau meja kerja untuk zoom in dan membuka Portofolio Proyek (koleksi proyek unggulan beserta studi kasus arsitektur & metrik performa)."
+        : "Click the dual monitors or workstation desk to inspect Featured Projects (featured applications with case studies & architecture).",
       action: isId ? "Membuka: Portofolio Proyek" : "Opens: Featured Projects",
     },
     {
@@ -64,8 +64,8 @@ export default function RoomGuideModal({
       title: isId ? "Kasur & Area Santai" : "Bed & Personal Lounge",
       badge: isId ? "Bisa Diklik" : "Interactive",
       desc: isId
-        ? "Klik kasur untuk membuka bagian Tentang Saya — berisi biografi lengkap Muhammad Fatih Rahman, 2+ tahun pengalaman, perjalanan & pendidikan, serta prinsip pengembangan."
-        : "Click the bed to open About Me — covering biography, 2+ years of experience, education timeline, and development principles.",
+        ? "Klik kasur untuk membuka bagian Tentang Saya — berisi biografi pengembang, rekam jejak pengalaman, perjalanan karier, serta filosofi kode."
+        : "Click the bed to open About Me — covering developer biography, experience timeline, engineering principles, and background.",
       action: isId ? "Membuka: Tentang Saya" : "Opens: About Me & Bio",
     },
     {

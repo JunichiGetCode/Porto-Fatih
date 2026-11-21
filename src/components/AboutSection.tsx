@@ -6,6 +6,7 @@ import AnimateOnScroll from "./AnimateOnScroll";
 import TiltCard from "./TiltCard";
 import Counter from "./Counter";
 import { useLanguage } from "@/context/LanguageContext";
+import { portfolioConfig } from "@/config/portfolio.config";
 
 export default function AboutSection() {
   const { data, language } = useLanguage();
@@ -43,8 +44,8 @@ export default function AboutSection() {
                 <div className="relative rounded-3xl overflow-hidden bg-surface-900 border border-white/10 shadow-2xl">
                   <div className="relative w-full h-[380px] sm:h-[440px]">
                     <Image
-                      src="/odoo.jpeg"
-                      alt="Muhammad Fatih Rahman at work"
+                      src={portfolioConfig.personal.avatar}
+                      alt={portfolioConfig.personal.name}
                       fill
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                       sizes="(max-width: 1024px) 100vw, 450px"
@@ -54,14 +55,14 @@ export default function AboutSection() {
                     {/* Bottom Caption */}
                     <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-surface-950/85 backdrop-blur-md border border-white/10">
                       <div className="flex items-center justify-between mb-1">
-                        <h3 className="text-base font-bold text-white">M. Fatih Rahman</h3>
+                        <h3 className="text-base font-bold text-white">{portfolioConfig.personal.name}</h3>
                         <span className="flex items-center gap-1.5 text-[11px] text-accent-300 font-semibold">
                           <span className="w-2 h-2 rounded-full bg-accent-400 animate-pulse" />
-                          <span>Information Systems</span>
+                          <span>Full-Stack &amp; Mobile</span>
                         </span>
                       </div>
                       <p className="text-xs text-primary-300 font-mono">
-                        Telkom University Jakarta
+                        {portfolioConfig.personal.institution}
                       </p>
                     </div>
                   </div>

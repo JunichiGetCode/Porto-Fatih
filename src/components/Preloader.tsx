@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { portfolioConfig } from "@/config/portfolio.config";
 
 export default function Preloader() {
   const [progress, setProgress] = useState(0);
@@ -63,10 +64,10 @@ export default function Preloader() {
       {/* TOP HEADER */}
       <div className="relative z-10 flex items-center justify-between">
         <span className="text-sm font-mono tracking-widest text-surface-200/50 uppercase">
-          M. Fatih Rahman
+          {portfolioConfig.personal.name}
         </span>
         <span className="text-xs font-mono tracking-wider text-surface-200/30">
-          © 2026
+          © {new Date().getFullYear()}
         </span>
       </div>
 
@@ -77,7 +78,7 @@ export default function Preloader() {
           <span className="gradient-text">Premium Digital Solutions</span>
         </h1>
         <p className="text-sm sm:text-base text-surface-200/50 font-light max-w-sm">
-          Web &amp; Mobile Developer specializing in Laravel, Flutter, Next.js, and Node.js.
+          {portfolioConfig.personal.tagline}
         </p>
       </div>
 

@@ -375,24 +375,24 @@ export default function RoomCanvas({
       // Tab File Title
       ctx.fillStyle = "#8b949e";
       ctx.font = "bold 16px monospace";
-      ctx.fillText("MuhammadFatihRahman.tsx — Full-Stack Portfolio", 110, 31);
+      ctx.fillText("portfolio.config.ts — 3D Room Suite", 110, 31);
 
       const lines = [
-        { text: "import { LeadDeveloper } from '@fatih/profile';", color: "#ff7b72" },
-        { text: "import { Flutter, NextJs, Laravel, PostgreSQL } from '@tech/core';", color: "#79c0ff" },
+        { text: "import { defineConfig } from '@portfolio/3d-room';", color: "#ff7b72" },
+        { text: "import { NextJs, ThreeJs, TypeScript, Tailwind } from '@tech/core';", color: "#79c0ff" },
         { text: "", color: "" },
-        { text: "export const developer: LeadDeveloper = {", color: "#d2a8ff" },
-        { text: "  name: 'Muhammad Fatih Rahman',", color: "#a5d6ff" },
-        { text: "  institution: 'Telkom University Jakarta',", color: "#7ee787" },
-        { text: "  experience: '2+ Years Production Delivery',", color: "#7ee787" },
-        { text: "  featuredProjects: ['HaramainQu', 'TangkapIN', 'Juragan Bakso', 'AI Interview'],", color: "#ffa657" },
-        { text: "  architecture: 'Clean Architecture, High-Throughput APIs, Idempotent Payments',", color: "#7ee787" },
-        { text: "  mindset: 'Building digital solutions that solve real business bottlenecks',", color: "#ff7b72" },
-        { text: "};", color: "#d2a8ff" },
+        { text: "export default defineConfig({", color: "#d2a8ff" },
+        { text: "  name: 'Developer Portfolio',", color: "#a5d6ff" },
+        { text: "  role: 'Full-Stack Web & Mobile Developer',", color: "#7ee787" },
+        { text: "  experience: 'Production Ready & Open Source',", color: "#7ee787" },
+        { text: "  featuredProjects: ['Cloud POS SaaS', 'Clean Mobile App', 'AI Studio'],", color: "#ffa657" },
+        { text: "  architecture: 'Clean Architecture, Microservices & 60FPS WebGL',", color: "#7ee787" },
+        { text: "  license: 'MIT License • 100% Free to fork & customize',", color: "#ff7b72" },
+        { text: "});", color: "#d2a8ff" },
         { text: "", color: "" },
-        { text: "export default async function architectSolutions() {", color: "#79c0ff" },
-        { text: "  await developer.shipImpactfulApplications();", color: "#56d364" },
-        { text: "  console.log('⚡ Ready to collaborate with high-performing engineering teams.');", color: "#8b949e" },
+        { text: "export async function startExploration() {", color: "#79c0ff" },
+        { text: "  await room.loadInteractiveWorkstation();", color: "#56d364" },
+        { text: "  console.log('⚡ Welcome to your 3D interactive portfolio experience.');", color: "#8b949e" },
         { text: "}", color: "#79c0ff" },
       ];
 
@@ -983,126 +983,126 @@ export default function RoomCanvas({
 
     // --- RIGHT WALL PROJECT GALLERY (Organized 4-Bay Exhibition Wall) ---
     // Bay 1: Z = -3.2 (Lounge area)
-    // 1. TangkapIN AI (Top)
-    const frameTangkapin = createWallGalleryFrame(
-      "/tangkapin.png",
-      "TangkapIN AI",
-      "Smart Waste Classification • Flutter & PyTorch",
+    // 1. Cloud POS SaaS (Top)
+    const framePOS = createWallGalleryFrame(
+      "/projects/sample-saas.svg",
+      "Cloud POS & Retail SaaS",
+      "Enterprise Store & Inventory • Next.js 16",
       1.9,
       1.2,
       "#38bdf8"
     );
-    frameTangkapin.position.set(5.0, 3.6, -3.2);
-    frameTangkapin.rotation.y = -Math.PI / 2;
-    scene.add(frameTangkapin);
-    galleryFrames.push(frameTangkapin);
+    framePOS.position.set(5.0, 3.6, -3.2);
+    framePOS.rotation.y = -Math.PI / 2;
+    scene.add(framePOS);
+    galleryFrames.push(framePOS);
 
-    // 2. Barbershop Booking (Bottom)
-    const frameBarbershop = createWallGalleryFrame(
-      "/barbershop.png",
-      "Barbershop Booking",
-      "Real-time Queue & POS • Laravel",
+    // 2. WebGL 3D Architecture (Bottom)
+    const frameTech = createWallGalleryFrame(
+      "/posters/poster-tech.svg",
+      "WebGL 3D Architecture",
+      "Next.js 16 • Three.js • Shaders",
       1.6,
       1.0,
-      "#f59e0b"
+      "#a855f7"
     );
-    frameBarbershop.position.set(5.0, 1.7, -3.2);
-    frameBarbershop.rotation.y = -Math.PI / 2;
-    scene.add(frameBarbershop);
-    galleryFrames.push(frameBarbershop);
+    frameTech.position.set(5.0, 1.7, -3.2);
+    frameTech.rotation.y = -Math.PI / 2;
+    scene.add(frameTech);
+    galleryFrames.push(frameTech);
 
     // Bay 2: Z = -1.0 (Middle open wall)
-    // 3. AI Mock Interview (Top)
-    const frameAiInterview = createWallGalleryFrame(
-      "/ai_interview.png",
-      "AI Mock Interview",
-      "Gemini AI • Audio Streaming • Next.js",
+    // 3. AI Speech Studio (Top)
+    const frameAi = createWallGalleryFrame(
+      "/projects/sample-ai.svg",
+      "AI Speech & Evaluation Studio",
+      "Dynamic LLM Rubric Engine • Web Audio API",
       1.9,
       1.2,
       "#a855f7"
     );
-    frameAiInterview.position.set(5.0, 3.6, -1.0);
-    frameAiInterview.rotation.y = -Math.PI / 2;
-    scene.add(frameAiInterview);
-    galleryFrames.push(frameAiInterview);
+    frameAi.position.set(5.0, 3.6, -1.0);
+    frameAi.rotation.y = -Math.PI / 2;
+    scene.add(frameAi);
+    galleryFrames.push(frameAi);
 
-    // 4. Odoo ERP Solutions (Bottom)
-    const frameOdoo = createWallGalleryFrame(
-      "/odoo.jpeg",
-      "Odoo ERP Solutions",
-      "Enterprise Custom Modules • Python",
+    // 4. Clean Engineering Code (Bottom)
+    const frameCode = createWallGalleryFrame(
+      "/posters/poster-code.svg",
+      "Type-Safe Engineering",
+      "Strict TypeScript • Clean Architecture",
       1.6,
       1.0,
-      "#8b5cf6"
+      "#10b981"
     );
-    frameOdoo.position.set(5.0, 1.7, -1.0);
-    frameOdoo.rotation.y = -Math.PI / 2;
-    scene.add(frameOdoo);
-    galleryFrames.push(frameOdoo);
+    frameCode.position.set(5.0, 1.7, -1.0);
+    frameCode.rotation.y = -Math.PI / 2;
+    scene.add(frameCode);
+    galleryFrames.push(frameCode);
 
     // Bay 3: Z = 1.3 (Above Bed)
-    // 5. HaramainQu Mobile (Top)
-    const frameHaramainQu = createWallGalleryFrame(
-      "/haramainqu.jpeg",
-      "HaramainQu Mobile",
-      "Umrah & Hajj Offline Guide • Flutter",
+    // 5. Clean Mobile App (Top)
+    const frameMobile = createWallGalleryFrame(
+      "/projects/sample-mobile.svg",
+      "Clean Mobile Application",
+      "Cross-Platform • Offline Sync • Flutter BLoC",
       1.8,
       1.2,
       "#10b981"
     );
-    frameHaramainQu.position.set(5.0, 3.6, 1.3);
-    frameHaramainQu.rotation.y = -Math.PI / 2;
-    scene.add(frameHaramainQu);
-    galleryFrames.push(frameHaramainQu);
+    frameMobile.position.set(5.0, 3.6, 1.3);
+    frameMobile.rotation.y = -Math.PI / 2;
+    scene.add(frameMobile);
+    galleryFrames.push(frameMobile);
 
     // Bay 4: Z = 3.5 (Bed lounge foot area)
-    // 6. Televent Ticketing (Top)
-    const frameTelevent = createWallGalleryFrame(
-      "/televent.png",
-      "Televent Ticketing",
-      "Event Management • Web & QR Check-in",
+    // 6. Event Hub & Ticketing (Top)
+    const frameEvent = createWallGalleryFrame(
+      "/projects/sample-event.svg",
+      "Event Hub & Ticketing",
+      "Fast-Pass QR Check-in • Real-time Telemetry",
       1.8,
       1.2,
       "#ec4899"
     );
-    frameTelevent.position.set(5.0, 3.6, 3.5);
-    frameTelevent.rotation.y = -Math.PI / 2;
-    scene.add(frameTelevent);
-    galleryFrames.push(frameTelevent);
+    frameEvent.position.set(5.0, 3.6, 3.5);
+    frameEvent.rotation.y = -Math.PI / 2;
+    scene.add(frameEvent);
+    galleryFrames.push(frameEvent);
 
-    // --- BACK WALL GALLERY (Showcases Juragan Bakso & Haramain Tour) ---
-    // 7. Juragan Bakso (Grand Featured Showcase with live link preview!)
-    const frameBakso = createWallGalleryFrame(
-      "/bakso_preview.png",
-      "Juragan Bakso — SaaS POS",
-      "si-bakso.vercel.app • Next.js & Midtrans",
+    // --- BACK WALL GALLERY (Showcases Featured SaaS & Architecture Blueprint) ---
+    // 7. Featured SaaS App (Grand Featured Showcase)
+    const frameFeatured = createWallGalleryFrame(
+      "/projects/sample-saas.svg",
+      "Cloud POS & Retail SaaS",
+      "Modular Full-Stack Architecture • Next.js & TypeScript",
       2.4,
       1.3,
       "#fbbf24"
     );
-    frameBakso.position.set(2.4, 4.3, -5.0);
-    scene.add(frameBakso);
-    galleryFrames.push(frameBakso);
+    frameFeatured.position.set(2.4, 4.3, -5.0);
+    scene.add(frameFeatured);
+    galleryFrames.push(frameFeatured);
 
-    // 8. Haramain Tour Web
-    const frameHaramainTour = createWallGalleryFrame(
-      "/haramain_tour.png",
-      "Haramain Tour Web",
-      "Pilgrimage Travel CMS • Next.js",
+    // 8. Software Architecture Blueprint
+    const frameArch = createWallGalleryFrame(
+      "/posters/poster-arch.svg",
+      "Software Architecture Blueprint",
+      "SOLID Principles • Clean Architecture",
       1.8,
       1.1,
       "#06b6d4"
     );
-    frameHaramainTour.position.set(-3.6, 4.3, -5.0);
-    scene.add(frameHaramainTour);
-    galleryFrames.push(frameHaramainTour);
+    frameArch.position.set(-3.6, 4.3, -5.0);
+    scene.add(frameArch);
+    galleryFrames.push(frameArch);
 
     // --- LEFT WALL (Profile Portrait hanging above Console Table) ---
     // 9. Lead Developer Profile Portrait (Cleanly centered between window & door!)
     const frameProfile = createWallGalleryFrame(
-      "/profile.jpeg",
-      "Muhammad Fatih Rahman",
-      "Lead Full-Stack & Mobile Developer",
+      "/avatar.svg",
+      "Developer Studio",
+      "Full-Stack Web & Mobile Engineering",
       1.1,
       1.4,
       "#38bdf8"

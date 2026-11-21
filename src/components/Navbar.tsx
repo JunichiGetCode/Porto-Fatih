@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { portfolioConfig } from "@/config/portfolio.config";
 
 interface NavItem {
   href: string;
@@ -60,10 +61,10 @@ export default function Navbar() {
           id="nav-logo"
         >
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 border border-primary-500/30 flex items-center justify-center font-mono text-sm font-bold text-primary-300 group-hover:border-primary-400 group-hover:scale-105 transition-all">
-            MF
+            DEV
           </div>
           <span className="font-bold text-base sm:text-lg text-white group-hover:text-primary-200 transition-colors">
-            Fatih<span className="text-primary-400">.dev</span>
+            {portfolioConfig.personal.firstName}<span className="text-primary-400">.dev</span>
           </span>
         </a>
 

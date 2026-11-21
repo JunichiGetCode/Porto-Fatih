@@ -423,11 +423,11 @@ export function createPosterTexture(): THREE.CanvasTexture {
 
   ctx.fillStyle = "#ffffff";
   ctx.font = "bold 20px sans-serif";
-  ctx.fillText("MUHAMMAD FATIH RAHMAN", 256, 660);
+  ctx.fillText("SYSTEM ARCHITECT", 256, 660);
 
   ctx.fillStyle = "#38bdf8";
   ctx.font = "14px monospace";
-  ctx.fillText("Telkom University Jakarta", 256, 690);
+  ctx.fillText("Clean Code & 3D WebGL Suite", 256, 690);
 
   return new THREE.CanvasTexture(canvas);
 }

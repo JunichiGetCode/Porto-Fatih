@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  <!-- Background Circle with Gradient -->
+  <circle cx="200" cy="200" r="190" fill="url(#bgGrad)" />
+  <circle cx="200" cy="200" r="185" fill="#0f172a" fill-opacity="0.25" />
+  
+  <!-- Subtle Grid Lines in BG -->
+  <path d="M 50,200 H 350 M 200,50 V 350" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2" />
+  <circle cx="200" cy="200" r="140" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2" />
+
+  <!-- Developer Silhouette / Stylized Avatar -->
+  <g filter="url(#shadow)">
+    <!-- Shoulders / Body -->
+    <path d="M 100,340 C 100,280 140,250 200,250 C 260,250 300,280 300,340 Z" fill="url(#avatarGrad)" />
+    <!-- Modern Hoodie / Collar accent -->
+    <path d="M 160,255 L 200,295 L 240,255" fill="none" stroke="#4f46e5" stroke-width="8" stroke-linecap="round" />
+    <!-- Neck -->
+    <rect x="180" y="210" width="40" height="45" rx="8" fill="#e2e8f0" />
+    <!-- Head -->
+    <circle cx="200" cy="165" r="55" fill="url(#avatarGrad)" />
+    <!-- Sleek Tech Glasses / Visor -->
+    <rect x="155" y="152" width="90" height="24" rx="10" fill="#0f172a" />
+    <rect x="160" y="156" width="36" height="16" rx="6" fill="#38bdf8" fill-opacity="0.9" />
+    <rect x="204" y="156" width="36" height="16" rx="6" fill="#38bdf8" fill-opacity="0.9" />
+    <!-- Headphone Band -->
+    <path d="M 140,165 A 60,60 0 0,1 260,165" fill="none" stroke="#6366f1" stroke-width="10" stroke-linecap="round" />
+    <!-- Earcups -->
+    <rect x="132" y="150" width="16" height="34" rx="8" fill="#4338ca" />
+    <rect x="252" y="150" width="16" height="34" rx="8" fill="#4338ca" />
+  </g>
+</svg>

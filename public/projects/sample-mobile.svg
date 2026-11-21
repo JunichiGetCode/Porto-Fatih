@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="mobBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#mobBg)" />
+  <rect x="1" y="1" width="798" height="498" rx="15" fill="none" stroke="#1e293b" stroke-width="2" />
+  
+  <!-- Left Side: App Specs & Pitch -->
+  <g transform="translate(60, 110)">
+    <rect x="0" y="0" width="130" height="26" rx="13" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.3" />
+    <text x="14" y="18" fill="#34d399" font-family="-apple-system, sans-serif" font-size="12" font-weight="700">FLUTTER &amp; DART</text>
+    
+    <text x="0" y="65" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="28" font-weight="800">Clean Mobile App</text>
+    <text x="0" y="95" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="14">Offline-First Clean Architecture with BLoC State</text>
+    
+    <g transform="translate(0, 130)">
+      <circle cx="12" cy="12" r="12" fill="#3b82f6" fill-opacity="0.2" />
+      <text x="36" y="17" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="14" font-weight="600">Sub-100ms SQLite Sync Engine</text>
+    </g>
+    <g transform="translate(0, 170)">
+      <circle cx="12" cy="12" r="12" fill="#10b981" fill-opacity="0.2" />
+      <text x="36" y="17" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="14" font-weight="600">100% Offline Core Navigation</text>
+    </g>
+    <g transform="translate(0, 210)">
+      <circle cx="12" cy="12" r="12" fill="#8b5cf6" fill-opacity="0.2" />
+      <text x="36" y="17" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="14" font-weight="600">Material 3 &amp; iOS Cupertino Design</text>
+    </g>
+  </g>
+  
+  <!-- Right Side: Dual Mobile Phones Mockup -->
+  <!-- Phone 1 (Back) -->
+  <g transform="translate(480, 50)">
+    <rect width="210" height="410" rx="36" fill="#1e293b" stroke="#475569" stroke-width="4" />
+    <rect x="8" y="8" width="194" height="394" rx="28" fill="url(#screenGrad)" />
+    <!-- Dynamic Island / Notch -->
+    <rect x="75" y="14" width="60" height="14" rx="7" fill="#0f172a" />
+    <!-- UI Elements -->
+    <rect x="25" y="50" width="160" height="80" rx="14" fill="#334155" fill-opacity="0.5" />
+    <rect x="25" y="145" width="75" height="75" rx="12" fill="#10b981" fill-opacity="0.3" />
+    <rect x="110" y="145" width="75" height="75" rx="12" fill="#6366f1" fill-opacity="0.3" />
+  </g>
+  
+  <!-- Phone 2 (Front Hero) -->
+  <g transform="translate(540, 75)">
+    <rect width="210" height="410" rx="36" fill="#0f172a" stroke="#6366f1" stroke-width="4" />
+    <rect x="8" y="8" width="194" height="394" rx="28" fill="#090d16" />
+    <!-- Notch -->
+    <rect x="75" y="14" width="60" height="14" rx="7" fill="#1e1b4b" />
+    <!-- App Header -->
+    <circle cx="35" cy="48" r="15" fill="url(#emeraldGrad)" />
+    <rect x="60" y="42" width="90" height="12" rx="4" fill="#e2e8f0" />
+    <!-- Card Highlight -->
+    <rect x="20" y="80" width="170" height="110" rx="16" fill="url(#emeraldGrad)" />
+    <text x="35" y="115" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">Active Session</text>
+    <text x="35" y="145" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="22" font-weight="800">Ready • Sync</text>
+    <!-- List Items -->
+    <rect x="20" y="210" width="170" height="45" rx="10" fill="#1e293b" />
+    <rect x="20" y="265" width="170" height="45" rx="10" fill="#1e293b" />
+    <rect x="20" y="320" width="170" height="45" rx="10" fill="#1e293b" />
+  </g>
+</svg>
