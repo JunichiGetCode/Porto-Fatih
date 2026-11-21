@@ -15,17 +15,17 @@
 
   <!-- Social Badges -->
   <p align="center">
-    <a href="mailto:fatihfatihrahman@gmail.com">
-      <img src="https://img.shields.io/badge/Email-fatihfatihrahman%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
-    </a>
-    <a href="https://wa.me/6281275516335" target="_blank">
-      <img src="https://img.shields.io/badge/WhatsApp-%2B6281275516335-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+    <a href="https://itsfatih.vercel.app" target="_blank">
+      <img src="https://img.shields.io/badge/Live_Portfolio-itsfatih.vercel.app-6366F1?style=for-the-badge&logo=vercel&logoColor=white" />
     </a>
     <a href="https://linkedin.com/in/fatih-rahman" target="_blank">
       <img src="https://img.shields.io/badge/LinkedIn-Fatih_Rahman-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
     </a>
-    <a href="https://si-bakso.vercel.app" target="_blank">
-      <img src="https://img.shields.io/badge/Live_Demo-Si_Bakso-4F46E5?style=for-the-badge&logo=vercel&logoColor=white" />
+    <a href="https://wa.me/6281275516335" target="_blank">
+      <img src="https://img.shields.io/badge/WhatsApp-%2B6281275516335-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+    </a>
+    <a href="mailto:fatihfatihrahman@gmail.com">
+      <img src="https://img.shields.io/badge/Email-fatihfatihrahman%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
     </a>
   </p>
 
@@ -77,7 +77,7 @@ current_focus: Next.js 14 App Router, Three.js, VILT Stack, and AI-assisted work
         Interactive 360° developer room experience with dynamic Day/Night cycle, real-time lighting, interactive 3D navigation, and adaptive mobile fallback.
       </p>
       <p align="center">
-        <a href="https://github.com/JunichiGetCode/Porto-Fatih"><b>View Repository ↗</b></a>
+        <a href="https://itsfatih.vercel.app"><b>Live Demo ↗</b></a> • <a href="https://github.com/JunichiGetCode/Porto-Fatih"><b>Repository ↗</b></a>
       </p>
     </td>
     <td width="50%" valign="top">
