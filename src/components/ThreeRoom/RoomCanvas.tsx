@@ -5,7 +5,6 @@ import * as THREE from "three";
 import {
   createParquetFloorTextures,
   createCarpetTexture,
-  createAcousticSlatsTexture,
   createSkyTexture,
   createWhiteboardTexture,
   createDigitalClockTexture,
@@ -661,20 +660,9 @@ export default function RoomCanvas({
     ceiling.position.set(0, 5.3, 0);
     scene.add(ceiling);
 
-    // Feature Accent Wall: Acoustic Wood Fluted Slats behind Desk
-    const slatsMat = new THREE.MeshStandardMaterial({
-      map: createAcousticSlatsTexture(),
-      roughness: 0.55,
-      metalness: 0.05,
-    });
-    const acousticWall = new THREE.Mesh(new THREE.BoxGeometry(5.0, 5.2, 0.05), slatsMat);
-    acousticWall.position.set(-1.8, 2.6, -4.98);
-    acousticWall.receiveShadow = true;
-    scene.add(acousticWall);
-
-    // Hidden LED backlight strip behind desk washing up the wood slats
-    const deskLedStrip = new THREE.PointLight("#f59e0b", isLightOn ? 2.5 : 0.4, 4.8);
-    deskLedStrip.position.set(-1.8, 1.6, -2.6);
+    // Warm Architectural Ambient Accent behind workstation desk
+    const deskLedStrip = new THREE.PointLight("#FFE600", isLightOn ? 2.2 : 0.4, 5.0);
+    deskLedStrip.position.set(-1.8, 1.8, -4.6);
     scene.add(deskLedStrip);
 
     // Designer Ceiling Pendant Lamp
@@ -760,26 +748,6 @@ export default function RoomCanvas({
       plantGroup.add(leaf);
     }
     windowGroup.add(plantGroup);
-
-    // 14 Horizontal Venetian Blind Slats (Level and horizontal, rotating around Z to angle the blades open)
-    const blindMat = new THREE.MeshStandardMaterial({ color: "#334155", roughness: 0.5 });
-    for (let s = 0; s < 14; s++) {
-      const slatY = -1.15 + s * 0.18;
-      const slat = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.015, 3.6), blindMat);
-      slat.position.set(0.04, slatY, 0);
-      slat.rotation.z = 0.25; // Rotates blade around Z axis (stays 100% level & horizontal along window!)
-      slat.castShadow = true;
-      windowGroup.add(slat);
-    }
-
-    // Vertical String Ladder Cords
-    const cordMat = new THREE.MeshBasicMaterial({ color: "#64748b" });
-    const cord1 = new THREE.Mesh(new THREE.CylinderGeometry(0.003, 0.003, 2.5, 8), cordMat);
-    cord1.position.set(0.04, 0, -1.2);
-    windowGroup.add(cord1);
-    const cord2 = new THREE.Mesh(new THREE.CylinderGeometry(0.003, 0.003, 2.5, 8), cordMat);
-    cord2.position.set(0.04, 0, 1.2);
-    windowGroup.add(cord2);
 
     scene.add(windowGroup);
 
@@ -996,124 +964,120 @@ export default function RoomCanvas({
       return frameGroup;
     };
 
-    // --- RIGHT WALL PROJECT GALLERY (Organized 4-Bay Exhibition Wall) ---
-    // Bay 1: Z = -3.2 (Lounge area)
-    // 1. TangkapIN AI (Top)
-    const frameTangkapin = createWallGalleryFrame(
-      "/tangkapin.png",
-      "TangkapIN AI",
-      "Smart Waste Classification • Flutter & PyTorch",
-      1.9,
-      1.2,
-      "#00F08B"
-    );
-    frameTangkapin.position.set(5.0, 3.6, -3.2);
-    frameTangkapin.rotation.y = -Math.PI / 2;
-    scene.add(frameTangkapin);
-    galleryFrames.push(frameTangkapin);
-
-    // 2. Barbershop Booking (Bottom)
-    const frameBarbershop = createWallGalleryFrame(
-      "/barbershop.png",
-      "Barbershop Booking",
-      "Real-time Queue & POS • Laravel",
-      1.6,
-      1.0,
-      "#FFE600"
-    );
-    frameBarbershop.position.set(5.0, 1.7, -3.2);
-    frameBarbershop.rotation.y = -Math.PI / 2;
-    scene.add(frameBarbershop);
-    galleryFrames.push(frameBarbershop);
-
-    // Bay 2: Z = -1.0 (Middle open wall)
-    // 3. AI Mock Interview (Top)
-    const frameAiInterview = createWallGalleryFrame(
-      "/ai_interview.png",
-      "AI Mock Interview",
-      "Gemini AI • Audio Streaming • Next.js",
-      1.9,
-      1.2,
-      "#FF3366"
-    );
-    frameAiInterview.position.set(5.0, 3.6, -1.0);
-    frameAiInterview.rotation.y = -Math.PI / 2;
-    scene.add(frameAiInterview);
-    galleryFrames.push(frameAiInterview);
-
-    // 4. Odoo ERP Solutions (Bottom)
-    const frameOdoo = createWallGalleryFrame(
-      "/odoo.jpeg",
-      "Odoo ERP Solutions",
-      "Enterprise Custom Modules • Python",
-      1.6,
-      1.0,
-      "#8B5CF6"
-    );
-    frameOdoo.position.set(5.0, 1.7, -1.0);
-    frameOdoo.rotation.y = -Math.PI / 2;
-    scene.add(frameOdoo);
-    galleryFrames.push(frameOdoo);
-
-    // Bay 3: Z = 1.3 (Above Bed)
-    // 5. HaramainQu Mobile (Top)
-    const frameHaramainQu = createWallGalleryFrame(
-      "/haramainqu.jpeg",
-      "HaramainQu Mobile",
-      "Umrah & Hajj Offline Guide • Flutter",
-      1.8,
-      1.2,
-      "#00F08B"
-    );
-    frameHaramainQu.position.set(5.0, 3.6, 1.3);
-    frameHaramainQu.rotation.y = -Math.PI / 2;
-    scene.add(frameHaramainQu);
-    galleryFrames.push(frameHaramainQu);
-
-    // Bay 4: Z = 3.5 (Bed lounge foot area)
-    // 6. TelEvent Platform (Top)
-    const frameTelevent = createWallGalleryFrame(
-      "/televent.png",
-      "TelEvent Telkom University",
-      "televent.vercel.app • Next.js & Event Hub",
-      1.8,
-      1.2,
-      "#00D2FF"
-    );
-    frameTelevent.position.set(5.0, 3.6, 3.5);
-    frameTelevent.rotation.y = -Math.PI / 2;
-    scene.add(frameTelevent);
-    galleryFrames.push(frameTelevent);
-
-    // --- BACK WALL GALLERY (Showcases Juragan Bakso & Haramain Tour) ---
-    // 7. Juragan Bakso (Grand Featured Showcase with live link preview!)
-    const frameBakso = createWallGalleryFrame(
-      "/bakso_preview.png",
-      "Juragan Bakso — SaaS POS",
-      "si-bakso.vercel.app • Next.js & Midtrans",
-      2.4,
-      1.3,
-      "#FFE600"
-    );
-    frameBakso.position.set(2.4, 4.3, -5.0);
-    scene.add(frameBakso);
-    galleryFrames.push(frameBakso);
-
-    // 8. Haramain Tour Web
+    // --- 1. BACK WALL PROJECT SHOWCASE (Flagship Web Applications above Workstation) ---
+    // Haramain Tour Web (Unobstructed view, clear of corner and window)
     const frameHaramainTour = createWallGalleryFrame(
       "/haramain_tour.png",
       "Haramain Tour Web",
       "Pilgrimage Travel CMS • Next.js",
       1.8,
-      1.1,
+      1.15,
       "#00D2FF"
     );
-    frameHaramainTour.position.set(-3.6, 4.3, -5.0);
+    frameHaramainTour.position.set(-3.3, 3.35, -4.95);
     scene.add(frameHaramainTour);
     galleryFrames.push(frameHaramainTour);
 
-    // --- LEFT WALL (Profile Portrait hanging above Console Table) ---
-    // 9. Lead Developer Profile Portrait
+    // Juragan Bakso (Grand SaaS POS with live demo)
+    const frameBakso = createWallGalleryFrame(
+      "/bakso_preview.png",
+      "Juragan Bakso — SaaS POS",
+      "si-bakso.vercel.app • Next.js & Midtrans",
+      2.1,
+      1.25,
+      "#FFE600"
+    );
+    frameBakso.position.set(-1.1, 3.35, -4.95);
+    scene.add(frameBakso);
+    galleryFrames.push(frameBakso);
+
+    // --- 2. RIGHT WALL PROJECT GALLERY (Single Cohesive Eye-Level Museum Row) ---
+    // Bay 1: TangkapIN AI
+    const frameTangkapin = createWallGalleryFrame(
+      "/tangkapin.png",
+      "TangkapIN AI",
+      "Smart Waste Classification • Flutter & PyTorch",
+      1.7,
+      1.1,
+      "#00F08B"
+    );
+    frameTangkapin.position.set(4.95, 3.1, -3.4);
+    frameTangkapin.rotation.y = -Math.PI / 2;
+    scene.add(frameTangkapin);
+    galleryFrames.push(frameTangkapin);
+
+    // Bay 2: AI Mock Interview
+    const frameAiInterview = createWallGalleryFrame(
+      "/ai_interview.png",
+      "AI Mock Interview",
+      "Gemini AI • Audio Streaming • Next.js",
+      1.7,
+      1.1,
+      "#FF3366"
+    );
+    frameAiInterview.position.set(4.95, 3.1, -1.7);
+    frameAiInterview.rotation.y = -Math.PI / 2;
+    scene.add(frameAiInterview);
+    galleryFrames.push(frameAiInterview);
+
+    // Bay 3: TelEvent Platform (Center Exhibition Piece with live demo)
+    const frameTelevent = createWallGalleryFrame(
+      "/televent.png",
+      "TelEvent Telkom University",
+      "televent.vercel.app • Next.js & Event Hub",
+      1.8,
+      1.15,
+      "#00D2FF"
+    );
+    frameTelevent.position.set(4.95, 3.1, 0.0);
+    frameTelevent.rotation.y = -Math.PI / 2;
+    scene.add(frameTelevent);
+    galleryFrames.push(frameTelevent);
+
+    // Bay 4: HaramainQu Mobile
+    const frameHaramainQu = createWallGalleryFrame(
+      "/haramainqu.jpeg",
+      "HaramainQu Mobile",
+      "Umrah & Hajj Offline Guide • Flutter",
+      1.7,
+      1.1,
+      "#00F08B"
+    );
+    frameHaramainQu.position.set(4.95, 3.1, 1.7);
+    frameHaramainQu.rotation.y = -Math.PI / 2;
+    scene.add(frameHaramainQu);
+    galleryFrames.push(frameHaramainQu);
+
+    // Bay 5: Barbershop Booking
+    const frameBarbershop = createWallGalleryFrame(
+      "/barbershop.png",
+      "Barbershop Booking",
+      "Real-time Queue & POS • Laravel",
+      1.7,
+      1.1,
+      "#FFE600"
+    );
+    frameBarbershop.position.set(4.95, 3.1, 3.4);
+    frameBarbershop.rotation.y = -Math.PI / 2;
+    scene.add(frameBarbershop);
+    galleryFrames.push(frameBarbershop);
+
+    // --- 3. LEFT WALL GALLERY (Odoo ERP beside workstation, Profile Portrait beside entrance) ---
+    // Odoo ERP Solutions (Mounted on solid wall section beside workstation desk)
+    const frameOdoo = createWallGalleryFrame(
+      "/odoo.jpeg",
+      "Odoo ERP Solutions",
+      "Enterprise Custom Modules • Python",
+      1.5,
+      1.05,
+      "#8B5CF6"
+    );
+    frameOdoo.position.set(-4.95, 3.1, -4.05);
+    frameOdoo.rotation.y = Math.PI / 2;
+    scene.add(frameOdoo);
+    galleryFrames.push(frameOdoo);
+
+    // Lead Developer Profile Portrait (Mounted above console table with smartphone)
     const frameProfile = createWallGalleryFrame(
       "/profile.jpeg",
       "Muhammad Fatih Rahman",
@@ -1122,7 +1086,7 @@ export default function RoomCanvas({
       1.4,
       "#FFE600"
     );
-    frameProfile.position.set(-5.0, 3.0, 1.4);
+    frameProfile.position.set(-4.95, 3.0, 1.4);
     frameProfile.rotation.y = Math.PI / 2;
     scene.add(frameProfile);
     galleryFrames.push(frameProfile);
@@ -1201,8 +1165,8 @@ export default function RoomCanvas({
       return shelf;
     };
 
-    scene.add(createFloatingShelf(5.0, 2.1, 1.3, 1.6));
-    scene.add(createFloatingShelf(5.0, 2.1, 3.5, 1.6));
+    scene.add(createFloatingShelf(4.95, 1.85, 1.7, 1.5));
+    scene.add(createFloatingShelf(4.95, 1.85, 3.4, 1.5));
 
     // ==========================================
     // INTERACTIVE GROUP 1: WORKSTATION / PC (PROJECTS)
@@ -1496,26 +1460,26 @@ export default function RoomCanvas({
 
     // 1. Architectural Whiteboard mounted FLAT against the Back Wall (Z = -4.96)
     const boardGroup = new THREE.Group();
-    boardGroup.position.set(0.6, 2.5, -4.96);
+    boardGroup.position.set(1.4, 2.4, -4.96);
 
     const boardFrame = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 2.0, 0.06),
+      new THREE.BoxGeometry(2.7, 1.85, 0.06),
       new THREE.MeshStandardMaterial({ color: "#334155", metalness: 0.7, roughness: 0.3 })
     );
     boardFrame.castShadow = true;
     boardGroup.add(boardFrame);
 
     const boardMat = new THREE.MeshBasicMaterial({ map: createWhiteboardTexture() });
-    const boardSurface = new THREE.Mesh(new THREE.PlaneGeometry(3.08, 1.88), boardMat);
+    const boardSurface = new THREE.Mesh(new THREE.PlaneGeometry(2.58, 1.73), boardMat);
     boardSurface.position.set(0, 0, 0.035);
     boardGroup.add(boardSurface);
 
     skillsGroup.add(boardGroup);
 
-    // 2. Modern Open Bookshelf (Lemari Buku) tucked flush against Back Wall to the right (X = 3.6, Z = -4.85)
-    // Zero collision with whiteboard (0.6m clear open wall gap between them)!
+    // 2. Modern Open Bookshelf (Lemari Buku) tucked flush against Back Wall to the right (X = 3.7, Z = -4.85)
+    // Zero collision with whiteboard (clean open wall gap between them)!
     const shelfGroup = new THREE.Group();
-    shelfGroup.position.set(3.6, 0, -4.85);
+    shelfGroup.position.set(3.7, 0, -4.85);
 
     const shelfMat = new THREE.MeshStandardMaterial({ color: "#1e1e24", roughness: 0.4 });
     const bookcaseWoodMat = new THREE.MeshStandardMaterial({ color: "#2d3748", roughness: 0.5 });
