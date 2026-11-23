@@ -33,87 +33,86 @@ export default function RoomHUD({
 }: RoomHUDProps) {
   const [isHintDismissed, setIsHintDismissed] = React.useState(false);
   const navItems: { key: SectionType; idLabel: string; enLabel: string; icon: string }[] = [
-    { key: null, idLabel: "Ruangan", enLabel: "Overview", icon: "🏠" },
-    { key: "about", idLabel: "Tentang Saya", enLabel: "About Me", icon: "🛏️" },
-    { key: "projects", idLabel: "Proyek & Portofolio", enLabel: "Projects", icon: "💻" },
-    { key: "skills", idLabel: "Stack & Skill", enLabel: "Tech Stack", icon: "📚" },
-    { key: "contact", idLabel: "Kontak", enLabel: "Contact", icon: "🚪" },
+    { key: null, idLabel: "RUANGAN", enLabel: "OVERVIEW", icon: "🏠" },
+    { key: "about", idLabel: "TENTANG", enLabel: "ABOUT", icon: "🛏️" },
+    { key: "projects", idLabel: "PROYEK", enLabel: "PROJECTS", icon: "💻" },
+    { key: "skills", idLabel: "STACK", enLabel: "STACK", icon: "📚" },
+    { key: "contact", idLabel: "KONTAK", enLabel: "CONTACT", icon: "🚪" },
   ];
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-30 flex flex-col justify-between p-3 sm:p-6">
+    <div className="pointer-events-none fixed inset-0 z-30 flex flex-col justify-between p-3 sm:p-5">
       {/* TOP HEADER BAR */}
       <header className="pointer-events-auto flex flex-wrap items-center justify-between gap-3 w-full max-w-7xl mx-auto">
         {/* Profile Identity Pill */}
-        <div className="flex items-center gap-3 px-3.5 py-2 rounded-2xl bg-surface-950/80 backdrop-blur-xl border border-white/10 shadow-2xl">
-          <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-cyan-500/40 ring-2 ring-cyan-500/20 bg-surface-950">
+        <div className="flex items-center gap-3 px-3 py-2 bg-[#171720] border-3 border-black shadow-[4px_4px_0px_#000]">
+          <div className="w-9 h-9 bg-[#FFE600] border-2 border-black shadow-[2px_2px_0px_#000] flex items-center justify-center p-0.5 flex-shrink-0">
             <Image
               src="/logo-mark.svg"
               alt="Fatih.dev Logo"
-              fill
-              sizes="36px"
-              className="object-contain p-0.5"
+              width={30}
+              height={30}
+              className="object-contain"
             />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs sm:text-sm font-bold text-white leading-tight">
-                Muhammad Fatih Rahman
+              <span className="text-xs sm:text-sm font-mono font-black text-white uppercase tracking-tight">
+                M. Fatih Rahman
               </span>
-              <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] text-emerald-400 font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                POV Room v2.0
+              <span className="hidden sm:inline-flex items-center px-1.5 py-0.5 bg-[#00F08B] text-black border border-black font-mono text-[9px] font-black uppercase">
+                3D POV v2.0
               </span>
             </div>
-            <p className="text-[11px] text-surface-400 font-medium">
-              Full-Stack & Mobile Developer
+            <p className="text-[10px] font-mono text-[#00D2FF] font-bold">
+              FULL-STACK & MOBILE
             </p>
           </div>
         </div>
 
         {/* Right Action Controls */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
-          {/* Day / Night Toggle (Sun vs Moon) */}
+        <div className="flex flex-wrap items-center gap-2">
+          {/* Day / Night Toggle */}
           <button
             onClick={onToggleTimeOfDay}
             title={
               language === "id"
-                ? `Waktu: ${timeOfDay === "day" ? "Siang" : "Malam"} (Klik untuk ganti)`
-                : `Time: ${timeOfDay === "day" ? "Day" : "Night"} (Click to toggle)`
+                ? `Waktu: ${timeOfDay === "day" ? "Siang" : "Malam"}`
+                : `Time: ${timeOfDay === "day" ? "Day" : "Night"}`
             }
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-xl backdrop-blur-xl border text-xs font-semibold transition-all duration-200 shadow-xl cursor-pointer ${
+            className={`neo-btn px-3 py-2 text-xs border-2 border-black ${
               timeOfDay === "day"
-                ? "bg-amber-500/20 hover:bg-amber-500/30 border-amber-400/40 text-amber-300"
-                : "bg-indigo-950/80 hover:bg-indigo-900 border-indigo-400/30 text-indigo-300"
+                ? "bg-[#FFE600] text-black shadow-[3px_3px_0px_#000]"
+                : "bg-[#171720] text-[#FFE600] shadow-[3px_3px_0px_#000]"
             }`}
           >
             <span>{timeOfDay === "day" ? "☀️" : "🌙"}</span>
-            <span className="hidden md:inline">
+            <span className="hidden md:inline font-mono font-black">
               {timeOfDay === "day"
-                ? language === "id" ? "Siang" : "Day"
-                : language === "id" ? "Malam" : "Night"}
+                ? language === "id" ? "SIANG" : "DAY"
+                : language === "id" ? "MALAM" : "NIGHT"}
             </span>
           </button>
 
-          {/* Room Lights Toggle (ON / OFF) */}
+          {/* Room Lights Toggle */}
           <button
             onClick={onToggleLight}
             title={
               language === "id"
-                ? `Lampu Ruangan: ${isLightOn ? "NYALA" : "MATI"} (Klik sakelar)`
-                : `Room Lights: ${isLightOn ? "ON" : "OFF"} (Click switch)`
+                ? `Lampu: ${isLightOn ? "NYALA" : "MATI"}`
+                : `Lights: ${isLightOn ? "ON" : "OFF"}`
             }
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-xl backdrop-blur-xl border text-xs font-semibold transition-all duration-200 shadow-xl cursor-pointer ${
+            className={`neo-btn px-3 py-2 text-xs border-2 border-black ${
               isLightOn
-                ? "bg-yellow-500/20 hover:bg-yellow-500/30 border-yellow-400/50 text-yellow-300"
-                : "bg-surface-950/80 hover:bg-surface-900 border-white/10 text-surface-400"
+                ? "bg-[#FFE600] text-black shadow-[3px_3px_0px_#000]"
+                : "bg-black text-zinc-400 shadow-[3px_3px_0px_#000]"
             }`}
           >
             <span>💡</span>
-            <span className="hidden md:inline">
+            <span className="hidden md:inline font-mono font-black">
               {isLightOn
-                ? language === "id" ? "Lampu Nyala" : "Lights On"
-                : language === "id" ? "Lampu Mati" : "Lights Off"}
+                ? language === "id" ? "LAMPU: ON" : "LIGHTS: ON"
+                : language === "id" ? "LAMPU: OFF" : "LIGHTS: OFF"}
             </span>
           </button>
 
@@ -121,12 +120,10 @@ export default function RoomHUD({
           <button
             onClick={onResetCamera}
             title={language === "id" ? "Reset Sudut Pandangan" : "Reset POV Angle"}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-950/80 hover:bg-surface-900 backdrop-blur-xl border border-white/10 text-xs font-semibold text-surface-300 hover:text-white transition-all duration-200 shadow-xl cursor-pointer"
+            className="neo-btn px-3 py-2 text-xs bg-white text-black border-2 border-black shadow-[3px_3px_0px_#000]"
           >
-            <span className="text-sm">🔄</span>
-            <span className="hidden lg:inline">
-              {language === "id" ? "Reset POV" : "Reset View"}
-            </span>
+            <span>🔄</span>
+            <span className="hidden lg:inline font-mono font-black">RESET POV</span>
           </button>
 
           {/* Switch to Classic Scroll Mode */}
@@ -134,62 +131,50 @@ export default function RoomHUD({
             onClick={onToggleClassicMode}
             title={
               language === "id"
-                ? "Beralih ke mode tampilan gulir standar"
+                ? "Beralih ke tampilan standar gulir"
                 : "Switch to standard scroll view"
             }
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-950/80 hover:bg-surface-900 backdrop-blur-xl border border-white/10 text-xs font-semibold text-surface-300 hover:text-white transition-all duration-200 shadow-xl cursor-pointer"
+            className="neo-btn px-3 py-2 text-xs bg-[#00D2FF] text-black border-2 border-black shadow-[3px_3px_0px_#000]"
           >
-            <span className="text-sm">📜</span>
-            <span className="hidden lg:inline">
-              {language === "id" ? "Scroll Klasik" : "Classic Mode"}
+            <span>📜</span>
+            <span className="hidden lg:inline font-mono font-black">
+              {language === "id" ? "KLASIK" : "CLASSIC"}
             </span>
           </button>
 
           {/* Interactive 3D Room Guide Button */}
           <button
             onClick={onOpenGuide}
-            title={
-              language === "id"
-                ? "Penjelasan fitur: Apa saja yang bisa dilakukan di 3D Room?"
-                : "Feature Guide: What can you do in this 3D Room?"
-            }
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-primary-600/30 to-indigo-600/30 hover:from-primary-600/50 hover:to-indigo-600/50 backdrop-blur-xl border border-primary-400/40 text-xs font-bold text-white transition-all duration-200 shadow-xl shadow-primary-500/20 cursor-pointer"
+            title={language === "id" ? "Panduan Fitur Ruangan" : "Room Feature Guide"}
+            className="neo-btn px-3 py-2 text-xs bg-[#FF3366] text-white border-2 border-black shadow-[3px_3px_0px_#000]"
           >
-            <span className="text-sm">❓</span>
-            <span className="hidden sm:inline">
-              {language === "id" ? "Panduan Ruangan" : "Room Guide"}
+            <span>❓</span>
+            <span className="hidden sm:inline font-mono font-black">
+              {language === "id" ? "PANDUAN" : "GUIDE"}
             </span>
           </button>
 
-          {/* Prominent Dual Segmented Language Switcher */}
-          <div
-            className="flex items-center p-1 rounded-xl bg-surface-950/90 backdrop-blur-xl border border-white/15 shadow-xl"
-            role="group"
-            aria-label="Language Switcher"
-          >
+          {/* Language Switcher */}
+          <div className="flex items-center bg-[#171720] border-2 border-black shadow-[3px_3px_0px_#000] p-0.5">
             <button
               onClick={() => language !== "id" && onToggleLanguage()}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-extrabold transition-all cursor-pointer ${
+              className={`px-2 py-1 text-xs font-mono font-black transition-all cursor-pointer ${
                 language === "id"
-                  ? "bg-primary-600 text-white shadow-md shadow-primary-600/50"
-                  : "text-surface-400 hover:text-white"
+                  ? "bg-[#FFE600] text-black border border-black shadow-[1px_1px_0px_#000]"
+                  : "text-zinc-400 hover:text-white"
               }`}
-              title="Gunakan Bahasa Indonesia"
             >
-              <span>🇮🇩</span>
-              <span>ID</span>
+              ID
             </button>
             <button
               onClick={() => language !== "en" && onToggleLanguage()}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-extrabold transition-all cursor-pointer ${
+              className={`px-2 py-1 text-xs font-mono font-black transition-all cursor-pointer ${
                 language === "en"
-                  ? "bg-primary-600 text-white shadow-md shadow-primary-600/50"
-                  : "text-surface-400 hover:text-white"
+                  ? "bg-[#FFE600] text-black border border-black shadow-[1px_1px_0px_#000]"
+                : "text-zinc-400 hover:text-white"
               }`}
-              title="Switch to English"
             >
-              <span>🇬🇧</span>
-              <span>EN</span>
+              EN
             </button>
           </div>
         </div>
@@ -197,13 +182,13 @@ export default function RoomHUD({
 
       {/* FLOATING QUICK HINT HELPER (BOTTOM-LEFT) */}
       {!isHintDismissed && (
-        <div className="pointer-events-auto hidden md:flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-surface-950/85 backdrop-blur-xl border border-white/10 shadow-2xl max-w-lg animate-fade-in self-start ml-2 mb-2">
-          <span className="text-xl">🎮</span>
+        <div className="pointer-events-auto hidden md:flex items-center gap-3 px-4 py-2.5 bg-[#171720] border-3 border-black shadow-[5px_5px_0px_#000] max-w-lg animate-fade-in self-start ml-2 mb-2 text-white">
+          <span className="text-xl">🕹️</span>
           <div className="text-xs">
-            <p className="font-bold text-white leading-tight">
-              {language === "id" ? "Eksplorasi Ruangan 3D" : "Explore 3D Room"}
+            <p className="font-mono font-black text-[#FFE600] uppercase">
+              {language === "id" ? "KONTROL NAVIGASI 3D" : "3D NAVIGATION"}
             </p>
-            <p className="text-[11px] text-surface-400">
+            <p className="text-[11px] font-mono text-zinc-300">
               {language === "id"
                 ? "Gunakan tombol [W][A][S][D] untuk jalan & klik objek (PC, Kasur, Rak) untuk membuka konten."
                 : "Use [W][A][S][D] keys to walk & click objects (PC, Bed, Shelves) to open content."}
@@ -211,14 +196,14 @@ export default function RoomHUD({
           </div>
           <button
             onClick={onOpenGuide}
-            className="px-2.5 py-1 rounded-lg bg-primary-600/30 hover:bg-primary-600 text-[11px] font-bold text-primary-300 hover:text-white border border-primary-500/30 transition-all whitespace-nowrap cursor-pointer ml-1"
+            className="px-2 py-1 bg-[#FFE600] text-black font-mono font-black text-[10px] uppercase border border-black shadow-[2px_2px_0px_#000] cursor-pointer ml-1 whitespace-nowrap"
           >
-            {language === "id" ? "Panduan" : "Guide"}
+            {language === "id" ? "INFO" : "HELP"}
           </button>
           <button
             onClick={() => setIsHintDismissed(true)}
-            className="text-surface-500 hover:text-surface-300 text-xs p-1"
-            title={language === "id" ? "Sembunyikan tips" : "Dismiss tips"}
+            className="text-zinc-400 hover:text-white font-mono font-black text-xs p-1 ml-1 cursor-pointer"
+            title="Dismiss"
           >
             ✕
           </button>
@@ -226,9 +211,9 @@ export default function RoomHUD({
       )}
 
       {/* BOTTOM NAVIGATION DOCK */}
-      <footer className="pointer-events-auto w-full max-w-xl mx-auto mb-2 sm:mb-4">
+      <footer className="pointer-events-auto w-full max-w-xl mx-auto mb-2 sm:mb-3">
         <nav
-          className="flex items-center justify-between gap-1 sm:gap-2 p-1.5 sm:p-2 rounded-3xl bg-surface-950/85 backdrop-blur-2xl border border-white/15 shadow-2xl shadow-black/80"
+          className="flex items-center justify-between gap-1 sm:gap-2 p-1.5 bg-[#171720] border-3 border-black shadow-[8px_8px_0px_#000]"
           aria-label="3D Room Navigation"
         >
           {navItems.map((item) => {
@@ -237,19 +222,16 @@ export default function RoomHUD({
               <button
                 key={item.key ?? "overview"}
                 onClick={() => onSelectSection(item.key)}
-                className={`relative flex-1 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-2 sm:px-3 rounded-2xl text-xs font-semibold transition-all duration-300 cursor-pointer ${
+                className={`neo-btn flex-1 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 px-2 text-xs border-2 border-black ${
                   isActive
-                    ? "bg-gradient-to-r from-primary-600 to-indigo-600 text-white shadow-lg shadow-primary-500/30 scale-102"
-                    : "text-surface-400 hover:text-white hover:bg-white/5"
+                    ? "bg-[#FFE600] text-black shadow-[3px_3px_0px_#000] scale-102"
+                    : "bg-[#0D0D12] text-zinc-300 hover:text-white hover:bg-black shadow-[2px_2px_0px_#000]"
                 }`}
               >
-                <span className="text-lg sm:text-base">{item.icon}</span>
-                <span className="text-[10px] sm:text-xs truncate">
+                <span className="text-base sm:text-sm">{item.icon}</span>
+                <span className="text-[10px] sm:text-xs font-mono font-black truncate">
                   {language === "id" ? item.idLabel : item.enLabel}
                 </span>
-                {isActive && (
-                  <span className="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse" />
-                )}
               </button>
             );
           })}

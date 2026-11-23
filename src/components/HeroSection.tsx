@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import ParticleBackground from "./ParticleBackground";
 import Typewriter from "./Typewriter";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -11,73 +10,64 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden"
+      className="relative min-h-[92vh] lg:min-h-screen flex flex-col justify-center pt-24 pb-12 overflow-hidden bg-[#0D0D12] neo-grid-dark-bg"
     >
-      {/* Particle Background */}
-      <ParticleBackground />
-
-      {/* Subtle Animated Glow Orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute -top-32 -left-32 w-[30rem] h-[30rem] rounded-full animate-float opacity-30"
-          style={{
-            background: "radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%)",
-            animationDelay: "0s",
-          }}
-        />
-        <div
-          className="absolute top-1/4 -right-24 w-[26rem] h-[26rem] rounded-full animate-float opacity-20"
-          style={{
-            background: "radial-gradient(circle, rgba(52,211,153,0.2) 0%, transparent 70%)",
-            animationDelay: "2.5s",
-          }}
-        />
-        <div
-          className="absolute -bottom-24 left-1/3 w-[24rem] h-[24rem] rounded-full animate-float opacity-25"
-          style={{
-            background: "radial-gradient(circle, rgba(168,85,247,0.2) 0%, transparent 70%)",
-            animationDelay: "4.5s",
-          }}
-        />
-
-        {/* Technical Grid Pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: "48px 48px",
-          }}
-        />
+      {/* Neo-Brutalist High-Voltage Marquee Tape */}
+      <div className="w-full bg-[#FFE600] border-y-3 border-black py-2.5 overflow-hidden mb-8 shadow-[0px_4px_0px_0px_#000]">
+        <div className="animate-marquee whitespace-nowrap flex items-center gap-8 font-mono font-black text-xs sm:text-sm text-black uppercase tracking-wider">
+          <span>⚡ FULL-STACK ARCHITECTURE</span>
+          <span>★</span>
+          <span>FLUTTER & MOBILE DEV</span>
+          <span>★</span>
+          <span>LARAVEL & NEXT.JS 16</span>
+          <span>★</span>
+          <span>INTERACTIVE THREE.JS 3D</span>
+          <span>★</span>
+          <span>TELKOM UNIVERSITY JAKARTA</span>
+          <span>★</span>
+          <span>AVAILABLE FOR FREELANCE & FULLTIME</span>
+          <span>★</span>
+          {/* Duplicate loop */}
+          <span>⚡ FULL-STACK ARCHITECTURE</span>
+          <span>★</span>
+          <span>FLUTTER & MOBILE DEV</span>
+          <span>★</span>
+          <span>LARAVEL & NEXT.JS 16</span>
+          <span>★</span>
+          <span>INTERACTIVE THREE.JS 3D</span>
+          <span>★</span>
+          <span>TELKOM UNIVERSITY JAKARTA</span>
+          <span>★</span>
+          <span>AVAILABLE FOR FREELANCE & FULLTIME</span>
+          <span>★</span>
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-14">
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
             {/* Status & Availability Badge */}
-            <div className="animate-fade-in-up mb-6 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface-900/80 border border-primary-500/20 text-xs font-medium text-surface-200 backdrop-blur-md shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-400" />
-              </span>
+            <div className="animate-fade-in-up mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#00F08B] text-black border-2 border-black shadow-[3px_3px_0px_#000] font-mono text-xs font-black uppercase">
+              <span className="w-2.5 h-2.5 bg-black rounded-none animate-pulse" />
               <span>{data.hero.available}</span>
             </div>
 
-            {/* Main Greeting & Positioning */}
-            <h1 className="animate-fade-in-up text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4">
-              <span className="text-surface-300 block text-lg sm:text-xl font-mono font-medium mb-1 tracking-normal">
-                {data.hero.greeting}
+            {/* Brutalist Display Headline */}
+            <h1 className="animate-fade-in-up text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-4 text-white uppercase font-sans">
+              <span className="text-[#00D2FF] block text-base sm:text-lg font-mono font-bold mb-2 tracking-widest">
+                {"//"} {data.hero.greeting}
               </span>
-              <span className="text-white">{data.hero.nameFirst} </span>
-              <span className="bg-gradient-to-r from-primary-400 via-indigo-300 to-accent-300 bg-clip-text text-transparent">
+              <span>{data.hero.nameFirst} </span>
+              <span className="inline-block bg-[#FFE600] text-black px-2.5 py-0.5 border-3 border-black shadow-[4px_4px_0px_#000] rotate-[-1deg]">
                 {data.hero.nameLast}
               </span>
             </h1>
 
-            {/* Typewriter Specialization */}
-            <div className="animate-fade-in-up flex items-center justify-center lg:justify-start gap-3 mb-5">
-              <div className="h-0.5 w-6 bg-gradient-to-r from-primary-500 to-accent-400 rounded-full" />
-              <p className="text-base sm:text-lg text-primary-300 font-mono font-semibold tracking-wide">
+            {/* Typewriter Specialization Strip */}
+            <div className="animate-fade-in-up inline-flex items-center gap-2.5 px-3 py-1.5 bg-[#171720] border-2 border-black shadow-[3px_3px_0px_#000] mb-6">
+              <span className="font-mono text-xs font-bold text-[#FF3366]">&gt;&gt;</span>
+              <p className="text-sm sm:text-base text-zinc-100 font-mono font-bold tracking-wide">
                 <Typewriter
                   texts={data.hero.typewriter}
                   speed={65}
@@ -88,88 +78,89 @@ export default function HeroSection() {
             </div>
 
             {/* High-Conversion Value Proposition */}
-            <p className="animate-fade-in-up max-w-xl text-sm sm:text-base text-surface-300/80 leading-relaxed mb-8 mx-auto lg:mx-0">
+            <p className="animate-fade-in-up max-w-xl text-sm sm:text-base text-zinc-300 leading-relaxed mb-8 mx-auto lg:mx-0 font-medium">
               {data.hero.description}
             </p>
 
             {/* Primary Action Buttons */}
-            <div className="animate-fade-in-up flex flex-wrap items-center justify-center lg:justify-start gap-3.5 mb-10">
+            <div className="animate-fade-in-up flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
               <a
                 href="#projects"
                 id="hero-cta-projects"
-                className="group relative inline-flex items-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-primary-600 to-indigo-600 hover:from-primary-500 hover:to-indigo-500 text-white font-semibold text-sm rounded-xl transition-all duration-300 shadow-lg shadow-primary-600/25 hover:shadow-primary-600/40 hover:-translate-y-0.5"
+                className="neo-btn px-6 py-3.5 bg-[#FFE600] text-black text-sm hover:bg-[#FFF066]"
               >
                 <span>{data.hero.viewProjects}</span>
-                <svg
-                  className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                <span className="font-mono text-base font-black">→</span>
               </a>
 
               <a
                 href="#contact"
                 id="hero-cta-contact"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-white/10 hover:border-primary-500/40 bg-white/5 hover:bg-white/10 text-white font-medium text-sm transition-all duration-200 hover:-translate-y-0.5"
+                className="neo-btn px-6 py-3.5 bg-white text-black text-sm hover:bg-zinc-100"
               >
                 <span>{data.hero.contactMe}</span>
+                <span className="font-mono text-base font-black">⚡</span>
               </a>
             </div>
 
-            {/* Quick Proof Metrics Strip (Passes the 30-Second Test) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-white/10">
+            {/* Tactile Metrics Strip */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t-3 border-black">
               {data.hero.quickStats.map((stat, i) => (
-                <div key={i} className="text-center lg:text-left">
-                  <div className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center justify-center lg:justify-start gap-1">
-                    <span className="bg-gradient-to-r from-white via-surface-100 to-primary-300 bg-clip-text text-transparent">
-                      {stat.number}
-                    </span>
+                <div
+                  key={i}
+                  className="p-3 bg-[#171720] border-2 border-black shadow-[3px_3px_0px_#000] text-center lg:text-left hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#000] transition-all"
+                >
+                  <div className="text-xl sm:text-2xl font-black text-[#FFE600] font-mono tracking-tight">
+                    {stat.number}
                   </div>
-                  <div className="text-xs font-semibold text-primary-300">{stat.label}</div>
-                  <div className="text-[11px] text-surface-400 hidden sm:block">{stat.sublabel}</div>
+                  <div className="text-xs font-bold text-white uppercase font-mono">{stat.label}</div>
+                  <div className="text-[10px] text-zinc-400 font-mono hidden sm:block">{stat.sublabel}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right Side - Interactive Profile Portrait */}
+          {/* Right Side - Neo-Brutalist Portrait Frame */}
           <div className="flex-shrink-0 order-1 lg:order-2">
-            <div className="relative group">
-              {/* Outer Glowing Rings */}
-              <div className="absolute -inset-4 rounded-3xl border border-primary-500/20 animate-[spin_35s_linear_infinite]" />
-              <div className="absolute -inset-8 rounded-3xl border border-accent-400/10 animate-[spin_50s_linear_infinite_reverse]" />
+            <div className="relative">
+              {/* Hard Drop-Block Shadow Plate */}
+              <div className="absolute inset-0 bg-[#00D2FF] border-3 border-black translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4" />
 
-              {/* Ambient Glow */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary-600/30 via-indigo-500/20 to-accent-400/20 blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Profile Card Container */}
-              <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden border border-white/15 bg-surface-900/80 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+              {/* Main Card */}
+              <div className="relative w-64 h-64 sm:w-76 sm:h-76 md:w-84 md:h-84 bg-white border-3 border-black overflow-hidden">
                 <Image
                   src="/profile.jpeg"
                   alt="Muhammad Fatih Rahman"
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="object-cover object-center grayscale contrast-110 hover:grayscale-0 transition-all duration-300"
                   priority
-                  sizes="(max-width: 640px) 240px, (max-width: 768px) 288px, 320px"
+                  sizes="(max-width: 640px) 256px, (max-width: 768px) 304px, 336px"
                 />
 
-                {/* Subtle Vignette Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-surface-950/80 via-transparent to-transparent opacity-80" />
-
-                {/* Floating Bottom Pill inside image */}
-                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-2xl bg-surface-950/85 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                {/* Bottom Label Bar */}
+                <div className="absolute bottom-0 left-0 right-0 p-3 bg-black text-white border-t-3 border-black flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-bold text-white leading-tight">M. Fatih Rahman</p>
-                    <p className="text-[11px] font-mono text-primary-400">Telkom Univ Jakarta</p>
+                    <p className="text-xs font-black font-mono uppercase tracking-wider text-[#FFE600]">
+                      M. Fatih Rahman
+                    </p>
+                    <p className="text-[10px] font-mono text-zinc-300">
+                      TELKOM UNIVERSITY
+                    </p>
                   </div>
-                  <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-accent-500/20 border border-accent-400/30 text-[10px] text-accent-300 font-semibold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-400 animate-pulse" />
-                    <span>Open to Work</span>
-                  </div>
+                  <span className="px-2 py-0.5 bg-[#00F08B] text-black font-mono text-[9px] font-black uppercase border border-black">
+                    VERIFIED
+                  </span>
                 </div>
+              </div>
+
+              {/* Sticker 1: Punch Pink Stamp */}
+              <div className="absolute -top-4 -left-4 px-3 py-1 bg-[#FF3366] text-white border-2 border-black shadow-[3px_3px_0px_#000] font-mono text-xs font-black uppercase rotate-[-6deg]">
+                SYS::ONLINE
+              </div>
+
+              {/* Sticker 2: Canary Yellow Stamp */}
+              <div className="absolute -bottom-3 -right-3 px-3 py-1 bg-[#FFE600] text-black border-2 border-black shadow-[3px_3px_0px_#000] font-mono text-xs font-black uppercase rotate-[4deg]">
+                3D POV READY
               </div>
             </div>
           </div>

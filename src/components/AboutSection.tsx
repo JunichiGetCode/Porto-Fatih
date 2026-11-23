@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import AnimateOnScroll from "./AnimateOnScroll";
-import TiltCard from "./TiltCard";
 import Counter from "./Counter";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -12,20 +11,20 @@ export default function AboutSection() {
   const [activeTab, setActiveTab] = useState<"bio" | "timeline" | "philosophy">("bio");
 
   return (
-    <section id="about" className="relative py-24 md:py-32 section-glow">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="relative py-20 md:py-28 bg-[#0D0D12] border-b-3 border-black neo-grid-dark-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <AnimateOnScroll className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/20 mb-4">
-            {data.about.badge}
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+          <div className="inline-block px-3.5 py-1 text-xs font-mono font-black tracking-widest uppercase bg-[#00D2FF] text-black border-2 border-black shadow-[3px_3px_0px_#000] mb-4">
+            [SECTION: 01] // {data.about.badge}
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-white uppercase font-sans tracking-tight mb-4">
             {data.about.title1}{" "}
-            <span className="bg-gradient-to-r from-primary-400 via-indigo-300 to-accent-300 bg-clip-text text-transparent">
+            <span className="inline-block bg-[#FFE600] text-black px-3 py-0.5 border-3 border-black shadow-[4px_4px_0px_#000] rotate-1">
               {data.about.title2}
             </span>
           </h2>
-          <p className="max-w-2xl mx-auto text-surface-300/80 text-base sm:text-lg">
+          <p className="max-w-2xl mx-auto text-zinc-300 text-sm sm:text-base font-medium">
             {data.about.subtitle}
           </p>
         </AnimateOnScroll>
@@ -34,78 +33,76 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-12 gap-10 items-start mb-16">
           {/* Left Column: Portrait & Identity (5 cols) */}
           <AnimateOnScroll animation="animate-slide-in-left" className="lg:col-span-5">
-            <TiltCard className="mx-auto max-w-md w-full">
-              <div className="relative group">
-                {/* Background ambient aura */}
-                <div className="absolute -inset-2 bg-gradient-to-br from-primary-500/20 via-accent-400/15 to-purple-500/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative mx-auto max-w-md w-full">
+              {/* Hard Drop-Block Shadow Slab */}
+              <div className="absolute inset-0 bg-[#FFE600] border-3 border-black translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4" />
 
-                {/* Card Container */}
-                <div className="relative rounded-3xl overflow-hidden bg-surface-900 border border-white/10 shadow-2xl">
-                  <div className="relative w-full h-[380px] sm:h-[440px]">
-                    <Image
-                      src="/odoo.jpeg"
-                      alt="Muhammad Fatih Rahman at work"
-                      fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 1024px) 100vw, 450px"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-surface-950 via-surface-950/40 to-transparent" />
+              {/* Main Card */}
+              <div className="relative border-3 border-black bg-[#171720] overflow-hidden">
+                <div className="relative w-full h-[380px] sm:h-[440px]">
+                  <Image
+                    src="/odoo.jpeg"
+                    alt="Muhammad Fatih Rahman at work"
+                    fill
+                    className="object-cover object-center grayscale contrast-115 hover:grayscale-0 transition-all duration-300"
+                    sizes="(max-width: 1024px) 100vw, 450px"
+                  />
 
-                    {/* Bottom Caption */}
-                    <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-surface-950/85 backdrop-blur-md border border-white/10">
-                      <div className="flex items-center justify-between mb-1">
-                        <h3 className="text-base font-bold text-white">M. Fatih Rahman</h3>
-                        <span className="flex items-center gap-1.5 text-[11px] text-accent-300 font-semibold">
-                          <span className="w-2 h-2 rounded-full bg-accent-400 animate-pulse" />
-                          <span>Information Systems</span>
-                        </span>
-                      </div>
-                      <p className="text-xs text-primary-300 font-mono">
-                        Telkom University Jakarta
-                      </p>
+                  {/* High-Contrast Bottom Plaque */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-black text-white border-t-3 border-black">
+                    <div className="flex items-center justify-between mb-1">
+                      <h3 className="text-base font-mono font-black text-[#FFE600] uppercase tracking-wide">
+                        M. Fatih Rahman
+                      </h3>
+                      <span className="px-2 py-0.5 bg-[#00F08B] text-black font-mono text-[10px] font-black uppercase border border-black">
+                        INFO SYSTEMS
+                      </span>
                     </div>
+                    <p className="text-xs text-zinc-300 font-mono">
+                      TELKOM UNIVERSITY JAKARTA
+                    </p>
                   </div>
                 </div>
-
-                {/* Floating Floating Pill */}
-                <div className="absolute -top-3 -right-3 px-3 py-1.5 rounded-full bg-surface-900/90 border border-primary-500/40 text-xs font-semibold text-primary-300 shadow-xl backdrop-blur-md animate-float">
-                  Full-Stack Dev
-                </div>
               </div>
-            </TiltCard>
+
+              {/* Floating Sticker */}
+              <div className="absolute -top-3 -right-3 px-3 py-1 bg-[#FF3366] text-white border-2 border-black font-mono font-black text-xs uppercase shadow-[3px_3px_0px_#000] rotate-[3deg]">
+                FULL-STACK & 3D
+              </div>
+            </div>
           </AnimateOnScroll>
 
           {/* Right Column: Interactive Story & Journey Tabs (7 cols) */}
           <AnimateOnScroll animation="animate-slide-in-right" className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-3xl bg-surface-900/70 border border-white/10 shadow-xl">
+            <div className="p-6 sm:p-8 bg-[#171720] border-3 border-black shadow-[6px_6px_0px_#000]">
               {/* Tab Navigation */}
-              <div className="flex items-center gap-2 pb-4 mb-6 border-b border-white/10 overflow-x-auto">
+              <div className="flex items-center gap-2 pb-4 mb-6 border-b-3 border-black overflow-x-auto">
                 <button
                   onClick={() => setActiveTab("bio")}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                  className={`px-4 py-2 text-xs sm:text-sm font-mono font-black uppercase transition-all duration-150 cursor-pointer whitespace-nowrap border-2 border-black ${
                     activeTab === "bio"
-                      ? "bg-primary-600 text-white shadow-md shadow-primary-600/30"
-                      : "text-surface-400 hover:text-white hover:bg-white/5"
+                      ? "bg-[#FFE600] text-black shadow-[3px_3px_0px_#000]"
+                      : "bg-[#0D0D12] text-zinc-300 hover:text-white hover:bg-black"
                   }`}
                 >
                   {data.about.tabs.bio}
                 </button>
                 <button
                   onClick={() => setActiveTab("timeline")}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                  className={`px-4 py-2 text-xs sm:text-sm font-mono font-black uppercase transition-all duration-150 cursor-pointer whitespace-nowrap border-2 border-black ${
                     activeTab === "timeline"
-                      ? "bg-primary-600 text-white shadow-md shadow-primary-600/30"
-                      : "text-surface-400 hover:text-white hover:bg-white/5"
+                      ? "bg-[#FFE600] text-black shadow-[3px_3px_0px_#000]"
+                      : "bg-[#0D0D12] text-zinc-300 hover:text-white hover:bg-black"
                   }`}
                 >
                   {data.about.tabs.timeline}
                 </button>
                 <button
                   onClick={() => setActiveTab("philosophy")}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                  className={`px-4 py-2 text-xs sm:text-sm font-mono font-black uppercase transition-all duration-150 cursor-pointer whitespace-nowrap border-2 border-black ${
                     activeTab === "philosophy"
-                      ? "bg-primary-600 text-white shadow-md shadow-primary-600/30"
-                      : "text-surface-400 hover:text-white hover:bg-white/5"
+                      ? "bg-[#FFE600] text-black shadow-[3px_3px_0px_#000]"
+                      : "bg-[#0D0D12] text-zinc-300 hover:text-white hover:bg-black"
                   }`}
                 >
                   {data.about.tabs.philosophy}
@@ -114,25 +111,23 @@ export default function AboutSection() {
 
               {/* Tab Content 1: Bio */}
               {activeTab === "bio" && (
-                <div className="space-y-4 animate-fade-in">
+                <div className="space-y-4 animate-fade-in font-sans">
                   <p
-                    className="text-surface-300 text-sm sm:text-base leading-relaxed text-justify"
+                    className="text-zinc-200 text-sm sm:text-base leading-relaxed text-justify"
                     dangerouslySetInnerHTML={{ __html: data.about.bioParagraph1 }}
                   />
                   <p
-                    className="text-surface-300 text-sm sm:text-base leading-relaxed text-justify"
+                    className="text-zinc-200 text-sm sm:text-base leading-relaxed text-justify"
                     dangerouslySetInnerHTML={{ __html: data.about.bioParagraph2 }}
                   />
 
                   <div className="pt-4 flex flex-wrap gap-3">
                     <a
                       href="#contact"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-500 text-white text-xs font-semibold shadow-lg shadow-primary-600/25 transition-all"
+                      className="neo-btn px-5 py-3 bg-[#FFE600] text-black text-xs hover:bg-[#FFF066]"
                     >
                       <span>{data.hero.contactMe}</span>
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
+                      <span className="font-mono text-base font-black">→</span>
                     </a>
                   </div>
                 </div>
@@ -140,22 +135,24 @@ export default function AboutSection() {
 
               {/* Tab Content 2: Timeline */}
               {activeTab === "timeline" && (
-                <div className="space-y-5 animate-fade-in">
+                <div className="space-y-4 animate-fade-in">
                   {data.about.timelineItems.map((item, idx) => (
-                    <div key={idx} className="relative pl-6 border-l-2 border-primary-500/30 pb-2">
-                      <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-900 border-2 border-primary-400" />
-                      <div className="flex items-center justify-between gap-2 mb-1 flex-wrap">
-                        <span className="text-xs font-mono font-bold text-primary-400">
+                    <div
+                      key={idx}
+                      className="p-4 bg-[#0D0D12] border-2 border-black shadow-[3px_3px_0px_#000] relative"
+                    >
+                      <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
+                        <span className="text-xs font-mono font-black px-2 py-0.5 bg-[#FFE600] text-black border border-black">
                           {item.year}
                         </span>
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/5 text-surface-300 border border-white/5">
+                        <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-[#00D2FF] text-black border border-black uppercase">
                           {item.tag}
                         </span>
                       </div>
-                      <h4 className="text-sm sm:text-base font-bold text-white">
-                        {item.title} — <span className="text-primary-300">{item.institution}</span>
+                      <h4 className="text-sm sm:text-base font-black text-white font-sans">
+                        {item.title} — <span className="text-[#00F08B]">{item.institution}</span>
                       </h4>
-                      <p className="text-xs sm:text-sm text-surface-300/80 leading-relaxed mt-1 text-justify">
+                      <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mt-1 text-justify">
                         {item.description}
                       </p>
                     </div>
@@ -167,15 +164,16 @@ export default function AboutSection() {
               {activeTab === "philosophy" && (
                 <div className="space-y-4 animate-fade-in">
                   {data.about.principles.map((p, idx) => (
-                    <div key={idx} className="p-4 rounded-2xl bg-surface-950/60 border border-white/5 flex items-start gap-3.5">
-                      <div className="w-8 h-8 rounded-xl bg-primary-500/20 text-primary-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                    <div
+                      key={idx}
+                      className="p-4 bg-[#0D0D12] border-2 border-black shadow-[3px_3px_0px_#000] flex items-start gap-3.5"
+                    >
+                      <div className="w-8 h-8 bg-[#FFE600] text-black border-2 border-black flex items-center justify-center flex-shrink-0 font-mono font-black text-sm">
+                        0{idx + 1}
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-white mb-1">{p.title}</h4>
-                        <p className="text-xs sm:text-sm text-surface-300/80 leading-relaxed text-justify">{p.desc}</p>
+                        <h4 className="text-sm font-black text-white uppercase font-mono mb-1">{p.title}</h4>
+                        <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed text-justify">{p.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -185,36 +183,36 @@ export default function AboutSection() {
           </AnimateOnScroll>
         </div>
 
-        {/* Quantified Impact Numbers Banner */}
+        {/* Quantified Impact Numbers Banner (Neo-Brutalist Pop Block) */}
         <AnimateOnScroll animation="animate-scale-in">
-          <div className="p-6 sm:p-8 rounded-3xl bg-surface-900/50 border border-white/10 backdrop-blur-md">
+          <div className="p-6 sm:p-8 bg-[#FFE600] text-black border-3 border-black shadow-[8px_8px_0px_#000]">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">
+              <div className="text-center p-3 bg-white border-2 border-black shadow-[3px_3px_0px_#000]">
+                <div className="text-3xl sm:text-4xl font-black text-black font-mono mb-1">
                   <Counter end={7} suffix="+" />
                 </div>
-                <p className="text-xs sm:text-sm font-semibold text-primary-300">{data.about.stats.projects}</p>
+                <p className="text-xs font-mono font-bold uppercase text-black">{data.about.stats.projects}</p>
               </div>
 
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">
-                  <Counter end={2} suffix={language === "en" ? " Years" : " Tahun"} />
+              <div className="text-center p-3 bg-white border-2 border-black shadow-[3px_3px_0px_#000]">
+                <div className="text-3xl sm:text-4xl font-black text-black font-mono mb-1">
+                  <Counter end={2} suffix={language === "en" ? " Years" : " Thn"} />
                 </div>
-                <p className="text-xs sm:text-sm font-semibold text-primary-300">{data.about.stats.experience}</p>
+                <p className="text-xs font-mono font-bold uppercase text-black">{data.about.stats.experience}</p>
               </div>
 
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">
-                  <Counter end={9} suffix={language === "en" ? " Modules" : " Modul"} />
+              <div className="text-center p-3 bg-white border-2 border-black shadow-[3px_3px_0px_#000]">
+                <div className="text-3xl sm:text-4xl font-black text-black font-mono mb-1">
+                  <Counter end={9} suffix={language === "en" ? " Mod" : " Modul"} />
                 </div>
-                <p className="text-xs sm:text-sm font-semibold text-primary-300">{data.about.stats.modules}</p>
+                <p className="text-xs font-mono font-bold uppercase text-black">{data.about.stats.modules}</p>
               </div>
 
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">
+              <div className="text-center p-3 bg-white border-2 border-black shadow-[3px_3px_0px_#000]">
+                <div className="text-3xl sm:text-4xl font-black text-black font-mono mb-1">
                   <Counter end={12} suffix="+" />
                 </div>
-                <p className="text-xs sm:text-sm font-semibold text-primary-300">{data.about.stats.technologies}</p>
+                <p className="text-xs font-mono font-bold uppercase text-black">{data.about.stats.technologies}</p>
               </div>
             </div>
           </div>

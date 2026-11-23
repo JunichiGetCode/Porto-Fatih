@@ -25,7 +25,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 30);
 
       const sectionIds = ["home", "about", "projects", "skills", "contact"];
       for (const section of [...sectionIds].reverse()) {
@@ -47,41 +47,41 @@ export default function Navbar() {
   return (
     <nav
       id="navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-surface-950/80 backdrop-blur-md border-b border-white/10 shadow-xl shadow-black/40 py-3"
-          : "bg-transparent py-5"
+          ? "bg-[#0D0D12] border-b-3 border-black py-2.5 shadow-[0px_6px_0px_0px_#000000]"
+          : "bg-[#0D0D12]/95 border-b-3 border-black py-3.5"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        {/* Brutalist Logo */}
         <a
           href="#home"
-          className="flex items-center gap-2.5 group tracking-tight"
+          className="flex items-center gap-2.5 group"
           id="nav-logo"
         >
-          <div className="relative w-9 h-9 rounded-xl overflow-hidden group-hover:scale-105 transition-transform flex-shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[#FFE600] border-2 sm:border-3 border-black shadow-[3px_3px_0px_#000] flex items-center justify-center p-1 transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:shadow-[5px_5px_0px_#000]">
             <Image
               src="/logo-mark.svg"
               alt="Fatih.dev Logo"
-              width={36}
-              height={36}
+              width={32}
+              height={32}
               className="w-full h-full object-contain"
               priority
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-base sm:text-lg text-white group-hover:text-primary-200 transition-colors leading-tight">
-              Fatih<span className="bg-gradient-to-r from-cyan-400 to-primary-400 bg-clip-text text-transparent">.dev</span>
+            <span className="font-mono font-black text-base sm:text-lg text-white tracking-tight leading-none group-hover:text-[#FFE600] transition-colors">
+              FATIH<span className="text-[#FFE600]">.DEV</span>
             </span>
-            <span className="text-[9px] font-mono tracking-wider text-surface-400 uppercase leading-none hidden sm:inline-block">
-              Full-Stack &bull; 3D WebGL
+            <span className="text-[10px] font-mono font-bold tracking-widest text-[#00F08B] uppercase leading-tight mt-0.5">
+              [FULLSTACK // 3D]
             </span>
           </div>
         </a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-1 bg-surface-900/60 p-1.5 rounded-full border border-white/5 backdrop-blur-sm">
+        {/* Desktop Links (Neo-Brutalist Segmented Bar) */}
+        <div className="hidden md:flex items-center gap-1.5 bg-[#171720] px-2 py-1.5 border-2 border-black shadow-[3px_3px_0px_#000]">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.slice(1);
             return (
@@ -89,10 +89,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 id={`nav-${link.key}`}
-                className={`relative px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${
+                className={`px-3 py-1 text-xs font-mono font-bold uppercase transition-all duration-150 ${
                   isActive
-                    ? "text-white bg-primary-600/30 border border-primary-500/40 shadow-sm"
-                    : "text-surface-200 hover:text-white hover:bg-white/5"
+                    ? "bg-[#FFE600] text-black border-2 border-black shadow-[2px_2px_0px_#000]"
+                    : "text-zinc-300 hover:text-white hover:bg-zinc-800 border-2 border-transparent"
                 }`}
               >
                 {data.nav[link.key]}
@@ -103,28 +103,39 @@ export default function Navbar() {
 
         {/* Actions Desktop */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Language Switcher */}
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-900/80 border border-surface-700/60 text-xs font-semibold hover:border-primary-500/50 hover:bg-surface-800 transition-all cursor-pointer"
-            aria-label="Toggle language"
-            title="Switch Language (ID / EN)"
-          >
-            <span className={language === "id" ? "text-primary-400 font-bold" : "text-surface-400"}>ID</span>
-            <span className="text-surface-600">/</span>
-            <span className={language === "en" ? "text-primary-400 font-bold" : "text-surface-400"}>EN</span>
-          </button>
+          {/* Brutalist Language Switcher */}
+          <div className="flex items-center bg-[#171720] border-2 border-black shadow-[3px_3px_0px_#000] p-0.5">
+            <button
+              onClick={() => language !== "id" && toggleLanguage()}
+              className={`px-2 py-1 text-xs font-mono font-black transition-all cursor-pointer ${
+                language === "id"
+                  ? "bg-[#00D2FF] text-black border-2 border-black"
+                  : "text-zinc-400 hover:text-white border-2 border-transparent"
+              }`}
+              title="Bahasa Indonesia"
+            >
+              ID
+            </button>
+            <button
+              onClick={() => language !== "en" && toggleLanguage()}
+              className={`px-2 py-1 text-xs font-mono font-black transition-all cursor-pointer ${
+                language === "en"
+                  ? "bg-[#00D2FF] text-black border-2 border-black"
+                  : "text-zinc-400 hover:text-white border-2 border-transparent"
+              }`}
+              title="English"
+            >
+              EN
+            </button>
+          </div>
 
-          {/* Quick CTA */}
+          {/* Neo-Brutalist CTA Button */}
           <a
             href="#contact"
             id="nav-cta"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-600 to-indigo-600 hover:from-primary-500 hover:to-indigo-500 text-white text-xs font-semibold rounded-full shadow-lg shadow-primary-600/20 hover:shadow-primary-600/30 hover:-translate-y-0.5 transition-all"
+            className="neo-btn px-4 py-2 bg-[#FFE600] text-black text-xs hover:bg-[#FFF066]"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-400" />
-            </span>
+            <span className="w-2 h-2 bg-black rounded-none animate-ping" />
             <span>{data.hero.contactMe}</span>
           </a>
         </div>
@@ -132,52 +143,52 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           id="mobile-menu-toggle"
-          className="md:hidden relative w-10 h-10 rounded-xl bg-surface-900/80 border border-white/10 flex items-center justify-center text-white"
+          className="md:hidden w-10 h-10 bg-[#FFE600] text-black border-2 border-black shadow-[3px_3px_0px_#000] flex items-center justify-center cursor-pointer active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1 w-5">
             <span
-              className={`block w-5 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
+              className={`block w-full h-0.5 bg-black transition-all duration-200 ${
+                menuOpen ? "rotate-45 translate-y-1.5" : ""
               }`}
             />
             <span
-              className={`block w-5 h-0.5 bg-white transition-all duration-300 ${
+              className={`block w-full h-0.5 bg-black transition-all duration-200 ${
                 menuOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block w-5 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
+              className={`block w-full h-0.5 bg-black transition-all duration-200 ${
+                menuOpen ? "-rotate-45 -translate-y-1.5" : ""
               }`}
             />
           </div>
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Drawer */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+          menuOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="px-6 py-4 flex flex-col gap-2 bg-surface-950/95 backdrop-blur-xl border-b border-white/10 shadow-2xl mt-2 mx-4 rounded-2xl">
-          <div className="flex items-center justify-between pb-3 border-b border-white/10">
-            <span className="text-xs font-medium text-surface-200">Bahasa / Language:</span>
-            <div className="flex items-center gap-2">
+        <div className="p-4 mx-3 my-2 bg-[#171720] border-3 border-black shadow-[6px_6px_0px_#000] flex flex-col gap-2.5">
+          <div className="flex items-center justify-between pb-3 border-b-2 border-black">
+            <span className="text-xs font-mono font-bold uppercase text-zinc-300">Language:</span>
+            <div className="flex items-center gap-1.5">
               <button
                 onClick={() => language !== "id" && toggleLanguage()}
-                className={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${
-                  language === "id" ? "bg-primary-600 text-white" : "bg-surface-800 text-surface-400"
+                className={`px-3 py-1 text-xs font-mono font-black border-2 border-black ${
+                  language === "id" ? "bg-[#00D2FF] text-black shadow-[2px_2px_0px_#000]" : "bg-black text-zinc-400"
                 }`}
               >
                 ID
               </button>
               <button
                 onClick={() => language !== "en" && toggleLanguage()}
-                className={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${
-                  language === "en" ? "bg-primary-600 text-white" : "bg-surface-800 text-surface-400"
+                className={`px-3 py-1 text-xs font-mono font-black border-2 border-black ${
+                  language === "en" ? "bg-[#00D2FF] text-black shadow-[2px_2px_0px_#000]" : "bg-black text-zinc-400"
                 }`}
               >
                 EN
@@ -189,10 +200,10 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${
+              className={`px-3 py-2 text-xs font-mono font-bold uppercase border-2 transition-all ${
                 activeSection === link.href.slice(1)
-                  ? "text-white bg-primary-600/30 border border-primary-500/30"
-                  : "text-surface-200 hover:text-white hover:bg-white/5"
+                  ? "bg-[#FFE600] text-black border-black shadow-[3px_3px_0px_#000]"
+                  : "bg-black/40 text-zinc-300 border-zinc-800 hover:border-black hover:bg-black"
               }`}
             >
               {data.nav[link.key]}
@@ -201,7 +212,7 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-1 px-4 py-2.5 bg-gradient-to-r from-primary-600 to-indigo-600 text-white text-sm font-semibold rounded-xl text-center shadow-lg"
+            className="neo-btn mt-2 py-3 bg-[#FFE600] text-black text-center text-xs"
           >
             {data.hero.contactMe}
           </a>

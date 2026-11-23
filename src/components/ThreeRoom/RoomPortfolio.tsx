@@ -185,7 +185,7 @@ export default function RoomPortfolio() {
             <div className="hidden md:flex fixed bottom-6 right-6 z-50">
               <button
                 onClick={handleToggleMode}
-                className="flex items-center gap-2.5 px-5 py-3 rounded-full bg-gradient-to-r from-primary-600 via-indigo-600 to-accent-500 hover:from-primary-500 hover:to-accent-400 text-white font-bold text-xs sm:text-sm shadow-2xl shadow-primary-500/40 hover:shadow-primary-500/60 border border-white/20 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
+                className="neo-btn px-5 py-3.5 bg-[#FFE600] text-black text-xs sm:text-sm shadow-[6px_6px_0px_#000] hover:bg-[#FFF066]"
               >
                 <span className="text-lg">🎮</span>
                 <span>

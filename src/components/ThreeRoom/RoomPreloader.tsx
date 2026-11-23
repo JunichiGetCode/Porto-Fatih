@@ -365,22 +365,22 @@ export default function RoomPreloader({
         }}
       />
 
-      {/* TOP BAR: Brandmark, Live Status, Telemetry & Segmented Language Switcher */}
-      <header className="relative z-20 flex items-center justify-between px-6 sm:px-10 py-6">
+      {/* TOP BAR: Neo-Brutalist Status & Language Switcher */}
+      <header className="relative z-20 flex items-center justify-between px-6 sm:px-10 py-5 bg-[#171720] border-b-3 border-black shadow-[0px_4px_0px_#000]">
         {/* Left: Brand Identity & Live Diagnostics */}
-        <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-primary-500/30 to-accent-500/30 border border-white/20 backdrop-blur-xl shadow-lg shadow-primary-500/20 font-black text-sm tracking-wider text-white">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center w-10 h-10 bg-[#FFE600] border-2 border-black shadow-[2px_2px_0px_#000] font-mono font-black text-sm text-black">
             MFR
           </div>
           <div className="hidden sm:flex flex-col">
-            <span className="text-xs font-bold text-white tracking-wider uppercase">
+            <span className="text-xs font-mono font-black text-white tracking-wider uppercase">
               Muhammad Fatih Rahman
             </span>
-            <div className="flex items-center gap-2 text-[11px] font-mono text-surface-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>SYSTEM READY</span>
+            <div className="flex items-center gap-2 text-[10px] font-mono font-bold text-[#00F08B]">
+              <span className="w-2 h-2 bg-[#00F08B] border border-black animate-pulse" />
+              <span>SYS_READY</span>
               <span>•</span>
-              <span className="text-primary-300">{currentTime || "ONLINE"}</span>
+              <span className="text-white">{currentTime || "ONLINE"}</span>
             </div>
           </div>
         </div>
@@ -390,70 +390,63 @@ export default function RoomPreloader({
           {onOpenClassic && (
             <button
               onClick={onOpenClassic}
-              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-900/60 hover:bg-surface-800/80 backdrop-blur-md border border-white/10 text-xs font-medium text-surface-300 hover:text-white transition-all cursor-pointer"
+              className="neo-btn hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-[#00D2FF] text-black text-xs border-2 border-black shadow-[2px_2px_0px_#000]"
               title={isId ? "Lihat versi website klasik tanpa 3D" : "View classic 2D website"}
             >
               <span>📄</span>
-              <span>{isId ? "Mode Web 2D" : "Classic 2D"}</span>
+              <span>{isId ? "MODE WEB 2D" : "CLASSIC 2D"}</span>
             </button>
           )}
 
           {/* Segmented [ 🇮🇩 ID | 🇬🇧 EN ] Language Switcher */}
-          <div className="flex items-center p-1 rounded-2xl bg-surface-950/80 backdrop-blur-xl border border-white/15 shadow-xl">
+          <div className="flex items-center p-0.5 bg-[#0D0D12] border-2 border-black shadow-[2px_2px_0px_#000]">
             <button
               onClick={() => !isId && onToggleLanguage()}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+              className={`px-2.5 py-1 text-xs font-mono font-black transition-all cursor-pointer ${
                 isId
-                  ? "bg-gradient-to-r from-primary-600 to-indigo-600 text-white shadow-md shadow-primary-600/40"
-                  : "text-surface-400 hover:text-white"
+                  ? "bg-[#FFE600] text-black border border-black"
+                  : "text-zinc-400 hover:text-white"
               }`}
               title="Gunakan Bahasa Indonesia"
             >
-              <span>🇮🇩</span>
-              <span>ID</span>
+              ID
             </button>
             <button
               onClick={() => isId && onToggleLanguage()}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+              className={`px-2.5 py-1 text-xs font-mono font-black transition-all cursor-pointer ${
                 !isId
-                  ? "bg-gradient-to-r from-primary-600 to-indigo-600 text-white shadow-md shadow-primary-600/40"
-                  : "text-surface-400 hover:text-white"
+                  ? "bg-[#FFE600] text-black border border-black"
+                  : "text-zinc-400 hover:text-white"
               }`}
               title="Switch to English"
             >
-              <span>🇬🇧</span>
-              <span>EN</span>
+              EN
             </button>
           </div>
         </div>
       </header>
 
-      {/* CENTER: Futuristic Cyber HUD Hero Card */}
+      {/* CENTER: Neo-Brutalist HUD Hero Card */}
       <main className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 my-auto">
-        <div className="w-full max-w-2xl p-6 sm:p-10 rounded-3xl bg-surface-950/70 backdrop-blur-2xl border border-white/10 shadow-[0_0_100px_rgba(99,102,241,0.2)] text-center relative overflow-hidden">
-          {/* Subtle Top Accent Glow Line */}
-          <div className="absolute top-0 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-80" />
-
+        <div className="w-full max-w-2xl p-6 sm:p-10 bg-[#171720] border-4 border-black shadow-[12px_12px_0px_#000] text-center relative text-white">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/30 text-primary-300 text-xs font-mono tracking-widest uppercase mb-5 shadow-inner">
-            <span className="w-2 h-2 rounded-full bg-primary-400 animate-ping" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#FFE600] text-black border-2 border-black text-xs font-mono font-black uppercase mb-4 shadow-[3px_3px_0px_#000]">
+            <span className="w-2 h-2 bg-black rounded-none animate-pulse" />
             <span>{isId ? "PORTFOLIO 3D VIRTUAL EXPERIENCE" : "INTERACTIVE 3D VIRTUAL SUITE"}</span>
           </div>
 
           {/* User Authentic Name */}
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-2 leading-tight">
-            <span className="bg-gradient-to-r from-white via-primary-200 to-accent-300 bg-clip-text text-transparent">
-              MUHAMMAD FATIH RAHMAN
-            </span>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white mb-2 leading-tight font-sans">
+            MUHAMMAD FATIH RAHMAN
           </h1>
 
           {/* Subtitle / Role & University */}
-          <p className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-surface-300/90 font-mono mb-4">
-            Full-Stack & Mobile Developer <span className="text-primary-400">•</span> Telkom University Jakarta
+          <p className="text-xs sm:text-sm font-mono font-bold tracking-wider uppercase text-[#00D2FF] mb-4">
+            Full-Stack & Mobile Developer <span className="text-white">•</span> Telkom University Jakarta
           </p>
 
           {/* Intro Description */}
-          <p className="text-xs sm:text-sm text-surface-300/80 max-w-lg mx-auto mb-6 leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-300 max-w-lg mx-auto mb-6 leading-relaxed font-medium">
             {isId
               ? "Masuki ruang kerja virtual interaktif berbasis WebGL 3D. Jelajahi karya teruji, keahlian arsitektur kode, dan rekam jejak teknologi langsung dari sudut pandang nyata."
               : "Step into an interactive 3D WebGL virtual workstation. Explore production projects, clean architecture practices, and tech journey from an authentic first-person perspective."}
@@ -461,50 +454,50 @@ export default function RoomPreloader({
 
           {/* 3 Feature Teaser Chips */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-7 text-left">
-            <div className="p-3 rounded-2xl bg-surface-900/60 border border-white/5 backdrop-blur-md">
-              <div className="flex items-center gap-2 text-xs font-bold text-white mb-1">
+            <div className="p-3 bg-[#0D0D12] border-2 border-black shadow-[3px_3px_0px_#000]">
+              <div className="flex items-center gap-1.5 text-xs font-mono font-black text-[#FFE600] mb-1">
                 <span>🎮</span>
-                <span>{isId ? "Navigasi WASD" : "WASD Controls"}</span>
+                <span>{isId ? "NAVIGASI WASD" : "WASD CONTROLS"}</span>
               </div>
-              <p className="text-[11px] text-surface-400 leading-snug">
-                {isId ? "Jalan bebas & arahkan kursor kamera POV." : "Free walk & first-person camera pan."}
+              <p className="text-[11px] text-zinc-300 font-sans leading-snug">
+                {isId ? "Jalan bebas & arahkan kamera POV." : "Free walk & first-person camera pan."}
               </p>
             </div>
 
-            <div className="p-3 rounded-2xl bg-surface-900/60 border border-white/5 backdrop-blur-md">
-              <div className="flex items-center gap-2 text-xs font-bold text-white mb-1">
+            <div className="p-3 bg-[#0D0D12] border-2 border-black shadow-[3px_3px_0px_#000]">
+              <div className="flex items-center gap-1.5 text-xs font-mono font-black text-[#00D2FF] mb-1">
                 <span>☀️</span>
-                <span>{isId ? "Cuaca & Lampu" : "Real-Time Sun"}</span>
+                <span>{isId ? "JAM LOKAL & LAMPU" : "REAL-TIME SUN"}</span>
               </div>
-              <p className="text-[11px] text-surface-400 leading-snug">
+              <p className="text-[11px] text-zinc-300 font-sans leading-snug">
                 {isId ? "Sinkron jam lokal & saklar lampu kamar." : "Syncs local hours & toggleable lamps."}
               </p>
             </div>
 
-            <div className="p-3 rounded-2xl bg-surface-900/60 border border-white/5 backdrop-blur-md">
-              <div className="flex items-center gap-2 text-xs font-bold text-white mb-1">
+            <div className="p-3 bg-[#0D0D12] border-2 border-black shadow-[3px_3px_0px_#000]">
+              <div className="flex items-center gap-1.5 text-xs font-mono font-black text-[#00F08B] mb-1">
                 <span>💻</span>
-                <span>{isId ? "7+ Showcase" : "7+ Projects"}</span>
+                <span>{isId ? "7+ PROYEK NYATA" : "7+ LIVE SHOWCASE"}</span>
               </div>
-              <p className="text-[11px] text-surface-400 leading-snug">
-                {isId ? "Klik objek 3D untuk detail interaktif." : "Click 3D props for live modal inspection."}
+              <p className="text-[11px] text-zinc-300 font-sans leading-snug">
+                {isId ? "Klik objek 3D untuk studi kasus." : "Click 3D props for live case study."}
               </p>
             </div>
           </div>
 
           {/* Telemetry Terminal Line */}
-          <div className="w-full p-2.5 rounded-xl bg-black/60 border border-white/10 font-mono text-left text-xs mb-6 flex items-center justify-between">
+          <div className="w-full p-2.5 bg-black border-2 border-black font-mono text-left text-xs mb-5 flex items-center justify-between shadow-[2px_2px_0px_#000]">
             <div className="flex items-center gap-2 truncate pr-2">
-              <span className="text-primary-400 font-bold">&gt;</span>
-              <span className="text-surface-300 truncate">{telemetryMessage}</span>
+              <span className="text-[#FFE600] font-black">&gt;&gt;</span>
+              <span className="text-zinc-200 truncate">{telemetryMessage}</span>
             </div>
-            <span className="text-accent-300 font-bold shrink-0">{progress}%</span>
+            <span className="text-[#00F08B] font-black shrink-0">{progress}%</span>
           </div>
 
-          {/* High-Tech Glowing Progress Bar */}
-          <div className="relative w-full bg-surface-900/90 rounded-full h-3 p-0.5 border border-white/15 mb-6 overflow-hidden shadow-inner">
+          {/* Neo-Brutalist Solid Progress Bar */}
+          <div className="relative w-full bg-black border-2 border-black h-4 p-0.5 mb-6 overflow-hidden shadow-[2px_2px_0px_#000]">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-primary-500 via-indigo-500 to-accent-400 transition-all duration-150 ease-out shadow-[0_0_20px_rgba(56,189,248,0.7)]"
+              className="h-full bg-[#FFE600] border-r-2 border-black transition-all duration-150 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -516,23 +509,20 @@ export default function RoomPreloader({
                 <button
                   onClick={handleEnter}
                   disabled={isEntering}
-                  className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-primary-600 via-indigo-600 to-accent-500 hover:from-primary-500 hover:to-accent-400 text-white font-extrabold text-base sm:text-lg shadow-[0_0_40px_rgba(99,102,241,0.5)] hover:shadow-[0_0_60px_rgba(99,102,241,0.8)] transition-all duration-300 transform hover:scale-[1.03] active:scale-95 cursor-pointer flex items-center justify-center gap-3 border border-white/20 group"
+                  className="neo-btn w-full sm:w-auto px-8 py-4 bg-[#FFE600] text-black font-mono font-black text-base sm:text-lg shadow-[6px_6px_0px_#000] hover:bg-[#FFF066] cursor-pointer"
                 >
-                  <span>{isId ? "Jelajahi Ruangan 3D Sekarang" : "Enter 3D Room Experience"}</span>
-                  <span className="text-xl group-hover:translate-x-1 transition-transform">🚀</span>
+                  <span>{isId ? "JELAJAHI RUANGAN 3D SEKARANG" : "ENTER 3D ROOM EXPERIENCE"}</span>
+                  <span className="text-xl">🚀</span>
                 </button>
-                <p className="text-xs text-surface-400 font-mono flex items-center gap-1.5">
-                  <span>💡</span>
-                  <span>
-                    {isId
-                      ? "Tekan tombol atau tekan [Enter / Spasi] pada keyboard"
-                      : "Click button or press [Enter / Space] on keyboard"}
-                  </span>
+                <p className="text-xs text-zinc-400 font-mono">
+                  {isId
+                    ? "Tekan tombol atau tekan [Enter / Spasi] pada keyboard"
+                    : "Click button or press [Enter / Space] on keyboard"}
                 </p>
               </div>
             ) : (
-              <div className="flex items-center gap-3 text-xs font-mono text-surface-400 py-2">
-                <div className="w-4 h-4 border-2 border-primary-400 border-t-transparent rounded-full animate-spin" />
+              <div className="flex items-center gap-2 text-xs font-mono text-[#FFE600] py-2">
+                <div className="w-3.5 h-3.5 border-2 border-[#FFE600] border-t-transparent animate-spin" />
                 <span>
                   {isId
                     ? "Menyiapkan aset 3D & tekstur fotorealistik..."

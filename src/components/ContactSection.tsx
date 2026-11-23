@@ -39,20 +39,20 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-24 md:py-32 section-glow">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="contact" className="relative py-20 md:py-28 bg-[#0D0D12] border-b-3 border-black neo-grid-dark-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <AnimateOnScroll className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/20 mb-4">
-            {data.contact.badge}
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+          <div className="inline-block px-3.5 py-1 text-xs font-mono font-black tracking-widest uppercase bg-[#FF3366] text-white border-2 border-black shadow-[3px_3px_0px_#000] mb-4">
+            [SECTION: 04] // {data.contact.badge}
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-white uppercase font-sans tracking-tight mb-4">
             {data.contact.title1}{" "}
-            <span className="bg-gradient-to-r from-primary-400 via-indigo-300 to-accent-300 bg-clip-text text-transparent">
+            <span className="inline-block bg-[#FFE600] text-black px-3 py-0.5 border-3 border-black shadow-[4px_4px_0px_#000] rotate-[-1deg]">
               {data.contact.title2}
             </span>
           </h2>
-          <p className="max-w-2xl mx-auto text-surface-300/80 text-base sm:text-lg">
+          <p className="max-w-2xl mx-auto text-zinc-300 text-sm sm:text-base font-medium">
             {data.contact.subtitle}
           </p>
         </AnimateOnScroll>
@@ -61,34 +61,30 @@ export default function ContactSection() {
           {/* Left Column: Direct Channels & Socials (5 cols) */}
           <AnimateOnScroll animation="animate-slide-in-left" className="lg:col-span-5 space-y-4">
             {/* Quick Email Copy Card */}
-            <div className="p-6 rounded-3xl bg-surface-900/80 border border-white/10 shadow-xl">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-surface-400">
-                  Email
+            <div className="p-6 bg-[#171720] border-3 border-black shadow-[6px_6px_0px_#000]">
+              <div className="flex items-center justify-between mb-3 border-b-2 border-black pb-2">
+                <span className="text-xs font-mono font-black uppercase tracking-wider text-[#FFE600]">
+                  DIRECT INBOX
                 </span>
-                <span className="text-[11px] text-accent-400 font-mono font-medium">
+                <span className="text-xs text-[#00D2FF] font-mono font-bold">
                   fatihfatihrahman@gmail.com
                 </span>
               </div>
-              <p className="text-xs text-surface-300 mb-4">
+              <p className="text-xs text-zinc-300 mb-5 leading-relaxed font-medium">
                 Ada tawaran kerja sama, peluang karir, atau diskusi teknis? Salin email untuk mengirim pesan langsung.
               </p>
               <button
                 onClick={handleCopyEmail}
-                className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-primary-600 to-indigo-600 hover:from-primary-500 hover:to-indigo-500 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-lg shadow-primary-600/25 transition-all cursor-pointer"
+                className="neo-btn w-full py-3 bg-[#FFE600] text-black text-xs hover:bg-[#FFF066]"
               >
                 {copied ? (
                   <>
-                    <svg className="w-4 h-4 text-accent-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <span>✓</span>
                     <span>{data.contact.emailCopied}</span>
                   </>
                 ) : (
                   <>
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-                    </svg>
+                    <span>📋</span>
                     <span>{data.contact.copyEmail}</span>
                   </>
                 )}
@@ -100,167 +96,139 @@ export default function ContactSection() {
               href="https://wa.me/6281275516335?text=Halo%20Fatih,%20saya%20melihat%20portofolio%20Anda%20dan%20tertarik%20untuk%20berdiskusi."
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-3xl bg-surface-900/70 border border-white/10 hover:border-emerald-500/40 flex items-center justify-between group transition-all shadow-xl block"
+              className="block p-6 bg-[#171720] border-3 border-black shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all group"
             >
-              <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.177.182-.076.355.101.173.45 743 1.042 1.271.761.679 1.403.889 1.604.99.202.101.319.087.433-.044.116-.13.491-.572.622-.767.13-.195.26-.159.433-.087.173.072 1.097.517 1.285.611.188.094.313.141.359.221.046.08.046.883-.098 1.288z" />
-                  </svg>
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 bg-[#00F08B] border border-black animate-pulse" />
+                  <span className="text-xs font-mono font-black uppercase text-white">
+                    WHATSAPP INSTANT
+                  </span>
                 </div>
-                <div>
-                  <h4 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
-                    {data.contact.chatWhatsApp}
-                  </h4>
-                  <p className="text-xs text-surface-400 font-mono">+62 812-7551-6335</p>
-                </div>
+                <span className="text-xs font-mono font-bold text-[#00F08B] group-hover:underline">
+                  +62 812-7551-6335 ↗
+                </span>
               </div>
-              <svg className="w-5 h-5 text-surface-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+              <p className="text-xs text-zinc-400 font-sans">
+                Respon cepat untuk konsultasi freelance, diskusi proyek, atau rekrutmen.
+              </p>
             </a>
 
-            {/* Social Links & Location */}
-            <div className="p-5 rounded-3xl bg-surface-900/70 border border-white/10 shadow-xl">
-              <span className="text-xs font-bold uppercase tracking-wider text-surface-400 block mb-3">
-                Social Profiles & Networks
-              </span>
-              <div className="flex items-center gap-3 mb-4">
-                <a
-                  href="https://github.com/ffaattiihrr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-surface-300 hover:text-white hover:bg-primary-600/30 hover:border-primary-500/40 transition-all"
-                  aria-label="GitHub Profile"
-                  title="GitHub"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                  </svg>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/fatih-rahman/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-surface-300 hover:text-white hover:bg-blue-600/30 hover:border-blue-500/40 transition-all"
-                  aria-label="LinkedIn Profile"
-                  title="LinkedIn"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
-                </a>
-                <a
-                  href="https://instagram.com/ffaattiihrr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-surface-300 hover:text-white hover:bg-pink-600/30 hover:border-pink-500/40 transition-all"
-                  aria-label="Instagram Profile"
-                  title="Instagram"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
-                  </svg>
-                </a>
-              </div>
-              <div className="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-surface-400">
-                <span>{data.contact.locationLabel}:</span>
-                <span className="text-white font-medium">{data.contact.locationValue}</span>
-              </div>
+            {/* Social Links Row */}
+            <div className="grid grid-cols-3 gap-3">
+              <a
+                href="https://github.com/fatih0202"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="neo-btn p-3 bg-[#0D0D12] text-white text-xs hover:bg-black hover:text-[#FFE600] text-center"
+              >
+                GITHUB ↗
+              </a>
+              <a
+                href="https://linkedin.com/in/muhammad-fatih-rahman"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="neo-btn p-3 bg-[#0D0D12] text-white text-xs hover:bg-black hover:text-[#00D2FF] text-center"
+              >
+                LINKEDIN ↗
+              </a>
+              <a
+                href="https://instagram.com/fatihh.rr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="neo-btn p-3 bg-[#0D0D12] text-white text-xs hover:bg-black hover:text-[#FF3366] text-center"
+              >
+                INSTA ↗
+              </a>
             </div>
           </AnimateOnScroll>
 
-          {/* Right Column: Interactive Quick Inquiry Form (7 cols) */}
+          {/* Right Column: Message Dispatcher Terminal (7 cols) */}
           <AnimateOnScroll animation="animate-slide-in-right" className="lg:col-span-7">
-            <form onSubmit={handleSubmit} className="p-6 sm:p-8 rounded-3xl bg-surface-900/80 border border-white/10 shadow-2xl">
-              <div className="grid sm:grid-cols-2 gap-4 mb-4">
+            <div className="bg-[#171720] border-3 border-black shadow-[8px_8px_0px_#000]">
+              {/* Terminal Title Bar */}
+              <div className="bg-black text-[#FFE600] font-mono text-xs font-black uppercase px-4 py-3 border-b-3 border-black flex items-center justify-between">
+                <span>[TERMINAL::DISPATCH_MESSAGE]</span>
+                <span className="text-[#00F08B] text-[10px]">READY_TO_SEND</span>
+              </div>
+
+              {/* Form Body */}
+              <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-mono font-bold uppercase text-zinc-300 mb-1">
+                      {data.contact.formName} *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="e.g. Alex Henderson"
+                      className="w-full p-3 bg-[#0D0D12] border-2 border-black text-white font-mono text-xs focus:outline-none focus:border-[#FFE600] focus:shadow-[3px_3px_0px_#FFE600] transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono font-bold uppercase text-zinc-300 mb-1">
+                      {data.contact.formEmail} *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="alex@company.com"
+                      className="w-full p-3 bg-[#0D0D12] border-2 border-black text-white font-mono text-xs focus:outline-none focus:border-[#FFE600] focus:shadow-[3px_3px_0px_#FFE600] transition-all"
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label htmlFor="form-name" className="block text-xs font-semibold text-surface-300 uppercase tracking-wider mb-1.5">
-                    {data.contact.formName}
+                  <label className="block text-xs font-mono font-bold uppercase text-zinc-300 mb-1">
+                    {data.contact.formSubject} *
                   </label>
                   <input
-                    id="form-name"
                     type="text"
                     required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. John Doe / Recruiter"
-                    className="w-full px-4 py-3 rounded-xl bg-surface-950/70 border border-white/10 text-white text-sm placeholder:text-surface-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    placeholder="e.g. Tawaran Kolaborasi Web / Full-Stack Project"
+                    className="w-full p-3 bg-[#0D0D12] border-2 border-black text-white font-mono text-xs focus:outline-none focus:border-[#FFE600] focus:shadow-[3px_3px_0px_#FFE600] transition-all"
                   />
                 </div>
+
                 <div>
-                  <label htmlFor="form-email" className="block text-xs font-semibold text-surface-300 uppercase tracking-wider mb-1.5">
-                    {data.contact.formEmail}
+                  <label className="block text-xs font-mono font-bold uppercase text-zinc-300 mb-1">
+                    {data.contact.formMessage} *
                   </label>
-                  <input
-                    id="form-email"
-                    type="email"
+                  <textarea
+                    rows={4}
                     required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="name@company.com"
-                    className="w-full px-4 py-3 rounded-xl bg-surface-950/70 border border-white/10 text-white text-sm placeholder:text-surface-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tuliskan pesan atau detail kebutuhan project Anda di sini..."
+                    className="w-full p-3 bg-[#0D0D12] border-2 border-black text-white font-mono text-xs focus:outline-none focus:border-[#FFE600] focus:shadow-[3px_3px_0px_#FFE600] transition-all resize-none"
                   />
                 </div>
-              </div>
 
-              <div className="mb-4">
-                <label htmlFor="form-subject" className="block text-xs font-semibold text-surface-300 uppercase tracking-wider mb-1.5">
-                  {data.contact.formSubject}
-                </label>
-                <input
-                  id="form-subject"
-                  type="text"
-                  required
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  placeholder="e.g. Opportunity / Mobile App Project"
-                  className="w-full px-4 py-3 rounded-xl bg-surface-950/70 border border-white/10 text-white text-sm placeholder:text-surface-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="form-message" className="block text-xs font-semibold text-surface-300 uppercase tracking-wider mb-1.5">
-                  {data.contact.formMessage}
-                </label>
-                <textarea
-                  id="form-message"
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Briefly describe what you are looking for..."
-                  className="w-full px-4 py-3 rounded-xl bg-surface-950/70 border border-white/10 text-white text-sm placeholder:text-surface-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all resize-none"
-                />
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button
                   type="submit"
-                  disabled={submitted}
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-primary-600 to-indigo-600 hover:from-primary-500 hover:to-indigo-500 text-white font-semibold text-xs shadow-lg shadow-primary-600/30 flex items-center justify-center gap-2 transition-all cursor-pointer hover:-translate-y-0.5 disabled:opacity-50"
+                  className="neo-btn w-full py-4 bg-[#FFE600] text-black text-sm uppercase tracking-wider hover:bg-[#FFF066]"
                 >
                   {submitted ? (
                     <>
-                      <svg className="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                      <span>✓</span>
                       <span>{data.contact.formSuccess}</span>
                     </>
                   ) : (
                     <>
+                      <span>⚡</span>
                       <span>{data.contact.formSend}</span>
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
                     </>
                   )}
                 </button>
-                <span className="text-[11px] text-surface-400 font-mono text-center sm:text-right">
-                  Fast response within 24 hours
-                </span>
-              </div>
-            </form>
+              </form>
+            </div>
           </AnimateOnScroll>
         </div>
       </div>

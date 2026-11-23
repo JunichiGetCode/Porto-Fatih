@@ -42,32 +42,32 @@ export default function RoomModalView({
     projects: {
       breadcrumb:
         language === "id"
-          ? "Ruangan 3D > Meja Kerja & PC > Portofolio Proyek"
-          : "3D Room > Developer Workstation > Projects",
+          ? "RUANGAN 3D > MEJA WORKSTATION > PROYEK"
+          : "3D ROOM > WORKSTATION > PROJECTS",
       title: language === "id" ? "Proyek & Hasil Karya" : "Featured Projects",
       icon: "💻",
     },
     about: {
       breadcrumb:
         language === "id"
-          ? "Ruangan 3D > Area Kasur & Lounge > Tentang Saya"
-          : "3D Room > Lounge Area > About Me",
+          ? "RUANGAN 3D > LOUNGE AREA > TENTANG SAYA"
+          : "3D ROOM > LOUNGE AREA > ABOUT ME",
       title: language === "id" ? "Profil & Perjalanan" : "Profile & Journey",
       icon: "🛏️",
     },
     skills: {
       breadcrumb:
         language === "id"
-          ? "Ruangan 3D > Rak Buku & Whiteboard > Tech Stack"
-          : "3D Room > Bookshelf & Whiteboard > Tech Stack",
+          ? "RUANGAN 3D > RAK & WHITEBOARD > TECH STACK"
+          : "3D ROOM > BOOKSHELF & BOARD > TECH STACK",
       title: language === "id" ? "Keahlian & Teknologi" : "Skills & Architecture",
       icon: "📚",
     },
     contact: {
       breadcrumb:
         language === "id"
-          ? "Ruangan 3D > Pintu Kamar & HP > Hub Komunikasi"
-          : "3D Room > Gateway & Phone > Contact",
+          ? "RUANGAN 3D > PINTU & SMARTPHONE > KONTAK"
+          : "3D ROOM > GATEWAY & PHONE > CONTACT",
       title: language === "id" ? "Hubungi Saya & Kolaborasi" : "Contact & Connect",
       icon: "🚪",
     },
@@ -76,25 +76,25 @@ export default function RoomModalView({
   const currentHeader = sectionHeaders[section];
 
   return (
-    <div className="fixed inset-0 z-40 flex flex-col bg-surface-950/90 backdrop-blur-2xl text-white animate-fade-in overflow-hidden">
+    <div className="fixed inset-0 z-40 flex flex-col bg-[#0D0D12]/95 backdrop-blur-md text-white animate-fade-in overflow-hidden">
       {/* STICKY TOP MODAL BAR */}
-      <header className="sticky top-0 z-50 flex items-center justify-between px-4 sm:px-8 py-3.5 bg-surface-900/90 backdrop-blur-xl border-b border-white/10 shadow-xl">
+      <header className="sticky top-0 z-50 flex items-center justify-between px-4 sm:px-8 py-3 bg-[#171720] border-b-3 border-black shadow-[0px_4px_0px_#000]">
         {/* Left: Back button with smooth room transition */}
         <button
           onClick={onClose}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary-600/20 hover:bg-primary-600/40 border border-primary-500/30 text-primary-300 hover:text-white font-semibold text-xs sm:text-sm transition-all duration-200 cursor-pointer shadow-md"
+          className="neo-btn px-4 py-2 bg-[#FFE600] text-black text-xs hover:bg-[#FFF066]"
         >
           <span>←</span>
           <span>
-            {language === "id" ? "Kembali ke Ruangan" : "Back to Room"}
+            {language === "id" ? "KEMBALI KE RUANGAN" : "BACK TO ROOM"}
           </span>
-          <span className="hidden sm:inline text-[11px] text-surface-400 font-mono">
-            (Esc)
+          <span className="hidden sm:inline text-[10px] font-mono opacity-80">
+            [ESC]
           </span>
         </button>
 
         {/* Center: Breadcrumb indicator */}
-        <div className="hidden md:flex items-center gap-2 text-xs font-mono text-surface-300">
+        <div className="hidden md:flex items-center gap-2 text-xs font-mono font-bold text-zinc-300">
           <span className="text-base">{currentHeader.icon}</span>
           <span>{currentHeader.breadcrumb}</span>
         </div>
@@ -104,85 +104,77 @@ export default function RoomModalView({
           <button
             onClick={() => onSwitchSection("about")}
             title="Tentang Saya"
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            className={`neo-btn px-3 py-1.5 text-xs border-2 border-black ${
               section === "about"
-                ? "bg-primary-500 text-white"
-                : "bg-surface-800 text-surface-400 hover:text-white"
+                ? "bg-[#FFE600] text-black shadow-[2px_2px_0px_#000]"
+                : "bg-[#0D0D12] text-zinc-300 hover:text-white"
             }`}
           >
-            🛏️ <span className="hidden sm:inline">Bio</span>
+            🛏️ <span className="hidden sm:inline">BIO</span>
           </button>
           <button
             onClick={() => onSwitchSection("projects")}
             title="Proyek"
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            className={`neo-btn px-3 py-1.5 text-xs border-2 border-black ${
               section === "projects"
-                ? "bg-primary-500 text-white"
-                : "bg-surface-800 text-surface-400 hover:text-white"
+                ? "bg-[#FFE600] text-black shadow-[2px_2px_0px_#000]"
+                : "bg-[#0D0D12] text-zinc-300 hover:text-white"
             }`}
           >
-            💻 <span className="hidden sm:inline">Proyek</span>
+            💻 <span className="hidden sm:inline">PROYEK</span>
           </button>
           <button
             onClick={() => onSwitchSection("skills")}
             title="Keahlian"
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            className={`neo-btn px-3 py-1.5 text-xs border-2 border-black ${
               section === "skills"
-                ? "bg-primary-500 text-white"
-                : "bg-surface-800 text-surface-400 hover:text-white"
+                ? "bg-[#FFE600] text-black shadow-[2px_2px_0px_#000]"
+                : "bg-[#0D0D12] text-zinc-300 hover:text-white"
             }`}
           >
-            📚 <span className="hidden sm:inline">Stack</span>
+            📚 <span className="hidden sm:inline">STACK</span>
           </button>
           <button
             onClick={() => onSwitchSection("contact")}
             title="Kontak"
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            className={`neo-btn px-3 py-1.5 text-xs border-2 border-black ${
               section === "contact"
-                ? "bg-primary-500 text-white"
-                : "bg-surface-800 text-surface-400 hover:text-white"
+                ? "bg-[#FFE600] text-black shadow-[2px_2px_0px_#000]"
+                : "bg-[#0D0D12] text-zinc-300 hover:text-white"
             }`}
           >
-            🚪 <span className="hidden sm:inline">Kontak</span>
+            🚪 <span className="hidden sm:inline">KONTAK</span>
           </button>
 
-          {/* Prominent Language Switcher in Modal View */}
-          <div
-            className="ml-1 sm:ml-2 flex items-center p-1 rounded-xl bg-surface-900 border border-white/10"
-            role="group"
-            aria-label="Language Switcher"
-          >
+          {/* Language Switcher */}
+          <div className="ml-1 sm:ml-2 flex items-center bg-[#0D0D12] border-2 border-black p-0.5 shadow-[2px_2px_0px_#000]">
             <button
               onClick={() => language !== "id" && onToggleLanguage()}
-              className={`flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              className={`px-2 py-0.5 text-xs font-mono font-black transition-all cursor-pointer ${
                 language === "id"
-                  ? "bg-primary-600 text-white shadow-md shadow-primary-600/40"
-                  : "text-surface-400 hover:text-white"
+                  ? "bg-[#00D2FF] text-black border border-black"
+                  : "text-zinc-400 hover:text-white"
               }`}
-              title="Gunakan Bahasa Indonesia"
             >
-              <span>🇮🇩</span>
-              <span>ID</span>
+              ID
             </button>
             <button
               onClick={() => language !== "en" && onToggleLanguage()}
-              className={`flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              className={`px-2 py-0.5 text-xs font-mono font-black transition-all cursor-pointer ${
                 language === "en"
-                  ? "bg-primary-600 text-white shadow-md shadow-primary-600/40"
-                  : "text-surface-400 hover:text-white"
+                  ? "bg-[#00D2FF] text-black border border-black"
+                  : "text-zinc-400 hover:text-white"
               }`}
-              title="Switch to English"
             >
-              <span>🇬🇧</span>
-              <span>EN</span>
+              EN
             </button>
           </div>
         </div>
       </header>
 
       {/* MODAL CONTENT CONTAINER */}
-      <div className="flex-1 overflow-y-auto px-2 sm:px-6 py-6 pb-24">
-        <div className="max-w-6xl mx-auto">
+      <div className="flex-1 overflow-y-auto px-2 sm:px-6 py-6 pb-24 neo-grid-dark-bg">
+        <div className="max-w-7xl mx-auto">
           {section === "projects" && <ProjectsSection />}
           {section === "about" && <AboutSection />}
           {section === "skills" && <SkillsSection />}

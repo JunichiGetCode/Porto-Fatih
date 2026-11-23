@@ -16,44 +16,44 @@ export default function SkillsSection() {
   });
 
   return (
-    <section id="skills" className="relative py-24 md:py-32 section-glow">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="skills" className="relative py-20 md:py-28 bg-[#0D0D12] border-b-3 border-black neo-grid-dark-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <AnimateOnScroll className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/20 mb-4">
-            {data.skills.badge}
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+          <div className="inline-block px-3.5 py-1 text-xs font-mono font-black tracking-widest uppercase bg-[#00F08B] text-black border-2 border-black shadow-[3px_3px_0px_#000] mb-4">
+            [SECTION: 03] // {data.skills.badge}
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-white uppercase font-sans tracking-tight mb-4">
             {data.skills.title1}{" "}
-            <span className="bg-gradient-to-r from-primary-400 via-indigo-300 to-accent-300 bg-clip-text text-transparent">
+            <span className="inline-block bg-[#FFE600] text-black px-3 py-0.5 border-3 border-black shadow-[4px_4px_0px_#000] rotate-1">
               {data.skills.title2}
             </span>
           </h2>
-          <p className="max-w-2xl mx-auto text-surface-300/80 text-base sm:text-lg">
+          <p className="max-w-2xl mx-auto text-zinc-300 text-sm sm:text-base font-medium">
             {data.skills.subtitle}
           </p>
         </AnimateOnScroll>
 
-        {/* Category Tabs */}
-        <div className="flex items-center justify-center gap-2 mb-12 flex-wrap">
+        {/* Category Tabs (Neo-Brutalist Filter Row) */}
+        <div className="flex items-center justify-center gap-2.5 mb-12 flex-wrap">
           <button
             onClick={() => setSelectedCategory("all")}
-            className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
+            className={`neo-btn px-4 py-2 text-xs font-mono uppercase cursor-pointer ${
               selectedCategory === "all"
-                ? "bg-primary-600 text-white shadow-lg shadow-primary-600/30 border border-primary-400/40"
-                : "bg-surface-900/80 text-surface-300 hover:text-white border border-white/5 hover:border-white/20"
+                ? "bg-[#FFE600] text-black shadow-[4px_4px_0px_#000]"
+                : "bg-[#171720] text-zinc-300 hover:text-white"
             }`}
           >
-            All Disciplines
+            ALL DISCIPLINES
           </button>
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
+              className={`neo-btn px-4 py-2 text-xs font-mono uppercase cursor-pointer ${
                 selectedCategory === cat.id
-                  ? "bg-primary-600 text-white shadow-lg shadow-primary-600/30 border border-primary-400/40"
-                  : "bg-surface-900/80 text-surface-300 hover:text-white border border-white/5 hover:border-white/20"
+                  ? "bg-[#FFE600] text-black shadow-[4px_4px_0px_#000]"
+                  : "bg-[#171720] text-zinc-300 hover:text-white"
               }`}
             >
               {cat.title}
@@ -69,19 +69,19 @@ export default function SkillsSection() {
               animation="animate-scale-in"
               delay={catIndex % 2 === 0 ? "delay-100" : "delay-200"}
             >
-              <div className="h-full rounded-3xl bg-surface-900/70 border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-primary-500/30 transition-all duration-300 shadow-xl group">
+              <div className="h-full bg-[#171720] border-3 border-black shadow-[6px_6px_0px_#000] p-6 sm:p-8 flex flex-col justify-between">
                 <div>
-                  {/* Category Title & Description */}
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold text-white group-hover:text-primary-300 transition-colors">
+                  {/* Category Title & Badge */}
+                  <div className="flex items-center justify-between mb-3 border-b-2 border-black pb-3">
+                    <h3 className="text-xl font-black text-white font-sans uppercase">
                       {cat.title}
                     </h3>
-                    <span className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary-400 text-xs font-mono font-bold">
+                    <span className="w-8 h-8 bg-[#FFE600] text-black border-2 border-black flex items-center justify-center text-xs font-mono font-black shadow-[2px_2px_0px_#000]">
                       0{catIndex + 1}
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-surface-400 mb-6">
-                    {cat.description}
+                  <p className="text-xs sm:text-sm text-zinc-300 font-mono mb-6">
+                    {"//"} {cat.description}
                   </p>
 
                   {/* Skills Items */}
@@ -89,17 +89,17 @@ export default function SkillsSection() {
                     {cat.skills.map((skill, sIdx) => (
                       <div
                         key={sIdx}
-                        className="p-3.5 rounded-2xl bg-surface-950/60 border border-white/5 hover:border-primary-500/20 transition-all"
+                        className="p-3.5 bg-[#0D0D12] border-2 border-black shadow-[2px_2px_0px_#000] hover:shadow-[4px_4px_0px_#000] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
                       >
-                        <div className="flex items-center justify-between gap-2 mb-1">
-                          <span className="font-semibold text-sm text-white font-mono">
+                        <div className="flex items-center justify-between gap-2 mb-1.5">
+                          <span className="font-mono font-black text-sm text-white">
                             {skill.name}
                           </span>
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary-500/15 text-primary-300 border border-primary-500/30 uppercase tracking-wider">
+                          <span className="text-[10px] font-mono font-black px-2 py-0.5 bg-[#00D2FF] text-black border border-black uppercase">
                             {skill.tag}
                           </span>
                         </div>
-                        <p className="text-xs text-surface-300/80 leading-relaxed">
+                        <p className="text-xs text-zinc-400 font-sans leading-relaxed">
                           {skill.focus}
                         </p>
                       </div>
@@ -107,10 +107,10 @@ export default function SkillsSection() {
                   </div>
                 </div>
 
-                {/* Bottom Architectural Note */}
-                <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-surface-400 font-mono">
-                  <span>Stack Verified in Production</span>
-                  <span className="text-accent-400 font-bold">Tested</span>
+                {/* Bottom Category Tape */}
+                <div className="mt-6 pt-4 border-t-2 border-black flex items-center justify-between text-xs font-mono text-zinc-400 font-bold">
+                  <span>PRODUCTION READY</span>
+                  <span className="text-[#00F08B]">STACK CERTIFIED ★</span>
                 </div>
               </div>
             </AnimateOnScroll>

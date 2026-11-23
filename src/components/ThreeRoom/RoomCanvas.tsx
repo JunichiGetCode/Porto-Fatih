@@ -346,61 +346,60 @@ export default function RoomCanvas({
     rendererRef.current = renderer;
 
     // ==========================================
-    // PROCEDURAL CODE & METRICS TEXTURES FOR WORKSTATION
+    // PROCEDURAL CODE & METRICS TEXTURES FOR WORKSTATION (NEO-BRUTALIST TECH)
     // ==========================================
     const createCodeScreenTexture = () => {
       const canvas = document.createElement("canvas");
       canvas.width = 1024;
       canvas.height = 512;
       const ctx = canvas.getContext("2d")!;
-      ctx.fillStyle = "#0d1117";
+      ctx.fillStyle = "#08080C";
       ctx.fillRect(0, 0, 1024, 512);
 
-      // VS Code Window Bar
-      ctx.fillStyle = "#161b22";
+      // Neo-Brutalist Terminal Bar
+      ctx.fillStyle = "#000000";
       ctx.fillRect(0, 0, 1024, 48);
-      ctx.fillStyle = "#ff5f56";
-      ctx.beginPath();
-      ctx.arc(28, 24, 7, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = "#ffbd2e";
-      ctx.beginPath();
-      ctx.arc(52, 24, 7, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = "#27c93f";
-      ctx.beginPath();
-      ctx.arc(76, 24, 7, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.strokeStyle = "#FFE600";
+      ctx.lineWidth = 4;
+      ctx.strokeRect(0, 0, 1024, 48);
+
+      // Buttons
+      ctx.fillStyle = "#FF3366";
+      ctx.fillRect(18, 14, 20, 20);
+      ctx.fillStyle = "#FFE600";
+      ctx.fillRect(46, 14, 20, 20);
+      ctx.fillStyle = "#00F08B";
+      ctx.fillRect(74, 14, 20, 20);
 
       // Tab File Title
-      ctx.fillStyle = "#8b949e";
-      ctx.font = "bold 16px monospace";
-      ctx.fillText("MuhammadFatihRahman.tsx — Full-Stack Portfolio", 110, 31);
+      ctx.fillStyle = "#FFE600";
+      ctx.font = "bold 16px 'Space Grotesk', 'JetBrains Mono', monospace";
+      ctx.fillText("[FATIH.DEV // CORE ARCHITECTURE]", 110, 31);
 
       const lines = [
-        { text: "import { LeadDeveloper } from '@fatih/profile';", color: "#ff7b72" },
-        { text: "import { Flutter, NextJs, Laravel, PostgreSQL } from '@tech/core';", color: "#79c0ff" },
+        { text: "import { LeadDeveloper } from '@fatih/profile';", color: "#FF3366" },
+        { text: "import { Flutter, NextJs, Laravel, PostgreSQL } from '@tech/core';", color: "#00D2FF" },
         { text: "", color: "" },
-        { text: "export const developer: LeadDeveloper = {", color: "#d2a8ff" },
-        { text: "  name: 'Muhammad Fatih Rahman',", color: "#a5d6ff" },
-        { text: "  institution: 'Telkom University Jakarta',", color: "#7ee787" },
-        { text: "  experience: '2+ Years Production Delivery',", color: "#7ee787" },
-        { text: "  featuredProjects: ['HaramainQu', 'TangkapIN', 'Juragan Bakso', 'AI Interview'],", color: "#ffa657" },
-        { text: "  architecture: 'Clean Architecture, High-Throughput APIs, Idempotent Payments',", color: "#7ee787" },
-        { text: "  mindset: 'Building digital solutions that solve real business bottlenecks',", color: "#ff7b72" },
-        { text: "};", color: "#d2a8ff" },
+        { text: "export const developer: LeadDeveloper = {", color: "#FFE600" },
+        { text: "  name: 'Muhammad Fatih Rahman',", color: "#FFFFFF" },
+        { text: "  institution: 'Telkom University Jakarta',", color: "#00F08B" },
+        { text: "  experience: '2+ Years Production Delivery',", color: "#00F08B" },
+        { text: "  featuredProjects: ['HaramainQu', 'TangkapIN', 'Juragan Bakso', 'AI Interview'],", color: "#00D2FF" },
+        { text: "  architecture: 'Clean Architecture, High-Throughput APIs, Idempotent Payments',", color: "#FFE600" },
+        { text: "  mindset: 'Anti-AI-Slop // Pure Engineered Impact & Clean Code',", color: "#FF3366" },
+        { text: "};", color: "#FFE600" },
         { text: "", color: "" },
-        { text: "export default async function architectSolutions() {", color: "#79c0ff" },
-        { text: "  await developer.shipImpactfulApplications();", color: "#56d364" },
-        { text: "  console.log('⚡ Ready to collaborate with high-performing engineering teams.');", color: "#8b949e" },
-        { text: "}", color: "#79c0ff" },
+        { text: "export default async function architectSolutions() {", color: "#00D2FF" },
+        { text: "  await developer.shipImpactfulApplications();", color: "#00F08B" },
+        { text: "  console.log('⚡ READY TO SHIP PRODUCTION SYSTEMS.');", color: "#FFE600" },
+        { text: "}", color: "#00D2FF" },
       ];
 
-      ctx.font = "18px 'Fira Code', monospace";
+      ctx.font = "bold 18px 'JetBrains Mono', monospace";
       lines.forEach((l, idx) => {
         if (!l.text) return;
-        ctx.fillStyle = "#30363d";
-        ctx.fillText(String(idx + 1).padStart(2, " "), 20, 85 + idx * 26);
+        ctx.fillStyle = "#FFE600";
+        ctx.fillText(String(idx + 1).padStart(2, "0"), 20, 85 + idx * 26);
         ctx.fillStyle = l.color;
         ctx.fillText(l.text, 65, 85 + idx * 26);
       });
@@ -413,49 +412,57 @@ export default function RoomCanvas({
       canvas.width = 512;
       canvas.height = 1024;
       const ctx = canvas.getContext("2d")!;
-      ctx.fillStyle = "#0c1322";
+      ctx.fillStyle = "#0D0D12";
       ctx.fillRect(0, 0, 512, 1024);
 
-      ctx.fillStyle = "#1e293b";
+      // Brutalist Header
+      ctx.fillStyle = "#FFE600";
       ctx.fillRect(0, 0, 512, 60);
-      ctx.fillStyle = "#38bdf8";
-      ctx.font = "bold 22px sans-serif";
-      ctx.fillText("SYSTEM TELEMETRY", 28, 40);
+      ctx.fillStyle = "#000000";
+      ctx.font = "900 22px 'Space Grotesk', monospace";
+      ctx.fillText("SYSTEM TELEMETRY [ACTIVE]", 24, 40);
 
       const metrics = [
-        { label: "EXPERIENCE", val: "2+ YEARS", color: "#38bdf8" },
-        { label: "SYSTEM UPTIME", val: "99.94%", color: "#34d399" },
-        { label: "SHIPPED APPS", val: "7 PRODUCTS", color: "#a855f7" },
-        { label: "CLEAN ARCHITECTURE", val: "100% MODULAR", color: "#f59e0b" },
+        { label: "EXPERIENCE", val: "2+ YEARS", color: "#FFE600" },
+        { label: "SYSTEM UPTIME", val: "99.94%", color: "#00F08B" },
+        { label: "SHIPPED APPS", val: "7 PRODUCTS", color: "#00D2FF" },
+        { label: "CLEAN ARCHITECTURE", val: "MODULAR V2", color: "#FF3366" },
       ];
 
       metrics.forEach((m, idx) => {
         const y = 80 + idx * 105;
-        ctx.fillStyle = "#131e33";
-        ctx.fillRect(25, y, 462, 85);
+        ctx.fillStyle = "#171720";
+        ctx.fillRect(20, y, 472, 85);
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = 4;
+        ctx.strokeRect(20, y, 472, 85);
 
-        ctx.fillStyle = "#64748b";
-        ctx.font = "bold 14px sans-serif";
-        ctx.fillText(m.label, 42, y + 32);
+        ctx.fillStyle = "#A1A1AA";
+        ctx.font = "bold 13px 'JetBrains Mono', monospace";
+        ctx.fillText(`// ${m.label}`, 36, y + 30);
 
         ctx.fillStyle = m.color;
-        ctx.font = "bold 26px sans-serif";
-        ctx.fillText(m.val, 42, y + 68);
+        ctx.font = "900 28px 'JetBrains Mono', monospace";
+        ctx.fillText(m.val, 36, y + 68);
       });
 
       // Simulated GitHub contribution graph
-      ctx.fillStyle = "#1e293b";
-      ctx.fillRect(25, 520, 462, 220);
-      ctx.fillStyle = "#94a3b8";
-      ctx.font = "bold 16px sans-serif";
-      ctx.fillText("GIT ACTIVITY HEATMAP", 45, 555);
+      ctx.fillStyle = "#171720";
+      ctx.fillRect(20, 520, 472, 230);
+      ctx.strokeStyle = "#000000";
+      ctx.lineWidth = 4;
+      ctx.strokeRect(20, 520, 472, 230);
 
-      const gitColors = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"];
+      ctx.fillStyle = "#FFE600";
+      ctx.font = "bold 16px 'JetBrains Mono', monospace";
+      ctx.fillText("GIT ACTIVITY HEATMAP", 36, 555);
+
+      const gitColors = ["#121217", "#006D32", "#00F08B", "#FFE600", "#FF3366"];
       for (let row = 0; row < 5; row++) {
         for (let col = 0; col < 18; col++) {
           const cIdx = (row * 3 + col * 7) % gitColors.length;
           ctx.fillStyle = gitColors[cIdx];
-          ctx.fillRect(45 + col * 23, 580 + row * 24, 18, 18);
+          ctx.fillRect(36 + col * 24, 580 + row * 24, 18, 18);
         }
       }
 
@@ -891,22 +898,30 @@ export default function RoomCanvas({
       subtitle: string,
       w: number,
       h: number,
-      neonColor: string = "#38bdf8"
+      neonColor: string = "#FFE600"
     ) => {
       const frameGroup = new THREE.Group();
       frameGroup.userData = { section: "projects", name: title };
 
-      // 1. Frame outer bezel
+      // 1. Frame outer bezel (Brutalist pitch black solid frame)
       const frameBezel = new THREE.Mesh(
-        new THREE.BoxGeometry(w + 0.12, h + 0.12, 0.06),
+        new THREE.BoxGeometry(w + 0.14, h + 0.14, 0.07),
         new THREE.MeshStandardMaterial({
-          color: "#0f172a",
-          roughness: 0.3,
-          metalness: 0.7,
+          color: "#000000",
+          roughness: 0.2,
+          metalness: 0.1,
         })
       );
       frameBezel.castShadow = true;
       frameGroup.add(frameBezel);
+
+      // 1b. 3D Hard Block Drop Shadow (Physical offset slab behind frame)
+      const shadowSlab = new THREE.Mesh(
+        new THREE.BoxGeometry(w + 0.14, h + 0.14, 0.04),
+        new THREE.MeshBasicMaterial({ color: neonColor })
+      );
+      shadowSlab.position.set(0.04, -0.04, -0.035);
+      frameGroup.add(shadowSlab);
 
       // 2. Picture Canvas Texture
       const artTex = textureLoader.load(imageSrc);
@@ -915,67 +930,67 @@ export default function RoomCanvas({
         new THREE.PlaneGeometry(w, h),
         new THREE.MeshBasicMaterial({ map: artTex })
       );
-      artwork.position.set(0, 0, 0.035);
+      artwork.position.set(0, 0, 0.04);
       frameGroup.add(artwork);
 
-      // 3. Neon LED Backlight Halo
+      // 3. Crisp High-Voltage Accent Border
       const neonHalo = new THREE.Mesh(
-        new THREE.PlaneGeometry(w + 0.22, h + 0.22),
+        new THREE.PlaneGeometry(w + 0.04, h + 0.04),
         new THREE.MeshBasicMaterial({
           color: neonColor,
           transparent: true,
-          opacity: 0.45,
+          opacity: 0.85,
           depthWrite: false,
         })
       );
-      neonHalo.position.set(0, 0, -0.01);
+      neonHalo.position.set(0, 0, 0.038);
       frameGroup.add(neonHalo);
 
-      // 4. Museum Picture Light Fixture on top
+      // 4. Industrial Picture Light Fixture on top
       const lampTube = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.018, 0.018, w * 0.75, 12),
-        new THREE.MeshStandardMaterial({ color: "#cbd5e1", metalness: 0.9, roughness: 0.2 })
+        new THREE.CylinderGeometry(0.02, 0.02, w * 0.8, 12),
+        new THREE.MeshStandardMaterial({ color: "#FFE600", metalness: 0.8, roughness: 0.2 })
       );
       lampTube.rotation.z = Math.PI / 2;
       lampTube.position.set(0, h / 2 + 0.12, 0.14);
       frameGroup.add(lampTube);
 
       const lampArm = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.01, 0.01, 0.14, 8),
-        new THREE.MeshStandardMaterial({ color: "#94a3b8", metalness: 0.8 })
+        new THREE.CylinderGeometry(0.012, 0.012, 0.14, 8),
+        new THREE.MeshStandardMaterial({ color: "#000000", metalness: 0.5 })
       );
       lampArm.rotation.x = Math.PI / 2;
       lampArm.position.set(0, h / 2 + 0.07, 0.07);
       frameGroup.add(lampArm);
 
       // Picture Spotlight
-      const spot = new THREE.PointLight(neonColor, 1.4, 3.2, 1.6);
+      const spot = new THREE.PointLight(neonColor, 1.6, 3.5, 1.6);
       spot.position.set(0, h / 2 + 0.1, 0.2);
       frameGroup.add(spot);
 
-      // 5. Plaque label
+      // 5. Brutalist Plaque label
       const pCanvas = document.createElement("canvas");
       pCanvas.width = 512;
-      pCanvas.height = 100;
+      pCanvas.height = 110;
       const pCtx = pCanvas.getContext("2d")!;
-      pCtx.fillStyle = "#0b1220";
-      pCtx.fillRect(0, 0, 512, 100);
+      pCtx.fillStyle = "#000000";
+      pCtx.fillRect(0, 0, 512, 110);
       pCtx.strokeStyle = neonColor;
-      pCtx.lineWidth = 3;
-      pCtx.strokeRect(3, 3, 506, 94);
-      pCtx.fillStyle = "#ffffff";
-      pCtx.font = "bold 26px sans-serif";
+      pCtx.lineWidth = 6;
+      pCtx.strokeRect(3, 3, 506, 104);
+      pCtx.fillStyle = "#FFE600";
+      pCtx.font = "bold 26px 'Space Grotesk', 'JetBrains Mono', monospace";
       pCtx.textAlign = "center";
-      pCtx.fillText(title, 256, 42);
-      pCtx.fillStyle = neonColor;
-      pCtx.font = "18px sans-serif";
-      pCtx.fillText(subtitle, 256, 78);
+      pCtx.fillText(title.toUpperCase(), 256, 44);
+      pCtx.fillStyle = "#FFFFFF";
+      pCtx.font = "bold 16px 'JetBrains Mono', monospace";
+      pCtx.fillText(subtitle, 256, 82);
       const plaqueTex = new THREE.CanvasTexture(pCanvas);
       const plaqueMesh = new THREE.Mesh(
-        new THREE.PlaneGeometry(w * 0.85, 0.2),
+        new THREE.PlaneGeometry(w * 0.9, 0.22),
         new THREE.MeshBasicMaterial({ map: plaqueTex })
       );
-      plaqueMesh.position.set(0, -h / 2 - 0.14, 0.033);
+      plaqueMesh.position.set(0, -h / 2 - 0.16, 0.045);
       frameGroup.add(plaqueMesh);
 
       return frameGroup;
@@ -990,7 +1005,7 @@ export default function RoomCanvas({
       "Smart Waste Classification • Flutter & PyTorch",
       1.9,
       1.2,
-      "#38bdf8"
+      "#00F08B"
     );
     frameTangkapin.position.set(5.0, 3.6, -3.2);
     frameTangkapin.rotation.y = -Math.PI / 2;
@@ -1004,7 +1019,7 @@ export default function RoomCanvas({
       "Real-time Queue & POS • Laravel",
       1.6,
       1.0,
-      "#f59e0b"
+      "#FFE600"
     );
     frameBarbershop.position.set(5.0, 1.7, -3.2);
     frameBarbershop.rotation.y = -Math.PI / 2;
@@ -1019,7 +1034,7 @@ export default function RoomCanvas({
       "Gemini AI • Audio Streaming • Next.js",
       1.9,
       1.2,
-      "#a855f7"
+      "#FF3366"
     );
     frameAiInterview.position.set(5.0, 3.6, -1.0);
     frameAiInterview.rotation.y = -Math.PI / 2;
@@ -1033,7 +1048,7 @@ export default function RoomCanvas({
       "Enterprise Custom Modules • Python",
       1.6,
       1.0,
-      "#8b5cf6"
+      "#8B5CF6"
     );
     frameOdoo.position.set(5.0, 1.7, -1.0);
     frameOdoo.rotation.y = -Math.PI / 2;
@@ -1048,7 +1063,7 @@ export default function RoomCanvas({
       "Umrah & Hajj Offline Guide • Flutter",
       1.8,
       1.2,
-      "#10b981"
+      "#00F08B"
     );
     frameHaramainQu.position.set(5.0, 3.6, 1.3);
     frameHaramainQu.rotation.y = -Math.PI / 2;
@@ -1063,7 +1078,7 @@ export default function RoomCanvas({
       "televent.vercel.app • Next.js & Event Hub",
       1.8,
       1.2,
-      "#e11d48"
+      "#00D2FF"
     );
     frameTelevent.position.set(5.0, 3.6, 3.5);
     frameTelevent.rotation.y = -Math.PI / 2;
@@ -1078,7 +1093,7 @@ export default function RoomCanvas({
       "si-bakso.vercel.app • Next.js & Midtrans",
       2.4,
       1.3,
-      "#fbbf24"
+      "#FFE600"
     );
     frameBakso.position.set(2.4, 4.3, -5.0);
     scene.add(frameBakso);
@@ -1091,21 +1106,21 @@ export default function RoomCanvas({
       "Pilgrimage Travel CMS • Next.js",
       1.8,
       1.1,
-      "#06b6d4"
+      "#00D2FF"
     );
     frameHaramainTour.position.set(-3.6, 4.3, -5.0);
     scene.add(frameHaramainTour);
     galleryFrames.push(frameHaramainTour);
 
     // --- LEFT WALL (Profile Portrait hanging above Console Table) ---
-    // 9. Lead Developer Profile Portrait (Cleanly centered between window & door!)
+    // 9. Lead Developer Profile Portrait
     const frameProfile = createWallGalleryFrame(
       "/profile.jpeg",
       "Muhammad Fatih Rahman",
       "Lead Full-Stack & Mobile Developer",
       1.1,
       1.4,
-      "#38bdf8"
+      "#FFE600"
     );
     frameProfile.position.set(-5.0, 3.0, 1.4);
     frameProfile.rotation.y = Math.PI / 2;
@@ -1943,7 +1958,7 @@ export default function RoomCanvas({
       {/* 3D WebGL Canvas Container */}
       <div ref={containerRef} className="w-full h-full" />
 
-      {/* Hover Floating Tooltip */}
+      {/* Hover Floating Tooltip (Neo-Brutalist Pop Stamp) */}
       {hoveredSection && !activeSection && (
         <div
           className="fixed pointer-events-none z-40 transition-all duration-150 transform -translate-x-1/2 -translate-y-full mb-3"
@@ -1952,16 +1967,16 @@ export default function RoomCanvas({
             top: `${hoveredSection.y - 18}px`,
           }}
         >
-          <div className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-surface-900/90 backdrop-blur-xl border border-primary-500/40 shadow-2xl shadow-primary-500/20 text-white animate-fade-in">
+          <div className="flex items-center gap-3 px-4 py-2.5 bg-[#171720] border-3 border-black shadow-[5px_5px_0px_#000] text-white animate-fade-in">
             <span className="text-2xl">{hoveredSection.icon}</span>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-primary-400">
-                {language === "id" ? "Interaksi 3D" : "3D Interaction"}
+              <p className="text-[10px] font-mono font-black uppercase tracking-wider text-[#00F08B]">
+                {"//"} {language === "id" ? "INTERAKSI 3D" : "3D INTERACTION"}
               </p>
-              <h4 className="text-sm font-bold text-white leading-tight">
+              <h4 className="text-xs sm:text-sm font-mono font-black text-white leading-tight uppercase">
                 {hoveredSection.title}
               </h4>
-              <p className="text-[11px] text-surface-300">
+              <p className="text-[11px] font-mono text-zinc-300">
                 {hoveredSection.subtitle}
               </p>
             </div>
@@ -1969,16 +1984,16 @@ export default function RoomCanvas({
         </div>
       )}
 
-      {/* POV & Walking Guidance Banner */}
+      {/* POV & Walking Guidance Banner (Neo-Brutalist Caution Strip) */}
       {!activeSection && isLoaded && (
         <div className="absolute inset-0 pointer-events-none">
-          <div className="hidden sm:block absolute top-24 left-1/2 -translate-x-1/2 pointer-events-auto">
-            <div className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-surface-950/80 backdrop-blur-md border border-white/10 text-xs text-surface-300 shadow-xl">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="hidden sm:block absolute top-20 left-1/2 -translate-x-1/2 pointer-events-auto">
+            <div className="flex items-center gap-2.5 px-4 py-2 bg-[#FFE600] text-black border-2 border-black shadow-[3px_3px_0px_#000] text-xs font-mono font-black uppercase">
+              <span className="inline-block w-2 h-2 bg-black rounded-none animate-pulse" />
               <span>
                 {language === "id"
-                  ? "🎮 Putar 360°: Drag mouse / [Q][E] / Kursor ke tepi layar • Jalan: [W][A][S][D] • Klik objek untuk jelajah"
-                  : "🎮 360° View: Drag mouse / [Q][E] / Cursor to edge • Walk: [W][A][S][D] • Click objects to explore"}
+                  ? "🎮 PUTAR 360°: DRAG MOUSE / [Q][E] • JALAN: [W][A][S][D] • KLIK OBJEK UNTUK EKSPLORASI"
+                  : "🎮 360° VIEW: DRAG MOUSE / [Q][E] • WALK: [W][A][S][D] • CLICK OBJECTS TO EXPLORE"}
               </span>
             </div>
           </div>
