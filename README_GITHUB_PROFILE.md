@@ -119,6 +119,32 @@ current_focus: Next.js 14 App Router, Three.js, VILT Stack, and AI-assisted work
       </p>
     </td>
   </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3 align="center">🎟️ TelEvent Campus Platform</h3>
+      <p align="center">
+        <b>Laravel • MySQL • RBAC Multi-Tier • Paperless Workflow</b>
+      </p>
+      <p>
+        Unified campus event proposal digitization & curated approvals system, eliminating paper bureaucracy with transparent status audits.
+      </p>
+      <p align="center">
+        <a href="https://televent.vercel.app"><b>Live Demo ↗</b></a>
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <h3 align="center">💈 Modern Barbershop POS</h3>
+      <p align="center">
+        <b>Laravel • MySQL • Chart.js • Automated Splits</b>
+      </p>
+      <p>
+        End-to-end POS and service operations system with automatic barber commission calculations and real-time transaction metrics.
+      </p>
+      <p align="center">
+        <span style="color: #fbbf24;"><b>Operational POS • Daily Analytics</b></span>
+      </p>
+    </td>
+  </tr>
 </table>
 
 ---

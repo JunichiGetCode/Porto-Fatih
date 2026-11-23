@@ -53,6 +53,7 @@ const projectMetaMap: Record<string, ProjectAssetMeta> = {
     techStack: ["Laravel", "MySQL", "RBAC", "Bootstrap"],
     gradient: "from-blue-500/20 to-cyan-500/20",
     categoryTag: "Campus Event Workflow",
+    liveUrl: "https://televent.vercel.app",
   },
   barbershop: {
     image: "/barbershop.png",

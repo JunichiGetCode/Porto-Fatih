@@ -1060,7 +1060,7 @@ export default function RoomCanvas({
     const frameTelevent = createWallGalleryFrame(
       "/televent.png",
       "Televent Ticketing",
-      "Event Management • Web & QR Check-in",
+      "televent.vercel.app • Web & QR Check-in",
       1.8,
       1.2,
       "#ec4899"

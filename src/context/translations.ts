@@ -459,6 +459,7 @@ export const translations: Record<Language, TranslationData> = {
             "Pencarian dan katalog acara kampus yang interaktif dan responsif",
           ],
           status: "Selesai",
+          liveUrl: "https://televent.vercel.app",
           caseStudy: {
             challenge: "Organisasi mahasiswa kerap mengalami keterlambatan event akibat proposal kertas hilang di meja birokrasi dan tidak adanya transparansi status persetujuan.",
             role: "Full-Stack Web Developer (Laravel)",
@@ -907,6 +908,7 @@ export const translations: Record<Language, TranslationData> = {
             "Interactive and searchable campus event calendar for students",
           ],
           status: "Completed",
+          liveUrl: "https://televent.vercel.app",
           caseStudy: {
             challenge: "Student organizations regularly suffered event delays due to lost physical paperwork on administrative desks and zero transparency on proposal review stages.",
             role: "Full-Stack Web Developer (Laravel)",
