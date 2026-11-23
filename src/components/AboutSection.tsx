@@ -44,7 +44,7 @@ export default function AboutSection() {
                     src="/odoo.jpeg"
                     alt="Muhammad Fatih Rahman at work"
                     fill
-                    className="object-cover object-center grayscale contrast-115 hover:grayscale-0 transition-all duration-300"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 1024px) 100vw, 450px"
                   />
 

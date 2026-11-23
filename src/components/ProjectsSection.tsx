@@ -148,7 +148,7 @@ export default function ProjectsSection() {
                       src={meta.image}
                       alt={project.title}
                       fill
-                      className="object-cover object-top contrast-105 group-hover:scale-102 transition-transform duration-300"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
 

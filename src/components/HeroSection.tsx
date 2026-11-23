@@ -132,7 +132,7 @@ export default function HeroSection() {
                   src="/profile.jpeg"
                   alt="Muhammad Fatih Rahman"
                   fill
-                  className="object-cover object-center grayscale contrast-110 hover:grayscale-0 transition-all duration-300"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   priority
                   sizes="(max-width: 640px) 256px, (max-width: 768px) 304px, 336px"
                 />
