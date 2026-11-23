@@ -1056,14 +1056,14 @@ export default function RoomCanvas({
     galleryFrames.push(frameHaramainQu);
 
     // Bay 4: Z = 3.5 (Bed lounge foot area)
-    // 6. Televent Ticketing (Top)
+    // 6. TelEvent Platform (Top)
     const frameTelevent = createWallGalleryFrame(
       "/televent.png",
-      "Televent Ticketing",
-      "televent.vercel.app • Web & QR Check-in",
+      "TelEvent Telkom University",
+      "televent.vercel.app • Next.js & Event Hub",
       1.8,
       1.2,
-      "#ec4899"
+      "#e11d48"
     );
     frameTelevent.position.set(5.0, 3.6, 3.5);
     frameTelevent.rotation.y = -Math.PI / 2;

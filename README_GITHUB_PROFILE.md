@@ -123,10 +123,10 @@ current_focus: Next.js 14 App Router, Three.js, VILT Stack, and AI-assisted work
     <td width="50%" valign="top">
       <h3 align="center">🎟️ TelEvent Campus Platform</h3>
       <p align="center">
-        <b>Laravel • MySQL • RBAC Multi-Tier • Paperless Workflow</b>
+        <b>Next.js • React • Tailwind CSS • Vercel</b>
       </p>
       <p>
-        Unified campus event proposal digitization & curated approvals system, eliminating paper bureaucracy with transparent status audits.
+        Unified campus event management & proposal digitalization platform for Telkom University, eliminating paper bureaucracy with transparent review audits.
       </p>
       <p align="center">
         <a href="https://televent.vercel.app"><b>Live Demo ↗</b></a>

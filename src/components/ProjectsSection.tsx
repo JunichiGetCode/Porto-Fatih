@@ -50,9 +50,9 @@ const projectMetaMap: Record<string, ProjectAssetMeta> = {
   },
   televent: {
     image: "/televent.png",
-    techStack: ["Laravel", "MySQL", "RBAC", "Bootstrap"],
-    gradient: "from-blue-500/20 to-cyan-500/20",
-    categoryTag: "Campus Event Workflow",
+    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    gradient: "from-rose-500/20 to-red-600/20",
+    categoryTag: "Campus Event Platform",
     liveUrl: "https://televent.vercel.app",
   },
   barbershop: {
