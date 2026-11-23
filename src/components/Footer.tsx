@@ -1,11 +1,24 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { data } = useLanguage();
+  const [copiedDiscord, setCopiedDiscord] = useState(false);
+
+  const handleCopyDiscord = async () => {
+    try {
+      await navigator.clipboard.writeText("itsmejunichi");
+      setCopiedDiscord(true);
+      setTimeout(() => setCopiedDiscord(false), 2500);
+    } catch {
+      setCopiedDiscord(true);
+      setTimeout(() => setCopiedDiscord(false), 2500);
+    }
+  };
 
   return (
     <footer className="relative py-12 border-t-3 border-black bg-[#0D0D12] text-white">
@@ -32,8 +45,51 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* Social Links Row */}
+          <div className="flex items-center gap-2">
+            <a
+              href="https://github.com/JunichiGetCode"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1.5 bg-[#171720] border-2 border-black shadow-[2px_2px_0px_#000] text-xs font-mono font-bold text-white hover:bg-[#FFE600] hover:text-black hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
+              title="GitHub: JunichiGetCode"
+            >
+              GH ↗
+            </a>
+            <a
+              href="https://www.linkedin.com/in/fatih-rahman/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1.5 bg-[#171720] border-2 border-black shadow-[2px_2px_0px_#000] text-xs font-mono font-bold text-white hover:bg-[#00D2FF] hover:text-black hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
+              title="LinkedIn: fatih-rahman"
+            >
+              IN ↗
+            </a>
+            <a
+              href="https://www.instagram.com/ffaattihhr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1.5 bg-[#171720] border-2 border-black shadow-[2px_2px_0px_#000] text-xs font-mono font-bold text-white hover:bg-[#FF3366] hover:text-white hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
+              title="Instagram: @ffaattihhr"
+            >
+              IG ↗
+            </a>
+            <button
+              type="button"
+              onClick={handleCopyDiscord}
+              className={`px-2.5 py-1.5 border-2 border-black shadow-[2px_2px_0px_#000] text-xs font-mono font-bold transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 ${
+                copiedDiscord
+                  ? "bg-[#5865F2] text-white"
+                  : "bg-[#171720] text-white hover:bg-[#5865F2]"
+              }`}
+              title="Discord: itsmejunichi (Klik untuk salin username)"
+            >
+              {copiedDiscord ? "COPIED! ✓" : "DC 📋"}
+            </button>
+          </div>
+
           {/* Copyright & Stack Stamp */}
-          <div className="text-center">
+          <div className="text-center md:text-right">
             <p className="text-xs font-mono font-bold text-zinc-300 uppercase">
               &copy; {currentYear} MUHAMMAD FATIH RAHMAN. {data.footer.rights}
             </p>

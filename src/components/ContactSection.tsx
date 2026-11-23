@@ -13,6 +13,7 @@ export default function ContactSection() {
     message: "",
   });
   const [copied, setCopied] = useState(false);
+  const [copiedDiscord, setCopiedDiscord] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleCopyEmail = async () => {
@@ -23,6 +24,17 @@ export default function ContactSection() {
     } catch {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
+    }
+  };
+
+  const handleCopyDiscord = async () => {
+    try {
+      await navigator.clipboard.writeText("itsmejunichi");
+      setCopiedDiscord(true);
+      setTimeout(() => setCopiedDiscord(false), 2500);
+    } catch {
+      setCopiedDiscord(true);
+      setTimeout(() => setCopiedDiscord(false), 2500);
     }
   };
 
@@ -115,32 +127,54 @@ export default function ContactSection() {
             </a>
 
             {/* Social Links Row */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               <a
-                href="https://github.com/fatih0202"
+                href="https://github.com/JunichiGetCode"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-btn p-3 bg-[#0D0D12] text-white text-xs hover:bg-black hover:text-[#FFE600] text-center"
+                title="GitHub: JunichiGetCode"
               >
                 GITHUB ↗
               </a>
               <a
-                href="https://linkedin.com/in/muhammad-fatih-rahman"
+                href="https://www.linkedin.com/in/fatih-rahman/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-btn p-3 bg-[#0D0D12] text-white text-xs hover:bg-black hover:text-[#00D2FF] text-center"
+                title="LinkedIn: fatih-rahman"
               >
                 LINKEDIN ↗
               </a>
               <a
-                href="https://instagram.com/fatihh.rr"
+                href="https://www.instagram.com/ffaattihhr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-btn p-3 bg-[#0D0D12] text-white text-xs hover:bg-black hover:text-[#FF3366] text-center"
+                title="Instagram: @ffaattihhr"
               >
                 INSTA ↗
               </a>
+              <button
+                type="button"
+                onClick={handleCopyDiscord}
+                className={`neo-btn p-3 text-xs text-center transition-all ${
+                  copiedDiscord
+                    ? "bg-[#5865F2] text-white font-black"
+                    : "bg-[#0D0D12] text-white hover:bg-black hover:text-[#5865F2]"
+                }`}
+                title="Discord: itsmejunichi (Klik untuk salin username)"
+              >
+                {copiedDiscord ? "COPIED! ✓" : "DISCORD 📋"}
+              </button>
             </div>
+
+            {copiedDiscord && (
+              <div className="p-2.5 bg-[#5865F2] text-white font-mono text-xs font-black border-2 border-black shadow-[3px_3px_0px_#000] text-center animate-fade-in flex items-center justify-center gap-2">
+                <span>✓</span>
+                <span>USERNAME DISCORD &quot;itsmejunichi&quot; BERHASIL DISALIN!</span>
+              </div>
+            )}
           </AnimateOnScroll>
 
           {/* Right Column: Message Dispatcher Terminal (7 cols) */}

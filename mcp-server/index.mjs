@@ -106,8 +106,10 @@ server.tool(
     <div class="actions">
       <a class="btn btn-primary" href="mailto:fatihfatihrahman@gmail.com">Direct Email</a>
       <a class="btn btn-secondary" href="https://wa.me/6281275516335" target="_blank">WhatsApp Chat</a>
-      <a class="btn btn-secondary" href="https://github.com/ffaattiihrr" target="_blank">GitHub</a>
+      <a class="btn btn-secondary" href="https://github.com/JunichiGetCode" target="_blank">GitHub</a>
       <a class="btn btn-secondary" href="https://www.linkedin.com/in/fatih-rahman/" target="_blank">LinkedIn</a>
+      <a class="btn btn-secondary" href="https://www.instagram.com/ffaattihhr" target="_blank">Instagram</a>
+      <a class="btn btn-secondary" href="https://discord.com" title="Discord: itsmejunichi" target="_blank">Discord: itsmejunichi</a>
     </div>
   </div>
 </body>
