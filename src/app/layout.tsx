@@ -18,8 +18,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Muhammad Fatih Rahman" }],
   icons: {
-    icon: "/logo-mark.svg",
-    apple: "/logo-mark.svg",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+    shortcut: "/icon.svg",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "Muhammad Fatih Rahman | Web & Mobile Developer",
