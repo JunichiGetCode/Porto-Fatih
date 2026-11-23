@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     "Telkom University Jakarta",
   ],
   authors: [{ name: "Muhammad Fatih Rahman" }],
+  icons: {
+    icon: "/logo-mark.svg",
+    apple: "/logo-mark.svg",
+  },
   openGraph: {
     title: "Muhammad Fatih Rahman | Web & Mobile Developer",
     description:

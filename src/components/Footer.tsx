@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
@@ -12,12 +13,18 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo & Tagline */}
           <div className="flex flex-col items-center md:items-start gap-1">
-            <a href="#home" className="flex items-center gap-2 group tracking-tight" id="footer-logo">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary-500/20 to-accent-500/20 border border-primary-500/30 flex items-center justify-center font-mono text-xs font-bold text-primary-300">
-                MF
+            <a href="#home" className="flex items-center gap-2.5 group tracking-tight" id="footer-logo">
+              <div className="relative w-7 h-7 rounded-lg overflow-hidden flex-shrink-0">
+                <Image
+                  src="/logo-mark.svg"
+                  alt="Fatih.dev Logo"
+                  width={28}
+                  height={28}
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <span className="font-bold text-sm text-white">
-                Muhammad Fatih Rahman
+              <span className="font-bold text-sm text-white group-hover:text-primary-300 transition-colors">
+                Fatih<span className="text-cyan-400">.dev</span>
               </span>
             </a>
             <p className="text-xs text-surface-400 max-w-sm text-center md:text-left">

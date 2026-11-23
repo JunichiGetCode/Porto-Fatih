@@ -46,13 +46,13 @@ export default function RoomHUD({
       <header className="pointer-events-auto flex flex-wrap items-center justify-between gap-3 w-full max-w-7xl mx-auto">
         {/* Profile Identity Pill */}
         <div className="flex items-center gap-3 px-3.5 py-2 rounded-2xl bg-surface-950/80 backdrop-blur-xl border border-white/10 shadow-2xl">
-          <div className="relative w-9 h-9 rounded-full overflow-hidden border border-primary-500/40 ring-2 ring-primary-500/20">
+          <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-cyan-500/40 ring-2 ring-cyan-500/20 bg-surface-950">
             <Image
-              src="/odoo.jpeg"
-              alt="Muhammad Fatih Rahman"
+              src="/logo-mark.svg"
+              alt="Fatih.dev Logo"
               fill
               sizes="36px"
-              className="object-cover"
+              className="object-contain p-0.5"
             />
           </div>
           <div>

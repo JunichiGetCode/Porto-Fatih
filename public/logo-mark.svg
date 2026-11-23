@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Background Glass Glow Filter -->
+    <filter id="cyberGlow" x="-20%" y="-20%" width="140%" height="140%" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradients -->
+    <!-- Top Face: Hyper Cyan to Teal Illumination -->
+    <linearGradient id="topFacetGrad" x1="25" y1="20" x2="95" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <!-- Left Face: Stylized 'F' Stem in Vivid Violet to Indigo -->
+    <linearGradient id="leftFacetGrad" x1="25" y1="40" x2="60" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="50%" stop-color="#7928ca" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+
+    <!-- Right Face: Stylized 'R' Arch & Dynamic Kick in Electric Indigo to Cyan -->
+    <linearGradient id="rightFacetGrad" x1="60" y1="60" x2="95" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="70%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#00f2fe" />
+    </linearGradient>
+
+    <!-- Glowing Core Accent -->
+    <linearGradient id="coreGlow" x1="50" y1="50" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#7928ca" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Container Backplate Glass -->
+    <radialGradient id="backplateGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.25" />
+      <stop offset="60%" stop-color="#00f2fe" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#090d16" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Ambient Radial Glow Backplate -->
+  <circle cx="60" cy="60" r="54" fill="url(#backplateGlow)" />
+
+  <!-- Outer Squircle Glass Bezel -->
+  <rect x="6" y="6" width="108" height="108" rx="28" fill="#0b0f19" fill-opacity="0.85" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5" />
+  <rect x="8" y="8" width="104" height="104" rx="26" fill="none" stroke="url(#topFacetGrad)" stroke-width="1" stroke-opacity="0.3" />
+
+  <!-- Corner Crosshair Telemetry Markers -->
+  <path d="M14 20 H20 M14 20 V14" stroke="#00f2fe" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M106 20 H100 M106 20 V14" stroke="#00f2fe" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M14 100 H20 M14 100 V106" stroke="#7928ca" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M106 100 H100 M106 100 V106" stroke="#6366f1" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" />
+
+  <!-- ============================================== -->
+  <!-- ISOMETRIC 3D MONOGRAM "F" + "R" CYBER CUBE -->
+  <!-- ============================================== -->
+
+  <!-- Ambient Shadow underneath the 3D cube -->
+  <ellipse cx="60" cy="98" rx="34" ry="12" fill="#000000" fill-opacity="0.5" filter="url(#cyberGlow)" />
+
+  <!-- 1. TOP ISOMETRIC RHOMBUS (Illumination Cap) -->
+  <path d="M60 22 L92 39 L60 56 L28 39 Z" fill="url(#topFacetGrad)" stroke="#cffafe" stroke-width="1" stroke-linejoin="round" />
+  <!-- Inner specular facet lines -->
+  <path d="M60 25 L86 39 L60 53 L34 39 Z" fill="#ffffff" fill-opacity="0.15" />
+  <path d="M60 23 L60 48" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.4" stroke-linecap="round" />
+
+  <!-- 2. LEFT ISOMETRIC PILLAR: THE 'F' EMBLEM -->
+  <!-- Main Left Outer Facet -->
+  <path d="M28 39 L60 56 L60 92 L28 75 Z" fill="url(#leftFacetGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-linejoin="round" />
+  
+  <!-- Stylized 'F' High-Voltage Geometry on Left Face -->
+  <!-- Upper horizontal F bar -->
+  <path d="M33 46 L55 58 L55 64 L33 52 Z" fill="#ffffff" fill-opacity="0.9" filter="url(#cyberGlow)" />
+  <!-- Middle F horizontal bar -->
+  <path d="M33 57 L49 66 L49 71 L33 62 Z" fill="#00f2fe" fill-opacity="0.9" />
+  <!-- F vertical spine accent -->
+  <path d="M31 43 L36 46 L36 78 L31 75 Z" fill="#e9d5ff" fill-opacity="0.8" />
+
+  <!-- 3. RIGHT ISOMETRIC PILLAR: THE 'R' EMBLEM & DYNAMIC KICK -->
+  <!-- Main Right Outer Facet -->
+  <path d="M60 56 L92 39 L92 75 L60 92 Z" fill="url(#rightFacetGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-linejoin="round" />
+
+  <!-- Stylized 'R' Arch & Diagonal Kick on Right Face -->
+  <!-- R upper loop arch -->
+  <path d="M65 58 L87 46 L87 62 L65 74 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyberGlow)" />
+  <path d="M69 60 L83 52 L83 58 L69 66 Z" fill="#00f2fe" fill-opacity="0.3" />
+  <!-- R diagonal dynamic kick leaping forward -->
+  <path d="M72 70 L89 84 L84 87 L67 73 Z" fill="#00f2fe" filter="url(#softGlow)" />
+  <path d="M74 71 L88 83" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+
+  <!-- 4. QUANTUM CENTER FUSION NODE (Nexus of 3D, Web, & Mobile) -->
+  <circle cx="60" cy="56" r="6" fill="#00f2fe" filter="url(#softGlow)" />
+  <circle cx="60" cy="56" r="3" fill="#ffffff" />
+  
+  <!-- Micro Star Flare on Apex -->
+  <polygon points="60,18 61.5,21.5 65,22 61.5,22.5 60,26 58.5,22.5 55,22 58.5,21.5" fill="#ffffff" filter="url(#cyberGlow)" />
+</svg>

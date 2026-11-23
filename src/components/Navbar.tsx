@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface NavItem {
@@ -56,15 +57,27 @@ export default function Navbar() {
         {/* Logo */}
         <a
           href="#home"
-          className="flex items-center gap-2 group tracking-tight"
+          className="flex items-center gap-2.5 group tracking-tight"
           id="nav-logo"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 border border-primary-500/30 flex items-center justify-center font-mono text-sm font-bold text-primary-300 group-hover:border-primary-400 group-hover:scale-105 transition-all">
-            MF
+          <div className="relative w-9 h-9 rounded-xl overflow-hidden group-hover:scale-105 transition-transform flex-shrink-0">
+            <Image
+              src="/logo-mark.svg"
+              alt="Fatih.dev Logo"
+              width={36}
+              height={36}
+              className="w-full h-full object-contain"
+              priority
+            />
           </div>
-          <span className="font-bold text-base sm:text-lg text-white group-hover:text-primary-200 transition-colors">
-            Fatih<span className="text-primary-400">.dev</span>
-          </span>
+          <div className="flex flex-col">
+            <span className="font-extrabold text-base sm:text-lg text-white group-hover:text-primary-200 transition-colors leading-tight">
+              Fatih<span className="bg-gradient-to-r from-cyan-400 to-primary-400 bg-clip-text text-transparent">.dev</span>
+            </span>
+            <span className="text-[9px] font-mono tracking-wider text-surface-400 uppercase leading-none hidden sm:inline-block">
+              Full-Stack &bull; 3D WebGL
+            </span>
+          </div>
         </a>
 
         {/* Desktop Links */}
